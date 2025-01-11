@@ -1,48 +1,3 @@
-// function addDollarSignOnBlur(event) {
-//     const input = event.target;
-
-//     // Get the current value of the input+-
-//     let value = input.value.trim();
-
-//     // Only proceed if the value is not empty
-//     if (value !== "") {
-//         // Parse the value as a number and format it
-//         const numericValue = parseFloat(value);
-
-//         if (!isNaN(numericValue)) {
-//             // Store the original numeric value in a custom attribute
-//             input.setAttribute("data-original-value", numericValue);
-
-//             // Change the input type to text and format the display value
-//             input.type = "text";
-//             input.value = `$${numericValue.toFixed(2)} /hr`;
-//         }
-//     }
-// }
-
-// function revertToNumberOnFocus(event) {
-//     const input = event.target;
-
-//     // Retrieve the original numeric value if it exists
-//     const originalValue = input.getAttribute("data-original-value");
-
-//     if (originalValue !== null) {
-//         // Change the input type back to number and restore the original value
-//         input.type = "number";
-//         input.value = originalValue;
-//     }
-// }
-
-// // Attach event listeners to the inputs
-// const input1 = document.querySelector("#input1");
-// const input2 = document.querySelector("#input2");
-
-// input1.addEventListener("blur", addDollarSignOnBlur);
-// input1.addEventListener("focus", revertToNumberOnFocus);
-
-// input2.addEventListener("blur", addDollarSignOnBlur);
-// input2.addEventListener("focus", revertToNumberOnFocus);
-
 // Get the save button and other elements
 const saveButton = document.querySelector('button[type="submit"]'); // The Save button
 const addJobButton = document.getElementById('add-job');
@@ -57,27 +12,84 @@ const expenseInputsContainer = document.getElementById('expense-inputs');
 const computeExpenseButton = document.getElementById('compute-expense');
 const totalExpenseDisplay = document.getElementById('total-expenses');
 
-function addDollarSignOnBlur(event) {
+function addUnitOnBlur(event) {
     const input = event.target;
-    console.log('blur');
 
-    // Get the current value of the input+-
-    let value = input.value.trim();
+    if (event.target.name === 'amount') {
+        // console.log(event.target.name);
 
-    // Only proceed if the value is not empty
-    if (value !== "") {
-        // Parse the value as a number and format it
-        const numericValue = parseFloat(value);
+        // Get the current value of the input
+        let value = input.value.trim();
 
-        if (!isNaN(numericValue)) {
-            // Store the original numeric value in a custom attribute
-            input.setAttribute("data-original-value", numericValue);
+        // Only proceed if the value is not empty
+        if (value !== "") {
+            // Parse the value as a number and format it
+            const numericValue = parseFloat(value);
 
-            // Change the input type to text and format the display value
-            input.type = "text";
-            input.value = `$${numericValue.toFixed(2)} /hr`;
+            if (!isNaN(numericValue)) {
+                // Store the original numeric value in a custom attribute
+                input.setAttribute("data-original-value", numericValue);
+
+                // Change the input type to text and format the display value
+                input.type = "text";
+                input.value = `$${numericValue.toFixed(2)}`;
+            }
+        }
+    } else if (event.target.name === 'rateperhour') {
+        let value = input.value.trim();
+
+        // Only proceed if the value is not empty
+        if (value !== "") {
+            // Parse the value as a number and format it
+            const numericValue = parseFloat(value);
+
+            if (!isNaN(numericValue)) {
+                // Store the original numeric value in a custom attribute
+                input.setAttribute("data-original-value", numericValue);
+
+                // Change the input type to text and format the display value
+                input.type = "text";
+                input.value = `$${numericValue.toFixed(2)} /hr`;
+            }
+        }
+
+    } else if (event.target.name === 'hourspershift'){
+        let value = input.value.trim();
+
+        // Only proceed if the value is not empty
+        if (value !== "") {
+            // Parse the value as a number and format it
+            const numericValue = parseFloat(value);
+
+            if (!isNaN(numericValue)) {
+                // Store the original numeric value in a custom attribute
+                input.setAttribute("data-original-value", numericValue);
+
+                // Change the input type to text and format the display value
+                input.type = "text";
+                input.value = `${numericValue} hr/shift`;
+            }
+        }
+    } else if (event.target.name === 'shift') {
+        let value = input.value.trim();
+
+        // Only proceed if the value is not empty
+        if (value !== "") {
+            // Parse the value as a number and format it
+            const numericValue = parseFloat(value);
+
+            if (!isNaN(numericValue)) {
+                // Store the original numeric value in a custom attribute
+                input.setAttribute("data-original-value", numericValue);
+
+                // Change the input type to text and format the display value
+                input.type = "text";
+                input.value = `${numericValue}x`;
+            }
         }
     }
+
+
 }
 
 function revertToNumberOnFocus(event) {
@@ -106,9 +118,9 @@ function saveJobs() {
         const inputs = inputDiv.querySelectorAll('input, select');
         return {
             jobName: inputs[0].value,
-            hourlyRate: inputs[1].value,
-            hoursPerShift: inputs[2].value,
-            noOfShifts: inputs[3].value,
+            hourlyRate: parseFloat(inputs[1].value.replace(/[^0-9.]/g, '')),
+            hoursPerShift: parseFloat(inputs[2].value.replace(/[^0-9.]/g, '')),
+            noOfShifts: parseFloat(inputs[3].value.replace(/[^0-9.]/g, '')),
             frequency: inputs[4].value
         };
     });
@@ -170,20 +182,42 @@ function addJobInput(jobName = '', ratePerHour = '', hoursPerShift = '', noOfShi
     ratePerHourInput.type = 'number';
     ratePerHourInput.classList.add('rate-per-hour');
     ratePerHourInput.placeholder = '$/hr';
+
+    ratePerHourInput.addEventListener("blur", addUnitOnBlur);
+    ratePerHourInput.addEventListener("focus", revertToNumberOnFocus);
     ratePerHourInput.value = ratePerHour;
+    ratePerHourInput.name = 'rateperhour';
+    ratePerHourInput.dispatchEvent(new Event("blur"));
+
+    // const amountInput = document.createElement('input');
+    // amountInput.type = 'number';
+    // amountInput.classList.add('amount');
+    // amountInput.placeholder = 'Amount';
+    // amountInput.addEventListener("blur", addUnitOnBlur);
+    // amountInput.addEventListener("focus", revertToNumberOnFocus);
+    // amountInput.value = amount;
+    // amountInput.name = 'amount';
+    // amountInput.dispatchEvent(new Event("blur"));
 
     const hoursPerShiftInput = document.createElement('input');
     hoursPerShiftInput.type = 'number';
     hoursPerShiftInput.classList.add('hours-per-shift');
-    
     hoursPerShiftInput.placeholder = 'hr/shift';
+    hoursPerShiftInput.addEventListener("blur", addUnitOnBlur);
+    hoursPerShiftInput.addEventListener("focus", revertToNumberOnFocus);
     hoursPerShiftInput.value = hoursPerShift;
+    hoursPerShiftInput.name = 'hourspershift';
+    hoursPerShiftInput.dispatchEvent(new Event("blur"));
 
     const noOfShiftsInput = document.createElement('input');
     noOfShiftsInput.type = 'number';
     noOfShiftsInput.classList.add('no-of-shifts');
     noOfShiftsInput.placeholder = 'shft Ct';
+    noOfShiftsInput.addEventListener("blur", addUnitOnBlur);
+    noOfShiftsInput.addEventListener("focus", revertToNumberOnFocus);
     noOfShiftsInput.value = noOfShifts;
+    noOfShiftsInput.name = 'shift';
+    noOfShiftsInput.dispatchEvent(new Event('blur'));
 
     const salaryFrequencySelect = document.createElement('select');
     salaryFrequencySelect.classList.add('sal-freq');
@@ -234,9 +268,10 @@ function addExpenseInput(expenseName = '', amount = '', frequency = 'weekly') {
     amountInput.type = 'number';
     amountInput.classList.add('amount');
     amountInput.placeholder = 'Amount';
-    amountInput.addEventListener("blur", addDollarSignOnBlur);
+    amountInput.addEventListener("blur", addUnitOnBlur);
     amountInput.addEventListener("focus", revertToNumberOnFocus);
     amountInput.value = amount;
+    amountInput.name = 'amount';
     amountInput.dispatchEvent(new Event("blur"));
 
     const expenseFrequencySelect = document.createElement('select');
@@ -284,17 +319,13 @@ function computeTotalSalaryReport() {
 
     jobInputs.forEach(inputDiv => {
         const inputs = inputDiv.querySelectorAll('input, select');
-        let salaryNameForm ="";
-        if (inputs[0].value.trim() !== ''){
-            salaryNameForm = inputs[0].value;
-        }
-        else {
-            salaryNameForm = 'No-name';
-        }
-        
-        const hourlyRate = parseFloat(inputs[1].value); // rate per hour
-        const hoursPerShift = parseFloat(inputs[2].value); // hours per shift
-        const noOfShifts = parseFloat(inputs[3].value); // number of shifts
+        let salaryNameForm = "";
+        if (inputs[0].value.trim() !== '') salaryNameForm = inputs[0].value;
+        else salaryNameForm = 'No-name';
+
+        const hourlyRate = parseFloat(inputs[1].value.replace(/[^0-9.]/g, ''));
+        const hoursPerShift = parseFloat(inputs[2].value.replace(/[^0-9.]/g, ''));
+        const noOfShifts = parseFloat(inputs[3].value.replace(/[^0-9.]/g, ''));
         const frequency = inputs[4].value; // frequency (daily, weekly, etc.)
 
         if (!isNaN(hourlyRate) && !isNaN(hoursPerShift) && !isNaN(noOfShifts)) {
@@ -319,7 +350,7 @@ function computeTotalSalaryReport() {
             totalMonthlySalary += dailySalary * 30;
             totalYearlySalary += dailySalary * 365;
 
-            totalSalaryForm +=salaryNameForm + ": $" +  monthlySalary.toFixed(2) + "\n";
+            totalSalaryForm += salaryNameForm + ": $" + monthlySalary.toFixed(2) + "\n";
 
         }
     });
@@ -336,13 +367,13 @@ function computeTotalExpensesReport() {
     let totalBiweeklyExpense = 0;
     let totalYearlyExpense = 0;
     let monthlyExpense = 0;
-    let totalExpenseForm="";
+    let totalExpenseForm = "";
 
     expenseInputs.forEach(inputDiv => {
         const inputs = inputDiv.querySelectorAll('input, select');
 
         let expenseNameForm = "";
-        if (inputs[0].value.trim() !== ''){
+        if (inputs[0].value.trim() !== '') {
             expenseNameForm = inputs[0].value;
         }
         else {
@@ -364,8 +395,8 @@ function computeTotalExpensesReport() {
             } else if (frequency === 'monthly') {
                 dailyExpense = amount / 30;
             }
-            
-            monthlyExpense=dailyExpense * 30;
+
+            monthlyExpense = dailyExpense * 30;
 
             totalDailyExpense += dailyExpense;
             totalWeeklyExpense += dailyExpense * 7;
@@ -403,7 +434,7 @@ computeExpenseButton.addEventListener('click', () => {
     const totalExpenseReport = computeTotalExpensesReport();
 
 
-totalDisplay.innerHTML += ` 
+    totalDisplay.innerHTML += ` 
 <p style="margin: 2px 0; padding: 0; color: red;">MONTHLY EXPENSES <br>----------------<br> ${totalExpenseReport[1].replace(/\n/g, `<br>`)}<b>----------------<br>TOTAL:</b> $${totalExpenseReport[0].toFixed(2)}</p>
 <p style="margin: 2px 0; padding: 0;">===================</p>
 `;
@@ -426,7 +457,7 @@ netIncomeButton.addEventListener('click', () => {
     // Display net income
 });
 
- 
+
 clearButton.addEventListener('click', () => {
     totalDisplay.innerHTML = '';  // Clears the content
 });
@@ -439,4 +470,3 @@ saveButton.addEventListener('click', () => {
 });
 
 
- 
