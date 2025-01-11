@@ -72,10 +72,13 @@ body {
   }
   
   .job-input .job-name {
-    flex:  2.3;
+    flex:  2.5;
   }  
-  .job-input .rate-per-hour,
-  .job-input .hours-per-shift  {
+  .job-input .rate-per-hour {
+    flex: 2.2;
+  }
+  
+  .job-input .hours-per-shift {
     flex: 2.5;
   }
   
@@ -109,7 +112,7 @@ body {
   
   .job-input select {
     /* background-color: blueviolet; */
-    flex: 1.5;
+    flex: 1.6;
     /* padding: 8px; */
     /* -webkit-appearance: none;
     -moz-appearance: none;
