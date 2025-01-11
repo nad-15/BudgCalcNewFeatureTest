@@ -32,8 +32,8 @@ function addUnitOnBlur(event) {
     // Define the formatting logic for each input by name
     const formats = {
       amount: `$${numericValue.toFixed(2)}`,
-      rateperhour: `$${numericValue.toFixed(2)} /hr`,
-      hourspershift: `${numericValue} hr/shift`,
+      rateperhour: `$${numericValue.toFixed(0)}/hr`,
+      hourspershift: `${numericValue}hr/shift`,
       shift: `${numericValue}x`,
     };
   

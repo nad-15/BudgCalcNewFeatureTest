@@ -81,7 +81,7 @@ body {
   }
   
   .no-of-shifts {
-    flex: 0.8;
+    flex: 0.5;
   }
   
   /* keeps the overflow of inputs */
@@ -110,7 +110,7 @@ body {
   
   .job-input select {
     /* background-color: blueviolet; */
-    flex: .8;
+    flex: .7;
     /* padding: 8px; */
     /* -webkit-appearance: none;
     -moz-appearance: none;
