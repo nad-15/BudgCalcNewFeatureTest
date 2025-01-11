@@ -1,0 +1,259 @@
+/* * {
+    border: .5px solid lime;
+} */
+
+body {
+    /* border: 2px solid violet; */
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+    width: 100%;
+    background-color: #f4f4f4;
+    font-size: 2vw;
+    /* Base font size using viewport width */
+  }
+  
+  select {
+      text-transform: lowercase;
+  }
+  
+  .form-btn-container {
+    /* border: 2px solid red; */
+    display: flex;
+    flex-direction: column;
+    /* width: 60%; */
+    /* justify-content: space-between; */
+    height: 90vh;
+    /* overflow: hidden; */
+  }
+  
+  .form-container {
+    /* border: .5px solid blue; */
+    box-sizing: border-box;
+    background-color: white;
+    padding: 5px 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: none;
+    flex-grow: 1;
+    flex-shrink: 1;
+  }
+  
+  .button-container2 {
+    /* border: 2px solid green; */
+    box-sizing: border-box;
+    display: flex;
+    padding: 0px 20px;
+    flex-direction: row;
+    justify-content: center;
+    /* width: 100%; */
+    gap: 5px;
+  }
+  
+  h1 {
+    /* border: 2px solid red; */
+    font-size: 4vw;
+    margin: 10px 0;
+  }
+  
+  
+  
+  
+  .job-input,
+  .expense-input {
+    /* border: .5px solid red; */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: none;
+    gap: none;
+  }
+  
+  .job-input .job-name {
+    flex: 3;
+  }
+  
+  .job-input .rate-per-hour,
+  .job-input .hours-per-shift,
+  .job-input .no-of-shifts {
+    flex: 1;
+  }
+  
+  
+  /* keeps the overflow of inputs */
+  
+  .job-input input[type="text"],
+  .job-input input[type="number"],
+  .expense-input input[type="text"],
+  .expense-input input[type="number"] {
+    padding: 8px;
+    /* background-color: red; */
+    border: 1px solid #ccc;
+    border-radius: 1px;
+    width: 100%;
+  }
+  
+  .job-input select,
+  .expense-input select {
+    /* background-color: blue; */
+    padding: 7px;
+    border: 1px solid #ccc;
+    border-radius: 1px;
+    /* flex-shrink: 1; */
+    min-width: 0;
+  }
+  
+  .job-input select {
+    /* background-color: blueviolet; */
+    flex: 1.5;
+    /* padding: 8px; */
+    /* -webkit-appearance: none;
+    -moz-appearance: none;
+    text-align: center;
+    appearance: none; */
+    /* background-image: none; */
+  }
+  
+  .expense-input .expense-name {
+    flex: 3;
+  }
+  
+  .expense-input .amount {
+    flex: 3;
+  }
+  
+  .expense-input select {
+    /* background-color: yellow; */
+    flex: 1.5;
+  }
+  
+  .job-input .remove-job,
+  .expense-input .remove-expense {
+    flex: .3;
+    background-color: #e74c3c;
+    color: white;
+    padding: 7px;
+    margin-left: 4px;
+    border-radius: 5px;
+    border: 1px solid white;
+  
+    cursor: pointer;
+    white-space: nowrap;
+    /* Prevents text from wrapping */
+    overflow: hidden;
+    /* Ensures text doesn't overflow the button */
+    text-overflow: ellipsis;
+    /* Adds ellipsis (...) if text overflows */
+    /* font-size: 2vw; */
+    /* Font size for remove buttons */
+  }
+  
+  .job-input .remove-job:hover,
+  .expense-input .remove-expense:hover {
+    background-color: #c0392b;
+  }
+  
+  .button-container {
+    /* border: 2px solid red; */
+    display: flex;
+    justify-content: center;
+    /* Spaces the buttons out */
+    gap: 5px;
+    /* Adds some space between the buttons */
+  }
+  
+  .add-job-button {
+    background-color: #4CAF50;
+    white-space: nowrap;
+    /* Prevents text from wrapping */
+    overflow: hidden;
+    /* Ensures text doesn't overflow the button */
+    text-overflow: ellipsis;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 10px;
+    font-size: 3vw;
+    /* Font size for the buttons */
+  }
+  
+  .add-job-button:hover {
+    background-color: #45a049;
+  }
+  
+  
+  
+  #total {
+    margin-top: 20px;
+    font-size: 4vw;
+    /* Font size for total salary and expenses */
+  }
+  
+  .title {
+    text-align: center;
+    font-weight: bold;
+    color: #0078D7;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+    font-size: 6vw;
+    padding: 0 20px;
+  }
+  
+  
+  
+  /* Media Query for Large Screens (Desktops) */
+  @media (min-width: 1024px) {
+    body {
+      font-size: 16px;
+      /* Set a base font size for larger screens */
+    }
+  
+    h1,
+    .save-button,
+    #total {
+      font-size: 24px;
+      /* Adjust heading size for large screens */
+    }
+  
+    .form-container {
+      width: 100%;
+      /* Make form container smaller for better layout */
+    }
+  
+    .job-input input,
+    .job-input select,
+    .expense-input input,
+    .expense-input select,
+    .job-input .remove-job,
+    .expense-input .remove-expense {
+      font-size: 16px;
+      /* Adjust input font size */
+      width: auto;
+      /* Remove percentage width for larger screens */
+    }
+  
+    .add-job-button {
+      font-size: 16px;
+      /* Adjust button font size */
+    }
+  
+  
+    .line {
+      border: 2px dashed black;
+      /* Dashed black border with 2px thickness */
+      margin-top: 20px;
+      margin-bottom: 10px;
+    }
+  
+    /* Desktop Styles */
+    .title {
+      font-size: 3rem;
+    }
+  }
+  

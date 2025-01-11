@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -24,4 +24,83 @@
     </div>
     <script src="script.js"></script>
 </body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Budget Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <div class="form-btn-container">
+
+        <div class="title">Budget Calculator</div>
+
+        <div class="form-container">
+
+            <h1>Enter Your Jobs</h1>
+
+            <form id="job-form">
+                <div id="job-inputs"></div> <!-- Container for job inputs -->
+            </form>
+
+            <div class="button-container">
+                <button type="button" id="add-job" class="add-job-button">Add Job</button>
+                <button id="compute-salary" class="add-job-button">Compute Salary</button>
+            </div>
+
+
+            <h1>Enter Your Expenses</h1>
+            <form id="expense-form">
+                <div id="expense-inputs"></div> <!-- Container for expense inputs -->
+            </form>
+
+            <div class="button-container">
+                <button type="button" id="add-expense" class="add-job-button">Add Expenses</button>
+                <button type="button" id="compute-expense" class="add-job-button">Compute Expenses</button>
+            </div>
+
+            <!-- <div class="line"></div> -->
+
+            <!-- <div id="total"></div> -->
+
+            <!-- <div id="total" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 5px;"></div> -->
+
+            <div id="total"
+                style="font-family: 'Courier New', Courier, monospace; font-weight: normal; font-size: 1rem; font-weight: bold;">
+            </div>
+
+
+
+        </div>
+        <div class="bottom">
+            <div class="button-container2">
+                <button class="add-job-button" id="net-income">Net Income</button>
+                <button class="add-job-button" id="clear">Clear</button>
+                <button type="submit" class="add-job-button" id="save">Save</button>
+            </div>
+
+            <!-- <div class="note"
+                style="text-align: center; font-family: 'Courier New', Courier, monospace; font-size: 1rem; background-color: #f4f4f4; padding: 8px 12px; border-radius: 5px; position: relative; bottom: 0; margin-top: 10px;">
+                <p><strong>Note:</strong> All computations are calculated before deductions. For the biweekly salary, we
+                    use a 14-day period, for monthly salary, we use 30 days, and for yearly salary, we multiply by 365
+                    days.</p>
+            </div> -->
+
+            
+        </div>
+
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
 </html>
