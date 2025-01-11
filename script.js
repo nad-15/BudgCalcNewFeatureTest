@@ -14,83 +14,35 @@ const totalExpenseDisplay = document.getElementById('total-expenses');
 
 function addUnitOnBlur(event) {
     const input = event.target;
-
-    if (event.target.name === 'amount') {
-        // console.log(event.target.name);
-
-        // Get the current value of the input
-        let value = input.value.trim();
-
-        // Only proceed if the value is not empty
-        if (value !== "") {
-            // Parse the value as a number and format it
-            const numericValue = parseFloat(value);
-
-            if (!isNaN(numericValue)) {
-                // Store the original numeric value in a custom attribute
-                input.setAttribute("data-original-value", numericValue);
-
-                // Change the input type to text and format the display value
-                input.type = "text";
-                input.value = `$${numericValue.toFixed(2)}`;
-            }
-        }
-    } else if (event.target.name === 'rateperhour') {
-        let value = input.value.trim();
-
-        // Only proceed if the value is not empty
-        if (value !== "") {
-            // Parse the value as a number and format it
-            const numericValue = parseFloat(value);
-
-            if (!isNaN(numericValue)) {
-                // Store the original numeric value in a custom attribute
-                input.setAttribute("data-original-value", numericValue);
-
-                // Change the input type to text and format the display value
-                input.type = "text";
-                input.value = `$${numericValue.toFixed(2)} /hr`;
-            }
-        }
-
-    } else if (event.target.name === 'hourspershift'){
-        let value = input.value.trim();
-
-        // Only proceed if the value is not empty
-        if (value !== "") {
-            // Parse the value as a number and format it
-            const numericValue = parseFloat(value);
-
-            if (!isNaN(numericValue)) {
-                // Store the original numeric value in a custom attribute
-                input.setAttribute("data-original-value", numericValue);
-
-                // Change the input type to text and format the display value
-                input.type = "text";
-                input.value = `${numericValue} hr/shift`;
-            }
-        }
-    } else if (event.target.name === 'shift') {
-        let value = input.value.trim();
-
-        // Only proceed if the value is not empty
-        if (value !== "") {
-            // Parse the value as a number and format it
-            const numericValue = parseFloat(value);
-
-            if (!isNaN(numericValue)) {
-                // Store the original numeric value in a custom attribute
-                input.setAttribute("data-original-value", numericValue);
-
-                // Change the input type to text and format the display value
-                input.type = "text";
-                input.value = `${numericValue}x`;
-            }
-        }
+    const value = input.value.trim();
+  
+    // Set data-original-value to empty if value is empty, then exit
+    if (value === "") {
+      input.setAttribute("data-original-value", "");
+      return;
     }
-
-
-}
+  
+    const numericValue = parseFloat(value);
+  
+    if (isNaN(numericValue)) return; // Exit if the value is not a number
+  
+    // Store the original numeric value in a custom attribute
+    input.setAttribute("data-original-value", numericValue);
+  
+    // Define the formatting logic for each input by name
+    const formats = {
+      amount: `$${numericValue.toFixed(2)}`,
+      rateperhour: `$${numericValue.toFixed(2)} /hr`,
+      hourspershift: `${numericValue} hr/shift`,
+      shift: `${numericValue}x`,
+    };
+  
+    // Apply the formatting if the name exists in the formats object
+    if (formats[input.name]) {
+      input.type = "text";
+      input.value = formats[input.name];
+    }
+  }
 
 function revertToNumberOnFocus(event) {
     const input = event.target;

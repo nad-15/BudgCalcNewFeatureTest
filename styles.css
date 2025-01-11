@@ -72,14 +72,17 @@ body {
   }
   
   .job-input .job-name {
-    flex: 2.2 ;
+    flex: 1 ;
   }  
   .job-input .rate-per-hour,
   .job-input .hours-per-shift,
-  .job-input .no-of-shifts {
+  .job-input  {
     flex: 1;
   }
   
+  .no-of-shifts {
+    flex: 0.8;
+  }
   
   /* keeps the overflow of inputs */
   
@@ -87,7 +90,8 @@ body {
   .job-input input[type="number"],
   .expense-input input[type="text"],
   .expense-input input[type="number"] {
-    padding: 8px;
+    box-sizing: border-box;
+    padding: 8px 4px;
     /* background-color: red; */
     border: 1px solid #ccc;
     border-radius: 1px;
@@ -97,7 +101,7 @@ body {
   .job-input select,
   .expense-input select {
     /* background-color: blue; */
-    padding: 7px;
+    padding: 7px 4px;
     border: 1px solid #ccc;
     border-radius: 1px;
     /* flex-shrink: 1; */
@@ -106,7 +110,7 @@ body {
   
   .job-input select {
     /* background-color: blueviolet; */
-    flex: 1;
+    flex: .8;
     /* padding: 8px; */
     /* -webkit-appearance: none;
     -moz-appearance: none;
