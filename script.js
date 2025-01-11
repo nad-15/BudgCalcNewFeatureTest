@@ -59,6 +59,7 @@ const totalExpenseDisplay = document.getElementById('total-expenses');
 
 function addDollarSignOnBlur(event) {
     const input = event.target;
+    console.log('blur');
 
     // Get the current value of the input+-
     let value = input.value.trim();
@@ -81,7 +82,7 @@ function addDollarSignOnBlur(event) {
 
 function revertToNumberOnFocus(event) {
     const input = event.target;
-
+    console.log('focus');
     // Retrieve the original numeric value if it exists
     const originalValue = input.getAttribute("data-original-value");
 
@@ -124,7 +125,7 @@ function saveExpenses() {
 
             amount: parseFloat(inputs[1].value.replace(/[^0-9.]/g, '')),
             //doesnt save the formatted value
-            //amount: inputs[1].value,
+            // amount: inputs[1].value,
             frequency: inputs[2].value
         };
     });
@@ -146,6 +147,7 @@ function loadExpenses() {
     const savedExpenses = JSON.parse(localStorage.getItem('expenses'));
     if (savedExpenses) {
         savedExpenses.forEach(expense => {
+
             addExpenseInput(expense.expenseName, expense.amount, expense.frequency);
 
         });
@@ -153,7 +155,7 @@ function loadExpenses() {
 }
 
 // Function to add a new job input with the job details
-function addJobInput(jobName = '', ratePerHour = '', hoursPerShift = '', noOfShifts = '', frequency = 'daily') {
+function addJobInput(jobName = '', ratePerHour = '', hoursPerShift = '', noOfShifts = '', frequency = 'weekly') {
 
     const newJobInputDiv = document.createElement('div');
     newJobInputDiv.classList.add('job-input');
@@ -173,6 +175,7 @@ function addJobInput(jobName = '', ratePerHour = '', hoursPerShift = '', noOfShi
     const hoursPerShiftInput = document.createElement('input');
     hoursPerShiftInput.type = 'number';
     hoursPerShiftInput.classList.add('hours-per-shift');
+    
     hoursPerShiftInput.placeholder = 'hr/shift';
     hoursPerShiftInput.value = hoursPerShift;
 
@@ -213,10 +216,11 @@ function addJobInput(jobName = '', ratePerHour = '', hoursPerShift = '', noOfShi
     newJobInputDiv.appendChild(removeButton);
 
     jobInputsContainer.appendChild(newJobInputDiv);
+    // document.querySelectorAll(input);
 }
 
 // Function to add a new expense input with the expense details
-function addExpenseInput(expenseName = '', amount = '', frequency = 'daily') {
+function addExpenseInput(expenseName = '', amount = '', frequency = 'weekly') {
     const newExpenseInputDiv = document.createElement('div');
     newExpenseInputDiv.classList.add('expense-input');
 
@@ -233,8 +237,7 @@ function addExpenseInput(expenseName = '', amount = '', frequency = 'daily') {
     amountInput.addEventListener("blur", addDollarSignOnBlur);
     amountInput.addEventListener("focus", revertToNumberOnFocus);
     amountInput.value = amount;
-    // amountInput.addEventListener("blur", addDollarSignOnBlur);
-    // amountInput.addEventListener("focus", revertToNumberOnFocus);
+    amountInput.dispatchEvent(new Event("blur"));
 
     const expenseFrequencySelect = document.createElement('select');
 
@@ -346,7 +349,8 @@ function computeTotalExpensesReport() {
             expenseNameForm = 'No-name';
         }
 
-        const amount = parseFloat(inputs[1].value);
+        const amount = parseFloat(inputs[1].value.replace(/[^0-9.]/g, ''));
+        // const amount = parseFloat(inputs[1].value);
         const frequency = inputs[2].value;
 
         if (!isNaN(amount)) {
