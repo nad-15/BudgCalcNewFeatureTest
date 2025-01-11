@@ -52,6 +52,7 @@ body {
     gap: 5px;
   }
   
+  /* revert back here while adding collapse */
   h1 {
     /* border: 2px solid red; */
     font-size: 4vw;
