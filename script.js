@@ -4,7 +4,12 @@ function addDollarSignOnBlur(event){
     let value = input.value;
     
     if(value){
-        input.value = `$${parseFloat(value).toFixed(2)}`;
+
+        const displayValue = `$${parseFloat(value).toFixed(2)}`;
+
+        input.setAttribute("data-original-value", value);
+        input.type = "text";
+        input.value = displayValue;
     }
 }
 
