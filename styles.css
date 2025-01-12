@@ -262,6 +262,10 @@ body {
     margin-top: 0px;
 }
 
+.dedication {
+  font-size: 1.5vw;
+}
+
 
     /* border: 2px solid red; */
     /* box-sizing: border-box; */
@@ -287,7 +291,7 @@ body {
       /* border: 2px solid red; */
       display: flex;
       flex-direction: column;
-      width: 70%;
+      width: 60%;
       /* justify-content: space-between; */
       height: 100vh;
       /* overflow: hidden; */
@@ -350,5 +354,10 @@ body {
       .note {
         font-size: 15px;
       }
+
+      .dedication {
+        font-size: 10px;
+      }
+      
   }
   
