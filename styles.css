@@ -24,9 +24,9 @@ body {
     display: flex;
     flex-direction: column;
     width: 100%;
-    background-color: white;
+    /* background-color: white; */
     border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    /* box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); */
     /* justify-content: space-between; */
     height: 95vh;
     /* overflow: hidden; */
@@ -35,10 +35,10 @@ body {
   .form-container {
     /* border: .5px solid blue; */
     box-sizing: border-box;
-    /* background-color: white; */
+    background-color: white;
     padding: 5px 15px;
     border-radius: 8px;
-    /* box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     width: 100%;
     max-width: none;
     flex-grow: 1;
@@ -249,6 +249,7 @@ body {
     letter-spacing: 2px;
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
     font-size: 6vw;
+    margin-top: 8px;
     padding: 0 20px;
   }
   
@@ -286,7 +287,7 @@ body {
       /* border: 2px solid red; */
       display: flex;
       flex-direction: column;
-      width: 95%;
+      width: 70%;
       /* justify-content: space-between; */
       height: 100vh;
       /* overflow: hidden; */
@@ -301,6 +302,7 @@ body {
   
     .form-container {
       width: 100%;
+
       /* Make form container smaller for better layout */
     }
   
