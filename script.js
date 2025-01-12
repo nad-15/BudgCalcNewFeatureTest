@@ -13,6 +13,8 @@ const computeExpenseButton = document.getElementById('compute-expense');
 const totalExpenseDisplay = document.getElementById('total-expenses');
 const toggleButtonJob = document.getElementById('toggle-job');
 const toggleButtonExp = document.getElementById('toggle-exp');
+const jobButtons = document.getElementById('job-buttons');
+const expButtons = document.getElementById('exp-buttons');
 
 
 function addUnitOnBlur(event) {
@@ -128,7 +130,7 @@ function addJobInput(jobName = '', ratePerHour = '', hoursPerShift = '', noOfShi
         jobInputsContainer.style.display = "block"; // Show the container
         toggleButtonJob.textContent = "Hide list"; // Update button text
     }
-    
+
     const newJobInputDiv = document.createElement('div');
     newJobInputDiv.classList.add('job-input');
 
@@ -453,9 +455,11 @@ saveButton.addEventListener('click', () => {
 toggleButtonJob.addEventListener("click", () => {
     if (jobInputsContainer.style.display === "none") {
         jobInputsContainer.style.display = "block"; // Show the container
+        jobButtons.style.display="block";
         toggleButtonJob.textContent = "Hide list"; // Update button text
     } else {
         jobInputsContainer.style.display = "none"; // Hide the container
+        jobButtons.style.display="none"
         toggleButtonJob.textContent = "Show list"; // Update button text
     }
 });
@@ -463,9 +467,11 @@ toggleButtonJob.addEventListener("click", () => {
 toggleButtonExp.addEventListener("click", () => {
     if (expenseInputsContainer.style.display === "none") {
         expenseInputsContainer.style.display = "block"; // Show the container
+        expButtons.style.display = `block`;
         toggleButtonExp.textContent = "Hide list"; // Update button text
     } else {
         expenseInputsContainer.style.display = "none"; // Hide the container
+        expButtons.style.display = `none`
         toggleButtonExp.textContent = "Show list"; // Update button text
     }
 });
