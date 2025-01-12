@@ -68,9 +68,12 @@ body {
 
     }
 
-    .toggle-button:hover {
+    .toggle-button:active {
       background-color: gainsboro;
     }
+
+
+
 
   .button-container2 {
     /* border: 2px solid green; */
@@ -225,7 +228,8 @@ body {
     /* Font size for the buttons */
   }
   
-  .add-job-button:hover {
+
+  .add-job-button:active {
     background-color: #45a049;
   }
   
@@ -316,6 +320,11 @@ body {
       font-size: 16px;
       /* Adjust button font size */
     }
+
+    .add-job-button:hover {
+      background-color: #45a049;
+    }
+  
   
     /* Desktop Styles */
     .title {
@@ -330,7 +339,10 @@ body {
       font-size: .8vw;
       padding: 0.5rem 0.5rem 0.5rem 0.5rem;
       margin: 10px;
-  
+      }
+
+      .toggle-button:hover {
+        background-color: gainsboro;
       }
 
       .note {
