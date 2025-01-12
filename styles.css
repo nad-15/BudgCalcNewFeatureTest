@@ -41,20 +41,22 @@ body {
     flex-shrink: 1;
   }
   
-  .h1-collapse-container{
+  .h1-toggle-container{
     border: 2px solid red;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
   }
 
-  .collapse-button {
-    box-sizing: border-box;
-    background-color: gray;
-    border: none;
+  .toggle-button {
+    /* border: 2px solid red; */
+    /* box-sizing: border-box; */
+    background-color: white;
+    /* border: none; */
     border-radius: 2px;
-    padding: 8px;
-    margin: 5px;
+    padding: 0px 40px 0px 20px;
+    margin: 20px;
+    border-radius: 4px;
     }
 
   .button-container2 {
@@ -71,7 +73,7 @@ body {
   /* revert back here while adding collapse */
 
   h1 {
-    /* border: 2px solid red; */
+    border: 2px solid red;
     box-sizing: border-box;
     font-size: 4vw;
     margin: 10px 0;

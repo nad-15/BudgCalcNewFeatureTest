@@ -1,5 +1,5 @@
 // Get the save button and other elements
-const saveButton = document.querySelector('button[type="submit"]'); // The Save button
+const saveButton = document.querySelector('button[type="submit"]'); 
 const addJobButton = document.getElementById('add-job');
 const jobInputsContainer = document.getElementById('job-inputs');
 const computeSalaryButton = document.getElementById('compute-salary');
@@ -11,39 +11,41 @@ const addExpenseButton = document.getElementById('add-expense');
 const expenseInputsContainer = document.getElementById('expense-inputs');
 const computeExpenseButton = document.getElementById('compute-expense');
 const totalExpenseDisplay = document.getElementById('total-expenses');
-const collapseButton = document.getElementById('collapse');
+const toggleButtonJob = document.getElementById('toggle-job');
+const toggleButtonExp = document.getElementById('toggle-exp');
+
 
 function addUnitOnBlur(event) {
     const input = event.target;
     const value = input.value.trim();
-  
+
     // Set data-original-value to empty if value is empty, then exit
     if (value === "") {
-      input.setAttribute("data-original-value", "");
-      return;
+        input.setAttribute("data-original-value", "");
+        return;
     }
-  
+
     const numericValue = parseFloat(value);
-  
+
     if (isNaN(numericValue)) return; // Exit if the value is not a number
-  
+
     // Store the original numeric value in a custom attribute
     input.setAttribute("data-original-value", numericValue);
-  
+
     // Define the formatting logic for each input by name
     const formats = {
-      amount: `$${numericValue.toFixed(2)}`,
-      rateperhour: `$${numericValue.toFixed(0)}/hr`,
-      hourspershift: `${numericValue}hr/shift`,
-      shift: `${numericValue}x`,
+        amount: `$${numericValue.toFixed(2)}`,
+        rateperhour: `$${numericValue.toFixed(0)}/hr`,
+        hourspershift: `${numericValue}hr/shift`,
+        shift: `${numericValue}x`,
     };
-  
+
     // Apply the formatting if the name exists in the formats object
     if (formats[input.name]) {
-      input.type = "text";
-      input.value = formats[input.name];
+        input.type = "text";
+        input.value = formats[input.name];
     }
-  }
+}
 
 function revertToNumberOnFocus(event) {
     const input = event.target;
@@ -141,16 +143,6 @@ function addJobInput(jobName = '', ratePerHour = '', hoursPerShift = '', noOfShi
     ratePerHourInput.value = ratePerHour;
     ratePerHourInput.name = 'rateperhour';
     ratePerHourInput.dispatchEvent(new Event("blur"));
-
-    // const amountInput = document.createElement('input');
-    // amountInput.type = 'number';
-    // amountInput.classList.add('amount');
-    // amountInput.placeholder = 'Amount';
-    // amountInput.addEventListener("blur", addUnitOnBlur);
-    // amountInput.addEventListener("focus", revertToNumberOnFocus);
-    // amountInput.value = amount;
-    // amountInput.name = 'amount';
-    // amountInput.dispatchEvent(new Event("blur"));
 
     const hoursPerShiftInput = document.createElement('input');
     hoursPerShiftInput.type = 'number';
@@ -262,13 +254,15 @@ function addExpenseInput(expenseName = '', amount = '', frequency = 'weekly') {
 function computeTotalSalaryReport() {
     const jobInputs = document.querySelectorAll('.job-input');
 
-    let totalDailySalary = 0;
-    let totalWeeklySalary = 0;
-    let totalBiweeklySalary = 0;
+    // let totalDailySalary = 0;
+    // let totalWeeklySalary = 0;
+    // let totalBiweeklySalary = 0;
     let totalMonthlySalary = 0;
-    let totalYearlySalary = 0;
+    // let totalYearlySalary = 0;
     let monthlySalary = 0;
     let totalSalaryForm = "";
+
+
 
     jobInputs.forEach(inputDiv => {
         const inputs = inputDiv.querySelectorAll('input, select');
@@ -297,27 +291,30 @@ function computeTotalSalaryReport() {
 
             monthlySalary = dailySalary * 30;
 
-            totalDailySalary += dailySalary;
-            totalWeeklySalary += dailySalary * 7;
-            totalBiweeklySalary += dailySalary * 14;
+            // totalDailySalary += dailySalary;
+            // totalWeeklySalary += dailySalary * 7;
+            // totalBiweeklySalary += dailySalary * 14;
             totalMonthlySalary += dailySalary * 30;
-            totalYearlySalary += dailySalary * 365;
+            // totalYearlySalary += dailySalary * 365;
 
 
-            //start
+            //start of new code
 
-            const padString = (str, length) => str.padEnd(length, " ");
-// const salaryNameForm = "House"; // Example
-// const monthlySalary = 1500.0; // Example
+            // const padString = (str, length) => str.padEnd(length, " ");
+            // const salaryNameForm = "House"; // Example
+            // const monthlySalary = 1500.0; // Example
 
-const maxNameLength = 20; // Define a consistent width for names
-const formattedSalary = padString(salaryNameForm, maxNameLength) + ": $" + monthlySalary.toFixed(2);
+            // const maxNameLength = 20; // Define a consistent width for names
+            // const formattedSalary = padString(salaryNameForm, maxNameLength) + ": $" + monthlySalary.toFixed(2); + "\n";
 
-let totalSalaryForm = "";
-totalSalaryForm += formattedSalary + "\n";
+            // let totalSalaryForm = "";
 
-console.log(totalSalaryForm);
-            // totalSalaryForm += salaryNameForm + ": $" + monthlySalary.toFixed(2) + "\n";
+            // totalSalaryForm += formattedSalary + "\n";
+
+            // console.log(totalSalaryForm);
+
+            //original code
+            totalSalaryForm += salaryNameForm + ": $" + monthlySalary.toFixed(2) + "\n";
 
         }
     });
@@ -400,7 +397,7 @@ computeSalaryButton.addEventListener('click', () => {
 computeExpenseButton.addEventListener('click', () => {
     const totalExpenseReport = computeTotalExpensesReport();
 
-    
+
 
     totalDisplay.innerHTML += ` 
 <p style="margin: 2px 0; padding: 0; color: red;">MONTHLY EXPENSES <br>----------------<br> ${totalExpenseReport[1].replace(/\n/g, `<br>`)}<b>----------------<br>TOTAL:</b> $${totalExpenseReport[0].toFixed(2)}</p>
@@ -438,6 +435,26 @@ saveButton.addEventListener('click', () => {
 });
 
 
-collapseButton.addEventListener('click', () => {
-    jobInputsContainer.style.display ='none';
+// toggleButton.addEventListener('click', () => {
+//     jobInputsContainer.style.display = 'none';
+// });
+
+toggleButtonJob.addEventListener("click", () => {
+    if (jobInputsContainer.style.display === "none") {
+        jobInputsContainer.style.display = "block"; // Show the container
+        toggleButtonJob.textContent = "Hide Job List"; // Update button text
+    } else {
+        jobInputsContainer.style.display = "none"; // Hide the container
+        toggleButtonJob.textContent = "Show Job List"; // Update button text
+    }
+});
+
+toggleButtonExp.addEventListener("click", () => {
+    if (expenseInputsContainer.style.display === "none") {
+        expenseInputsContainer.style.display = "block"; // Show the container
+        toggleButtonExp.textContent = "Hide Expense List"; // Update button text
+    } else {
+        expenseInputsContainer.style.display = "none"; // Hide the container
+        toggleButtonExp.textContent = "Show Expense List"; // Update button text
+    }
 });
