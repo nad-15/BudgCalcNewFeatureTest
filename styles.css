@@ -3,263 +3,272 @@
 } */
 
 body {
-    /* border: 2px solid violet; */
-    /* font-family: Arial, sans-serif; */
-    font-family: monospace;
-    display: flex;
-    justify-content: center;
-    height: 100vh;
-    width: 100%;
-    background-color: #f4f4f4;
-    font-size: 2vw;
-    /* Base font size using viewport width */
-  }
-  
-  select {
-      text-transform: lowercase;
-  }
-  
-  .form-btn-container {
-    /* border: 2px solid red; */
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    /* background-color: white; */
-    border-radius: 8px;
-    /* box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); */
-    /* justify-content: space-between; */
-    height: 95vh;
-    /* overflow: hidden; */
-  }
-  
-  .form-container {
-    /* border: .5px solid blue; */
-    box-sizing: border-box;
-    background-color: white;
-    padding: 5px 15px;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    max-width: none;
-    flex-grow: 1;
-    flex-shrink: 1;
-  }
-  
-  .h1-toggle-container{
-    /* border: 2px solid red; */
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-  }
+  /* border: 2px solid violet; */
+  /* font-family: Arial, sans-serif; */
+  font-family: monospace;
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+  width: 100%;
+  background-color: #f4f4f4;
+  font-size: 2vw;
+  /* Base font size using viewport width */
+}
 
-  .toggle-button {
-    /* border: 2px solid red; */
-    /* box-sizing: border-box; */
-    background-color: white;
-    /* background-color: rgb(69, 160, 73); */
-    /* border-color: #ccc; */
-    /* border: 1px solid #ccc; */
-    border: 1px solid rgb(69, 160, 73);
-    border-radius: 4px;
-    font-size: 2.5vw;
-    padding: .2rem 1rem .2rem 1rem;
-    margin: 10px;
-    font-family: monospace;
+select {
+  text-transform: lowercase;
+}
 
-    }
+.form-btn-container {
+  /* border: 2px solid red; */
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  /* background-color: white; */
+  border-radius: 8px;
+  /* box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); */
+  /* justify-content: space-between; */
+  height: 95vh;
+  /* overflow: hidden; */
+}
 
-    .toggle-button:active {
-      background-color: gainsboro;
-    }
+.form-container {
+  /* border: .5px solid blue; */
+  box-sizing: border-box;
+  background-color: white;
+  padding: 5px 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: none;
+  flex-grow: 1;
+  flex-shrink: 1;
+}
 
+.h1-toggle-container {
+  /* border: 2px solid red; */
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
 
+.toggle-button {
+  /* border: 2px solid red; */
+  /* box-sizing: border-box; */
+  background-color: white;
+  /* background-color: rgb(69, 160, 73); */
+  /* border-color: #ccc; */
+  /* border: 1px solid #ccc; */
+  border: 1px solid rgb(69, 160, 73);
+  border-radius: 4px;
+  font-size: 2.5vw;
+  padding: .2rem 1rem .2rem 1rem;
+  margin: 10px;
+  font-family: monospace;
+
+}
+
+.toggle-button:active {
+  background-color: gainsboro;
+}
 
 
-  .button-container2 {
-    /* border: 2px solid green; */
-    box-sizing: border-box;
-    display: flex;
-    padding: 0px 10px;
-    flex-direction: row;
-    justify-content: center;
-    /* width: 100%; */
-    gap: 5px;
-  }
-  
-  /* revert back here while adding collapse */
 
-  h1 {
-    /* border: 2px solid red; */
-    box-sizing: border-box;
-    font-size: 4vw;
-    font-family: monospace;
-    margin: 10px 0;
-  }
-  
-  
-  
-  
-  .job-input,
-  .expense-input {
-    /* border: .5px solid red; */
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    margin: none;
-    gap: none;
-  }
-  
-  .job-input .job-name {
-    flex:  2.5;
-  }  
-  .job-input .rate-per-hour {
-    flex: 2.2;
-  }
-  
-  .job-input .hours-per-shift {
-    flex: 2.5;
-  }
-  
-  .job-input .no-of-shifts {
-    flex: 1.2;
-  }
-  
-  /* keeps the overflow of inputs */
-  
-  .job-input input[type="text"],
-  .job-input input[type="number"],
-  .expense-input input[type="text"],
-  .expense-input input[type="number"] {
-    box-sizing: border-box;
-    padding: 8px 4px;
-    /* background-color: red; */
-    border: 1px solid #ccc;
-    border-radius: 1px;
-    width: 100%;
-  }
-  
-  .job-input select,
-  .expense-input select {
-    /* background-color: blue; */
-    padding: 7px 4px;
-    border: 1px solid #ccc;
-    border-radius: 1px;
-    /* flex-shrink: 1; */
-    min-width: 0;
-  }
-  
-  .job-input select {
-    /* background-color: blueviolet; */
-    flex: 1.6;
-    /* padding: 8px; */
-    /* -webkit-appearance: none;
+
+.button-container2 {
+  /* border: 2px solid green; */
+  box-sizing: border-box;
+  display: flex;
+  padding: 0px 10px;
+  flex-direction: row;
+  justify-content: center;
+  /* width: 100%; */
+  gap: 5px;
+}
+
+/* revert back here while adding collapse */
+
+h1 {
+  /* border: 2px solid red; */
+  box-sizing: border-box;
+  font-size: 4vw;
+  font-family: monospace;
+  margin: 10px 0;
+}
+
+
+
+
+.job-input,
+.expense-input {
+  /* border: .5px solid red; */
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: none;
+  gap: none;
+}
+
+.job-input .job-name {
+  flex: 2.5;
+}
+
+.job-input .rate-per-hour {
+  flex: 2.2;
+}
+
+.job-input .hours-per-shift {
+  flex: 2.5;
+}
+
+.job-input .no-of-shifts {
+  flex: 1.2;
+}
+
+/* keeps the overflow of inputs */
+
+.job-input input[type="text"],
+.job-input input[type="number"],
+.expense-input input[type="text"],
+.expense-input input[type="number"] {
+  box-sizing: border-box;
+  padding: 8px 4px;
+  /* background-color: red; */
+  border: 1px solid #ccc;
+  border-radius: 1px;
+  width: 100%;
+}
+
+.job-input select,
+.expense-input select {
+  /* background-color: blue; */
+  padding: 7px 4px;
+  border: 1px solid #ccc;
+  border-radius: 1px;
+  /* flex-shrink: 1; */
+  min-width: 0;
+}
+
+.job-input select {
+  /* background-color: blueviolet; */
+  flex: 1.6;
+  /* padding: 8px; */
+  /* -webkit-appearance: none;
     -moz-appearance: none;
     text-align: center;
     appearance: none; */
-    /* background-image: none; */
-  }
-  
-  .expense-input .expense-name {
-    flex: 4.5;
-  }
-  
-  .expense-input .amount {
-    flex: 4;
-  }
-  
-  .expense-input select {
-    /* background-color: yellow; */
-    flex: 1.5;
-  }
-  
-  .job-input .remove-job,
-  .expense-input .remove-expense {
-    flex: .3;
-    background-color: #e74c3c;
-    color: white;
-    padding: 7px;
-    margin-left: 4px;
-    border-radius: 5px;
-    border: 1px solid white;
-  
-    cursor: pointer;
-    white-space: nowrap;
-    /* Prevents text from wrapping */
-    overflow: hidden;
-    /* Ensures text doesn't overflow the button */
-    text-overflow: ellipsis;
-    /* Adds ellipsis (...) if text overflows */
-    /* font-size: 2vw; */
-    /* Font size for remove buttons */
-  }
-  
-  .job-input .remove-job:hover,
-  .expense-input .remove-expense:hover {
-    background-color: #c0392b;
-  }
-  
-  .button-container {
-    /* border: 2px solid red; */
-    display: flex;
-    justify-content: center;
-    /* Spaces the buttons out */
-    gap: 5px;
-    /* Adds some space between the buttons */
-  }
-  
-  .add-job-button {
+  /* background-image: none; */
+}
 
-    box-sizing: border-box;
-    flex: 7;
-    background-color: #4CAF50;
-    white-space: nowrap;
-    /* Prevents text from wrapping */
-    overflow: hidden;
-    /* Ensures text doesn't overflow the button */
-    text-overflow: ellipsis;
-    color: white;
-    padding: 8px 8px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    /* width: 100%; */
-    margin-top: 10px;
-    font-size: 3vw;
-    /* Font size for the buttons */
-  }
-  
+.expense-input .expense-name {
+  flex: 4.5;
+}
 
-  .add-job-button:active {
-    background-color: #45a049;
-  }
-  
-  
-  
-  #total {
-    margin-top: 20px;
-    font-size: 4vw;
-    /* Font size for total salary and expenses */
-  }
-  
-  .title {
-    text-align: center;
-    font-weight: bold;
-    color: #0078D7;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
-    font-size: 6vw;
-    margin-top: 8px;
-    padding: 0 20px;
-  }
-  
-  .note {
-    text-align: center;
-    font-family: monospace;
-    font-size: 2vw;
-    /* background-color: #f4f4f4; */
-    padding: .2rem 1rem .2rem 1rem;
-    margin-top: 0px;
+.expense-input .amount {
+  flex: 4;
+}
+
+.expense-input select {
+  /* background-color: yellow; */
+  flex: 1.5;
+}
+
+.job-input .remove-job,
+.expense-input .remove-expense {
+  flex: .3;
+  background-color: #e74c3c;
+  color: white;
+  padding: 7px;
+  margin-left: 4px;
+  border-radius: 5px;
+  border: 1px solid white;
+
+  cursor: pointer;
+  white-space: nowrap;
+  /* Prevents text from wrapping */
+  overflow: hidden;
+  /* Ensures text doesn't overflow the button */
+  text-overflow: ellipsis;
+  /* Adds ellipsis (...) if text overflows */
+  /* font-size: 2vw; */
+  /* Font size for remove buttons */
+}
+
+.job-input .remove-job:hover,
+.expense-input .remove-expense:hover {
+  background-color: #c0392b;
+}
+
+.button-container {
+  /* border: 2px solid red; */
+  display: flex;
+  justify-content: center;
+  /* Spaces the buttons out */
+  gap: 5px;
+  /* Adds some space between the buttons */
+}
+
+.add-job-button {
+
+  box-sizing: border-box;
+  flex: 7;
+  background-color: #4CAF50;
+  white-space: nowrap;
+  /* Prevents text from wrapping */
+  overflow: hidden;
+  /* Ensures text doesn't overflow the button */
+  text-overflow: ellipsis;
+  color: white;
+  padding: 8px 8px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  /* width: 100%; */
+  margin-top: 10px;
+  font-size: 3vw;
+  /* Font size for the buttons */
+}
+
+
+.add-job-button:active {
+  background-color: #45a049;
+}
+
+
+
+#total {
+  margin-top: 20px;
+  /* font-size: 4vw; */
+
+  font-family: monospace;
+  /* Monospace font */
+  font-weight: normal;
+  /* Normal font weight */
+  font-size: .9rem;
+  /* Font size */
+
+  /* Font size for total salary and expenses */
+}
+
+.title {
+  text-align: center;
+  font-weight: bold;
+  color: #0078D7;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+  font-size: 6vw;
+  margin-top: 8px;
+  padding: 0 20px;
+}
+
+.note {
+  text-align: center;
+  font-family: monospace;
+  font-size: 2vw;
+  /* background-color: #f4f4f4; */
+  padding: .2rem 1rem .2rem 1rem;
+  margin-top: 0px;
 }
 
 .dedication {
@@ -267,9 +276,9 @@ body {
 }
 
 
-    /* border: 2px solid red; */
-    /* box-sizing: border-box; */
-    /* background-color: white;
+/* border: 2px solid red; */
+/* box-sizing: border-box; */
+/* background-color: white;
     border-color: #ccc;
     border: 1px solid #ccc;
     border-radius: 4px;
@@ -278,86 +287,85 @@ body {
     margin: 10px;
     font-family: monospace; */
 
-  
-  
-  /* Media Query for Large Screens (Desktops) */
-  @media (min-width: 1024px) {
-    body {
-      font-size: 16px;
-      /* Set a base font size for larger screens */
-    }
 
-    .form-btn-container {
-      /* border: 2px solid red; */
-      display: flex;
-      flex-direction: column;
-      width: 60%;
-      /* justify-content: space-between; */
-      height: 100vh;
-      /* overflow: hidden; */
-    }
-  
-    h1,
-    .save-button,
-    #total {
-      font-size: 24px;
-      /* Adjust heading size for large screens */
-    }
-  
-    .form-container {
-      width: 100%;
 
-      /* Make form container smaller for better layout */
-    }
-  
-    .job-input input,
-    .job-input select,
-    .expense-input input,
-    .expense-input select,
-    .job-input .remove-job,
-    .expense-input .remove-expense {
-      font-size: 16px;
-      /* Adjust input font size */
-      width: auto;
-      /* Remove percentage width for larger screens */
-    }
-  
-    .add-job-button {
-      font-size: 16px;
-      /* Adjust button font size */
-    }
-
-    .add-job-button:hover {
-      background-color: #45a049;
-    }
-  
-  
-    /* Desktop Styles */
-    .title {
-      font-size: 3rem;
-    }
-
-    .toggle-button {
-      /* border: 2px solid red; */
-      /* box-sizing: border-box; */
-      background-color: white;
-      border-radius: 4px;
-      font-size: .8vw;
-      padding: 0.5rem 0.5rem 0.5rem 0.5rem;
-      margin: 10px;
-      }
-
-      .toggle-button:hover {
-        background-color: gainsboro;
-      }
-
-      .note {
-        font-size: 15px;
-      }
-
-      .dedication {
-        font-size: 10px;
-      }
-      
+/* Media Query for Large Screens (Desktops) */
+@media (min-width: 1024px) {
+  body {
+    font-size: 16px;
+    /* Set a base font size for larger screens */
   }
-  
+
+  .form-btn-container {
+    /* border: 2px solid red; */
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    /* justify-content: space-between; */
+    height: 100vh;
+    /* overflow: hidden; */
+  }
+
+  h1,
+  .save-button,
+  #total {
+    font-size: 24px;
+    /* Adjust heading size for large screens */
+  }
+
+  .form-container {
+    width: 100%;
+
+    /* Make form container smaller for better layout */
+  }
+
+  .job-input input,
+  .job-input select,
+  .expense-input input,
+  .expense-input select,
+  .job-input .remove-job,
+  .expense-input .remove-expense {
+    font-size: 16px;
+    /* Adjust input font size */
+    width: auto;
+    /* Remove percentage width for larger screens */
+  }
+
+  .add-job-button {
+    font-size: 16px;
+    /* Adjust button font size */
+  }
+
+  .add-job-button:hover {
+    background-color: #45a049;
+  }
+
+
+  /* Desktop Styles */
+  .title {
+    font-size: 3rem;
+  }
+
+  .toggle-button {
+    /* border: 2px solid red; */
+    /* box-sizing: border-box; */
+    background-color: white;
+    border-radius: 4px;
+    font-size: .8vw;
+    padding: 0.5rem 0.5rem 0.5rem 0.5rem;
+    margin: 10px;
+  }
+
+  .toggle-button:hover {
+    background-color: gainsboro;
+  }
+
+  .note {
+    font-size: 15px;
+  }
+
+  .dedication {
+    font-size: 10px;
+  }
+
+}

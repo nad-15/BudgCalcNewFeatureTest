@@ -1,5 +1,5 @@
 // Get the save button and other elements
-const saveButton = document.querySelector('button[type="submit"]'); 
+const saveButton = document.querySelector('button[type="submit"]');
 const addJobButton = document.getElementById('add-job');
 const jobInputsContainer = document.getElementById('job-inputs');
 const computeSalaryButton = document.getElementById('compute-salary');
@@ -125,7 +125,7 @@ function loadExpenses() {
 
 // Function to add a new job input with the job details
 function addJobInput(jobName = '', ratePerHour = '', hoursPerShift = '', noOfShifts = '', frequency = 'weekly') {
-    
+
     if (jobInputsContainer.style.display === "none") {
         jobInputsContainer.style.display = "block"; // Show the container
         toggleButtonJob.textContent = "Hide list"; // Update button text
@@ -212,7 +212,7 @@ function addExpenseInput(expenseName = '', amount = '', frequency = 'weekly') {
         expenseInputsContainer.style.display = "block"; // Show the container
         toggleButtonExp.textContent = "Hide list"; // Update button text
     }
-    
+
     const newExpenseInputDiv = document.createElement('div');
     newExpenseInputDiv.classList.add('expense-input');
 
@@ -274,6 +274,7 @@ function computeTotalSalaryReport() {
     // let totalYearlySalary = 0;
     let monthlySalary = 0;
     let totalSalaryForm = "";
+    let formattedForm = "";
 
 
 
@@ -312,23 +313,11 @@ function computeTotalSalaryReport() {
 
 
             //start of new code
-
-            // const padString = (str, length) => str.padEnd(length, " ");
-            // const salaryNameForm = "House"; // Example
-            // const monthlySalary = 1500.0; // Example
-
-            // const maxNameLength = 20; // Define a consistent width for names
-            // const formattedSalary = padString(salaryNameForm, maxNameLength) + ": $" + monthlySalary.toFixed(2); + "\n";
-
-            // let totalSalaryForm = "";
-
-            // totalSalaryForm += formattedSalary + "\n";
-
-            // console.log(totalSalaryForm);
+            formattedForm = salaryNameForm.padEnd(15, `\u00A0`);
 
             //original code
-            totalSalaryForm += salaryNameForm + ": $" + monthlySalary.toFixed(2) + "\n";
-
+            totalSalaryForm += `${formattedForm}:  $${monthlySalary.toFixed(2)}<br>`;
+            // console.log(totalSalaryForm);
         }
     });
 
@@ -399,9 +388,20 @@ addExpenseButton.addEventListener('click', () => addExpenseInput());
 computeSalaryButton.addEventListener('click', () => {
     const totalSalaryReport = computeTotalSalaryReport();
 
-    totalDisplay.innerHTML += ` 
-    <p style="margin: 2px 0; padding: 0; color:rgb(25, 131, 25);">MONTHLY SALARY <br>----------------<br> ${totalSalaryReport[1].replace(/\n/g, `<br>`)}<strong>----------------<br>TOTAL:</strong> $${totalSalaryReport[0].toFixed(2)}</p>
-    <p style="margin: 2px 0; padding: 0;">===================</p>
+//     totalDisplay.innerHTML += ` 
+//     <p style="margin: 2px 0; padding: 0; color:rgb(25, 131, 25);">MONTHLY SALARY <br>----------------<br> ${totalSalaryReport[1]}<strong>----------------<br>TOTAL:</strong> $${totalSalaryReport[0].toFixed(2)}</p>
+//     <p style="margin: 2px 0; padding: 0;">===================</p>
+// `;
+
+const str =`TOTAL`;
+const formattedTotal= str.padEnd(15, `\u00A0`);
+
+totalDisplay.innerHTML += ` 
+<p style="margin: 2px 0; padding: 0; color:rgb(25, 131, 25);">
+    <strong>MONTHLY SALARY</strong> <br>--------------------------------<br> 
+    ${totalSalaryReport[1]}<strong>--------------------------------<br>${formattedTotal}:</strong> $${totalSalaryReport[0].toFixed(2)}
+</p>
+<p style="margin: 2px 0; padding: 0;">======================================</p>
 `;
 
 });
@@ -455,11 +455,11 @@ saveButton.addEventListener('click', () => {
 toggleButtonJob.addEventListener("click", () => {
     if (jobInputsContainer.style.display === "none") {
         jobInputsContainer.style.display = "block"; // Show the container
-        jobButtons.style.display="block";
+        jobButtons.style.display = "block";
         toggleButtonJob.textContent = "Hide list"; // Update button text
     } else {
         jobInputsContainer.style.display = "none"; // Hide the container
-        jobButtons.style.display="none"
+        jobButtons.style.display = "none"
         toggleButtonJob.textContent = "Show list"; // Update button text
     }
 });
