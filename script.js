@@ -123,7 +123,12 @@ function loadExpenses() {
 
 // Function to add a new job input with the job details
 function addJobInput(jobName = '', ratePerHour = '', hoursPerShift = '', noOfShifts = '', frequency = 'weekly') {
-
+    
+    if (jobInputsContainer.style.display === "none") {
+        jobInputsContainer.style.display = "block"; // Show the container
+        toggleButtonJob.textContent = "Hide list"; // Update button text
+    }
+    
     const newJobInputDiv = document.createElement('div');
     newJobInputDiv.classList.add('job-input');
 
@@ -200,6 +205,12 @@ function addJobInput(jobName = '', ratePerHour = '', hoursPerShift = '', noOfShi
 
 // Function to add a new expense input with the expense details
 function addExpenseInput(expenseName = '', amount = '', frequency = 'weekly') {
+
+    if (expenseInputsContainer.style.display === "none") {
+        expenseInputsContainer.style.display = "block"; // Show the container
+        toggleButtonExp.textContent = "Hide list"; // Update button text
+    }
+    
     const newExpenseInputDiv = document.createElement('div');
     newExpenseInputDiv.classList.add('expense-input');
 
@@ -442,19 +453,19 @@ saveButton.addEventListener('click', () => {
 toggleButtonJob.addEventListener("click", () => {
     if (jobInputsContainer.style.display === "none") {
         jobInputsContainer.style.display = "block"; // Show the container
-        toggleButtonJob.textContent = "Hide Job List"; // Update button text
+        toggleButtonJob.textContent = "Hide list"; // Update button text
     } else {
         jobInputsContainer.style.display = "none"; // Hide the container
-        toggleButtonJob.textContent = "Show Job List"; // Update button text
+        toggleButtonJob.textContent = "Show list"; // Update button text
     }
 });
 
 toggleButtonExp.addEventListener("click", () => {
     if (expenseInputsContainer.style.display === "none") {
         expenseInputsContainer.style.display = "block"; // Show the container
-        toggleButtonExp.textContent = "Hide Expense List"; // Update button text
+        toggleButtonExp.textContent = "Hide list"; // Update button text
     } else {
         expenseInputsContainer.style.display = "none"; // Hide the container
-        toggleButtonExp.textContent = "Show Expense List"; // Update button text
+        toggleButtonExp.textContent = "Show list"; // Update button text
     }
 });

@@ -4,7 +4,8 @@
 
 body {
     /* border: 2px solid violet; */
-    font-family: Arial, sans-serif;
+    /* font-family: Arial, sans-serif; */
+    font-family: monospace;
     display: flex;
     justify-content: center;
     height: 100vh;
@@ -42,7 +43,7 @@ body {
   }
   
   .h1-toggle-container{
-    border: 2px solid red;
+    /* border: 2px solid red; */
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -52,11 +53,18 @@ body {
     /* border: 2px solid red; */
     /* box-sizing: border-box; */
     background-color: white;
-    /* border: none; */
-    border-radius: 2px;
-    padding: 0px 20px 0px 20px;
-    margin: 10px;
+    border-color: #ccc;
+    border: 1px solid #ccc;
     border-radius: 4px;
+    font-size: 2.5vw;
+    padding: .2rem 1rem .2rem 1rem;
+    margin: 10px;
+    font-family: monospace;
+
+    }
+
+    .toggle-button:hover {
+      background-color: gainsboro;
     }
 
   .button-container2 {
@@ -73,9 +81,10 @@ body {
   /* revert back here while adding collapse */
 
   h1 {
-    border: 2px solid red;
+    /* border: 2px solid red; */
     box-sizing: border-box;
     font-size: 4vw;
+    font-family: monospace;
     margin: 10px 0;
   }
   
@@ -294,5 +303,18 @@ body {
     .title {
       font-size: 3rem;
     }
+
+    .toggle-button {
+      /* border: 2px solid red; */
+      /* box-sizing: border-box; */
+      background-color: white;
+      border-color: #ccc;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: .8vw;
+      padding: 0.5rem 0.5rem 0.5rem 0.5rem;
+      margin: 10px;
+  
+      }
   }
   
