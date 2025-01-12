@@ -11,6 +11,7 @@ const addExpenseButton = document.getElementById('add-expense');
 const expenseInputsContainer = document.getElementById('expense-inputs');
 const computeExpenseButton = document.getElementById('compute-expense');
 const totalExpenseDisplay = document.getElementById('total-expenses');
+const collapseButton = document.getElementById('collapse');
 
 function addUnitOnBlur(event) {
     const input = event.target;
@@ -302,7 +303,21 @@ function computeTotalSalaryReport() {
             totalMonthlySalary += dailySalary * 30;
             totalYearlySalary += dailySalary * 365;
 
-            totalSalaryForm += salaryNameForm + ": $" + monthlySalary.toFixed(2) + "\n";
+
+            //start
+
+            const padString = (str, length) => str.padEnd(length, " ");
+// const salaryNameForm = "House"; // Example
+// const monthlySalary = 1500.0; // Example
+
+const maxNameLength = 20; // Define a consistent width for names
+const formattedSalary = padString(salaryNameForm, maxNameLength) + ": $" + monthlySalary.toFixed(2);
+
+let totalSalaryForm = "";
+totalSalaryForm += formattedSalary + "\n";
+
+console.log(totalSalaryForm);
+            // totalSalaryForm += salaryNameForm + ": $" + monthlySalary.toFixed(2) + "\n";
 
         }
     });
@@ -385,6 +400,7 @@ computeSalaryButton.addEventListener('click', () => {
 computeExpenseButton.addEventListener('click', () => {
     const totalExpenseReport = computeTotalExpensesReport();
 
+    
 
     totalDisplay.innerHTML += ` 
 <p style="margin: 2px 0; padding: 0; color: red;">MONTHLY EXPENSES <br>----------------<br> ${totalExpenseReport[1].replace(/\n/g, `<br>`)}<b>----------------<br>TOTAL:</b> $${totalExpenseReport[0].toFixed(2)}</p>
@@ -422,3 +438,6 @@ saveButton.addEventListener('click', () => {
 });
 
 
+collapseButton.addEventListener('click', () => {
+    jobInputsContainer.style.display ='none';
+});

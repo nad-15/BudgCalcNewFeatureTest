@@ -41,6 +41,22 @@ body {
     flex-shrink: 1;
   }
   
+  .h1-collapse-container{
+    border: 2px solid red;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .collapse-button {
+    box-sizing: border-box;
+    background-color: gray;
+    border: none;
+    border-radius: 2px;
+    padding: 8px;
+    margin: 5px;
+    }
+
   .button-container2 {
     /* border: 2px solid green; */
     box-sizing: border-box;
@@ -53,8 +69,10 @@ body {
   }
   
   /* revert back here while adding collapse */
+
   h1 {
     /* border: 2px solid red; */
+    box-sizing: border-box;
     font-size: 4vw;
     margin: 10px 0;
   }
