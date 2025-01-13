@@ -31,6 +31,10 @@ body {
   padding: 5px 70px;
 }
 
+.title:active {
+  background-color: #ccc;
+} 
+
 .note-container {
   box-sizing: border-box;
   text-align: center;
@@ -250,6 +254,8 @@ select {
   overflow: hidden;
   text-overflow: ellipsis;
   font-size: 3vw;
+
+  -webkit-tap-highlight-color: transparent;
 }
 
 .compute-button.save,
@@ -271,14 +277,10 @@ select {
   margin-left: 0px;
   margin-right: 0px;
   /* font-size: 3vw; */
+
+  -webkit-tap-highlight-color: transparent;
 }
 
-.compute-button.save:hover,
-.compute-button.clear:hover {
-  background-color: #aaa;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  transform: translateY(-3px);
-}
 
 .compute-button.save:active,
 .compute-button.clear:active {
@@ -294,12 +296,6 @@ select {
   /* Light green */
 }
 
-.compute-button.salary:hover {
-  background-color: #4caf50;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  transform: translateY(-3px);
-}
-
 .compute-button.salary:active {
   background-color: #4caf50;
   transform: translateY(1px);
@@ -310,13 +306,6 @@ select {
 .compute-button.expense {
   background-color: #e57373;
   /* Light red */
-}
-
-.compute-button.expense:hover {
-  background-color: #f44336;
-  /* Red */
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  transform: translateY(-3px);
 }
 
 .compute-button.expense:active {
@@ -331,12 +320,6 @@ select {
   /* Adjusted blue */
 }
 
-.compute-button.income:hover {
-  background-color: #2277b0;
-  /* Darker blue for hover */
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  transform: translateY(-3px);
-}
 
 .compute-button.income:active {
   background-color: #2277b0;
@@ -359,6 +342,8 @@ select {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+
+  -webkit-tap-highlight-color: transparent;
 }
 
 /* Buttons */
@@ -382,6 +367,8 @@ select {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+
+  -webkit-tap-highlight-color: transparent; /* Removes highlight on touch */
 }
 
 
@@ -427,22 +414,60 @@ select {
     color: white;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     transform: translateY(-3px);
-  } 
+  }
 
   .toggle-button#toggle-job:active {
     background-color: #45a049;
     transform: translateY(1px);
     box-shadow: none;
   }
+
   .toggle-button#toggle-exp:hover {
     background-color: #e57373;
     color: white;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     transform: translateY(-3px);
   }
-  
+
   .toggle-button#toggle-exp:active {
     background-color: #e57373;
+    transform: translateY(1px);
+    box-shadow: none;
+  }
+
+  .compute-button.expense:hover {
+    background-color: #f44336;
+    /* Red */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transform: translateY(-3px);
+  }
+  
+  .compute-button.expense:active {
+    background-color: #f44336;
+    transform: translateY(1px);
+    box-shadow: none;
+  }
+  .compute-button.salary:hover {
+    background-color: #4caf50;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transform: translateY(-3px);
+  }
+  
+  .compute-button.salary:active {
+    background-color: #4caf50;
+    transform: translateY(1px);
+    box-shadow: none;
+  }
+
+  .compute-button.income:hover {
+    background-color: #2277b0;
+    /* Darker blue for hover */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transform: translateY(-3px);
+  }
+  
+  .compute-button.income:active {
+    background-color: #2277b0;
     transform: translateY(1px);
     box-shadow: none;
   }
@@ -454,7 +479,7 @@ select {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     transform: translateY(-3px);
   }
-  
+
   .add-job-icon:active {
     color: #3d8f42;
     background-color: white;
@@ -462,7 +487,7 @@ select {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     transform: translateY(1px);
   }
-  
+
 
   .form-btn-container {
     display: flex;
@@ -504,11 +529,32 @@ select {
     font-size: 16px;
   }
 
+  .compute-button.save:hover,
+  .compute-button.clear:hover {
+    background-color: #aaa;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transform: translateY(-3px);
+  }
+
+  .compute-button.save:active,
+  .compute-button.clear:active {
+    background-color: #aaa;
+    transform: translateY(1px);
+    box-shadow: none;
+  }
+  
+  .compute-button.salary:active {
+    background-color: #4caf50;
+    transform: translateY(1px);
+    box-shadow: none;
+  }
+
   .toggle-button {
     font-size: 10px;
     cursor: pointer;
     padding: 2px 10px;
     margin: 20px 20px 20px 10px;
+    
   }
 
   .title {

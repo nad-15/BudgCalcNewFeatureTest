@@ -532,7 +532,7 @@ toggleButtonJob.addEventListener("click", () => {
             toggleButtonJob.textContent = "Show list"; // Update button text
         }
     } else {
-        alert('Wala kang trabaho. Maghanap ka!');
+        alert('Nothing to Hide! Wala kang trabaho. Maghanap ka.');
     }
 
 
@@ -554,6 +554,6 @@ toggleButtonExp.addEventListener("click", () => {
             toggleButtonExp.textContent = "Show list"; // Update button text
         }
     } else {
-        alert('Wala kang bayarin! Mag online shop ka!');
+        alert('Nothing to Hide! Gumastos ka naman.');
     }
 });
