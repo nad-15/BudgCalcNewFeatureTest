@@ -13,8 +13,8 @@ const computeExpenseButton = document.getElementById('compute-expense');
 const totalExpenseDisplay = document.getElementById('total-expenses');
 const toggleButtonJob = document.getElementById('toggle-job');
 const toggleButtonExp = document.getElementById('toggle-exp');
-const jobButtons = document.getElementById('job-buttons');
-const expButtons = document.getElementById('exp-buttons');
+// const jobButtons = document.getElementById('job-buttons');
+// const expButtons = document.getElementById('exp-buttons');
 
 
 function addUnitOnBlur(event) {
@@ -126,8 +126,8 @@ function addJobInput(jobName = '', ratePerHour = '', hoursPerShift = '', noOfShi
 
     if (jobInputsContainer.style.display === "none") {
         jobInputsContainer.style.display = "block"
-        jobButtons.style.display = "block";; // Show the container
-        
+        // jobButtons.style.display = "block";
+
         toggleButtonJob.textContent = "Hide list"; // Update button text
     }
 
@@ -155,7 +155,7 @@ function addJobInput(jobName = '', ratePerHour = '', hoursPerShift = '', noOfShi
     const hoursPerShiftInput = document.createElement('input');
     hoursPerShiftInput.type = 'number';
     hoursPerShiftInput.classList.add('hours-per-shift');
-    hoursPerShiftInput.placeholder = 'hr/shift';
+    hoursPerShiftInput.placeholder = 'hrs/shift';
     hoursPerShiftInput.addEventListener("blur", addUnitOnBlur);
     hoursPerShiftInput.addEventListener("focus", revertToNumberOnFocus);
     hoursPerShiftInput.value = hoursPerShift;
@@ -165,7 +165,7 @@ function addJobInput(jobName = '', ratePerHour = '', hoursPerShift = '', noOfShi
     const noOfShiftsInput = document.createElement('input');
     noOfShiftsInput.type = 'number';
     noOfShiftsInput.classList.add('no-of-shifts');
-    noOfShiftsInput.placeholder = 'shft Ct';
+    noOfShiftsInput.placeholder = 'shift Count';
     noOfShiftsInput.addEventListener("blur", addUnitOnBlur);
     noOfShiftsInput.addEventListener("focus", revertToNumberOnFocus);
     noOfShiftsInput.value = noOfShifts;
@@ -211,7 +211,7 @@ function addExpenseInput(expenseName = '', amount = '', frequency = 'weekly') {
 
     if (expenseInputsContainer.style.display === "none") {
         expenseInputsContainer.style.display = "block"; // Show the container
-        expButtons.style.display = `block`;
+        // expButtons.style.display = `block`;
         toggleButtonExp.textContent = "Hide list"; // Update button text
     }
 
@@ -403,7 +403,7 @@ computeSalaryButton.addEventListener('click', () => {
     const totalSalaryReport = computeTotalSalaryReport();
 
     //     totalDisplay.innerHTML += ` 
-    //     <p style="margin: 2px 0; padding: 0; color:rgb(25, 131, 25);">MONTHLY SALARY <br>----------------<br> ${totalSalaryReport[1]}<strong>----------------<br>TOTAL:</strong> $${totalSalaryReport[0].toFixed(2)}</p>
+    //     <p style="margin: 2px 0; padding: 0; color: #66bb6a;">MONTHLY SALARY <br>----------------<br> ${totalSalaryReport[1]}<strong>----------------<br>TOTAL:</strong> $${totalSalaryReport[0].toFixed(2)}</p>
     //     <p style="margin: 2px 0; padding: 0;">===================</p>
     // `;
 
@@ -412,12 +412,12 @@ computeSalaryButton.addEventListener('click', () => {
     const formattedSalary = `$${totalSalaryReport[0].toFixed(2)}`.padStart(9, `\u00A0`);
 
     totalDisplay.innerHTML += ` 
-<p style="margin: 2px 0; padding: 0; color:rgb(25, 131, 25);">
+<p style="margin: 2px 0; padding: 0; color: #66bb6a;">
     <strong>MONTHLY SALARY</strong> <br>--------------------------------<br> 
     ${totalSalaryReport[1]}--------------------------------<br>
     <strong>${formattedTotal}: ${formattedSalary}</strong>
 </p>
-<p style="margin: 5px 0; padding: 0; color:rgb(25, 131, 25);">================================</p>
+<p style="margin: 5px 0; padding: 0; color: #66bb6a;">================================</p>
 `;
 
 });
@@ -430,18 +430,18 @@ computeExpenseButton.addEventListener('click', () => {
     const formattedTotal = str.padEnd(15, `\u00A0`);
     const formattedExpense = `$${totalExpenseReport[0].toFixed(2)}`.padStart(9, `\u00A0`);
     totalDisplay.innerHTML += ` 
-<p style="margin: 2px 0; padding: 0; color:red;">
+<p style="margin: 2px 0; padding: 0; color:#e57373;">
     <strong>MONTHLY EXPENSES</strong> <br>--------------------------------<br> 
     ${totalExpenseReport[1]}--------------------------------<br>
     <strong>${formattedTotal}: ${formattedExpense}</strong>
 </p>
-<p style="margin: 5px 0; padding: 0; color: red">================================</p>
+<p style="margin: 5px 0; padding: 0; color: #e57373">================================</p>
 `;
 
-//     totalDisplay.innerHTML += ` 
-// <p style="margin: 2px 0; padding: 0; color: red;">MONTHLY EXPENSES <br>----------------<br> ${totalExpenseReport[1].replace(/\n/g, `<br>`)}<b>----------------<br>TOTAL:</b> $${totalExpenseReport[0].toFixed(2)}</p>
-// <p style="margin: 2px 0; padding: 0;">===================</p>
-// `;
+    //     totalDisplay.innerHTML += ` 
+    // <p style="margin: 2px 0; padding: 0; color: #e57373;">MONTHLY EXPENSES <br>----------------<br> ${totalExpenseReport[1].replace(/\n/g, `<br>`)}<b>----------------<br>TOTAL:</b> $${totalExpenseReport[0].toFixed(2)}</p>
+    // <p style="margin: 2px 0; padding: 0;">===================</p>
+    // `;
 
 });
 
@@ -462,21 +462,21 @@ netIncomeButton.addEventListener('click', () => {
     const expenseName = `Espense`;
     const formattedExpenseName = expenseName.padEnd(15, `\u00A0`);
     const expenseAmount = totalExpenseReport[0].toFixed(2);
-    const formattedExpenseAmount =`$${expenseAmount}`.padStart(9, `\u00A0`);
+    const formattedExpenseAmount = `$${expenseAmount}`.padStart(9, `\u00A0`);
 
     const str = `TOTAL`;
     const formattedTotal = str.padEnd(15, `\u00A0`);
     const formattedNetIncome = `$${netIncome.toFixed(2)}`.padStart(9, `\u00A0`);
 
     totalDisplay.innerHTML += `
-        <p style="margin: 2px 0; padding: 0;  color: blue;">
+        <p style="margin: 2px 0; padding: 0;  color: #3388cc;">
         <strong>MONTHLY NET INCOME</strong> <br>
         --------------------------------<br>
         ${formattedSalaryName}: ${formattedSalaryAmount} <br>
         ${formattedExpenseName}: ${formattedExpenseAmount} <br>
         --------------------------------<br>
         <strong>${formattedTotal}: ${formattedNetIncome}</strong> <br>
-        <p style="margin: 5px 0; padding: 0; color: blue">================================</p>
+        <p style="margin: 5px 0; padding: 0; color: #3388cc">================================</p>
 
 
 
@@ -484,8 +484,8 @@ netIncomeButton.addEventListener('click', () => {
 
 
     // totalDisplay.innerHTML += `
-    //     <p style="margin: 2px 0; padding: 0;  color: blue;">MONTHLY NET INCOME <br>----------------<br> Salary: <span style="color: rgb(25, 131, 25);">
-    //     $${totalSalaryReport[0].toFixed(2)} </span> <br> Expenses: <span style="color: red;">$${totalExpenseReport[0].toFixed(2)}
+    //     <p style="margin: 2px 0; padding: 0;  color: #3388cc;">MONTHLY NET INCOME <br>----------------<br> Salary: <span style="color: rgb(25, 131, 25);">
+    //     $${totalSalaryReport[0].toFixed(2)} </span> <br> Expenses: <span style="color: #e57373;">$${totalExpenseReport[0].toFixed(2)}
     //     </span> <br>----------------<br> ${formattedTotal} $${netIncome.toFixed(2)}</p>
     //     <p style="margin: 2px 0; padding: 0;">===================</p>
     // `;
@@ -507,31 +507,53 @@ saveButton.addEventListener('click', () => {
     alert('Data saved successfully!');
 });
 
+const title = document.getElementById(`title-budget-calc`);
+title.addEventListener(`click`, () => {
+    alert(`Para sa Bills and Responsibilities!!`);
+});
+
 
 // toggleButton.addEventListener('click', () => {
 //     jobInputsContainer.style.display = 'none';
 // });
 
 toggleButtonJob.addEventListener("click", () => {
-    if (jobInputsContainer.style.display === "none") {
-        jobInputsContainer.style.display = "block"; // Show the container
-        jobButtons.style.display = "block";
-        toggleButtonJob.textContent = "Hide list"; // Update button text
+
+    const availJob = jobInputsContainer.querySelectorAll('div');
+
+    if (availJob.length > 0) {
+        if (jobInputsContainer.style.display === "none") {
+            jobInputsContainer.style.display = "block"; // Show the container
+            // jobButtons.style.display = "block";
+            toggleButtonJob.textContent = "Hide list"; // Update button text
+        } else {
+            jobInputsContainer.style.display = "none"; // Hide the container
+            // jobButtons.style.display = "none"
+            toggleButtonJob.textContent = "Show list"; // Update button text
+        }
     } else {
-        jobInputsContainer.style.display = "none"; // Hide the container
-        jobButtons.style.display = "none"
-        toggleButtonJob.textContent = "Show list"; // Update button text
+        alert('Wala kang trabaho. Maghanap ka!');
     }
+
+
 });
 
 toggleButtonExp.addEventListener("click", () => {
-    if (expenseInputsContainer.style.display === "none") {
-        expenseInputsContainer.style.display = "block"; // Show the container
-        expButtons.style.display = `block`;
-        toggleButtonExp.textContent = "Hide list"; // Update button text
+
+    const availExp = expenseInputsContainer.querySelectorAll(`div`);
+
+    if (availExp.length > 0) {
+
+        if (expenseInputsContainer.style.display === "none") {
+            expenseInputsContainer.style.display = "block"; // Show the container
+            // expButtons.style.display = `block`;
+            toggleButtonExp.textContent = "Hide list"; // Update button text
+        } else {
+            expenseInputsContainer.style.display = "none"; // Hide the container
+            // expButtons.style.display = `none`
+            toggleButtonExp.textContent = "Show list"; // Update button text
+        }
     } else {
-        expenseInputsContainer.style.display = "none"; // Hide the container
-        expButtons.style.display = `none`
-        toggleButtonExp.textContent = "Show list"; // Update button text
+        alert('Wala kang bayarin! Mag online shop ka!');
     }
 });
