@@ -14,7 +14,6 @@
 .add-job-icon {
   margin-right: 2px;
   background-color:#45a049;
-  /* background-color: white; */
   border: 1px solid#45a049;
   border-radius: 50%;
   width: 6vw;
@@ -24,11 +23,8 @@
   align-items: center;
   cursor: pointer;
   font-size: 7vw;
-  /* color:#45a049;; */
-  /* color: black; */
   color:white;
   font-weight: 2px;
-  /* margin: 10px 0px; */
 }
 
 
@@ -92,21 +88,7 @@ select {
   justify-content: space-between;
 }
 
-.toggle-button {
-  /* border: 2px solid red; */
-  /* box-sizing: border-box; */
-  background-color: white;
-  /* background-color: rgb(69, 160, 73); */
-  /* border-color: #ccc; */
-  /* border: 1px solid #ccc; */
-  border: 1px solid rgb(69, 160, 73);
-  border-radius: 4px;
-  font-size: 2.5vw;
-  padding: .2rem 1rem .2rem 1rem;
-  margin: 10px;
-  font-family: monospace;
 
-}
 
 .toggle-button:active {
   /* background-color: gainsboro; */
@@ -233,8 +215,14 @@ h1 {
   justify-content: center;
   /* Spaces the buttons out */
   gap: 5px;
-  margin: 0px 10px;
+  margin: 0px 0px;
+  padding: 0px;
   /* Adds some space between the buttons */
+}
+
+.bottom {
+  /* border: 2px solid red; */
+  margin: 0px 15px;
 }
 
 
@@ -248,6 +236,8 @@ h1 {
 /* width: 100%; */
 /* gap: 5px;
 } */
+
+
 
 .add-job-button {
 
@@ -269,6 +259,20 @@ h1 {
   margin-top: 5px;
   font-size: 3vw;
   /* Font size for the buttons */
+}
+
+.toggle-button {
+  /* border: 2px solid red; */
+  /* box-sizing: border-box; */
+  background-color: white;
+  border: 1px solid rgb(69, 160, 73);
+  border-radius: 4px;
+  font-size: 2.5vw;
+  padding: .2rem 1rem .2rem 1rem;
+  margin: 10px;
+  color: black;
+  font-family: monospace;
+
 }
 
 
