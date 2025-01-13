@@ -2,6 +2,47 @@
     border: .5px solid lime;
 } */
 
+.h1-icon {
+  border: 2px solid violet;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  /* justify-content: center; */
+  /* margin: 10px; */
+}
+
+.add-job-icon {
+  /* padding: 8px; */
+  background-color:white;
+  border: 1px solid green;
+  border-radius: 50%;
+  width: 4vw;
+  height: 4vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  font-size: 4vw;
+  color: green;
+  font-weight: 2px;
+  /* margin: 10px 0px; */
+}
+
+.plus-sign {
+  display: flex;
+  /* display: inline-block; */
+   /* font-size: 30px; */
+  /* font-weight: normal; */
+  /* Adjust the size of the plus sign */
+}
+
+.add-job-button:hover {
+  background-color: #45a049;
+  /* Darker shade on hover */
+}
+
 body {
   /* border: 2px solid violet; */
   /* font-family: Arial, sans-serif; */
@@ -33,7 +74,7 @@ select {
 }
 
 .form-container {
-  /* border: .5px solid blue; */
+  border: .5px solid blue;
   box-sizing: border-box;
   background-color: white;
   padding: 5px 15px;
@@ -46,7 +87,7 @@ select {
 }
 
 .h1-toggle-container {
-  /* border: 2px solid red; */
+  border: 2px solid red;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -76,11 +117,11 @@ select {
 /* revert back here while adding collapse */
 
 h1 {
-  /* border: 2px solid red; */
+  border: 2px solid red;
   box-sizing: border-box;
   font-size: 4vw;
   font-family: monospace;
-  margin: 10px 0;
+  /* margin: 10px 0px; */
 }
 
 
@@ -197,14 +238,14 @@ h1 {
 
 
 /* .button-container2 { */
-  /* border: 2px solid green; */
-  /* box-sizing: border-box; */
-  /* display: flex;
+/* border: 2px solid green; */
+/* box-sizing: border-box; */
+/* display: flex;
   padding: 0px 10px;
   flex-direction: row;
   justify-content: center; */
-  /* width: 100%; */
-  /* gap: 5px;
+/* width: 100%; */
+/* gap: 5px;
 } */
 
 .add-job-button {
@@ -221,9 +262,9 @@ h1 {
   padding: 8px 8px;
   border: none;
   /* was 4px */
-  border-radius: 2px; 
+  border-radius: 2px;
   cursor: pointer;
-  /* width: 100%; */
+  /* was width: 100%; */
   margin-top: 5px;
   font-size: 3vw;
   /* Font size for the buttons */
