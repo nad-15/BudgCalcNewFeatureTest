@@ -15,15 +15,19 @@ body {
 
 /* Title and Notes */
 .title {
+  box-sizing: border-box;
+  align-self: center;
   text-align: center;
   font-weight: bold;
   color: #0078D7;
+  border: 2px solid  #0078D7;
+  border-radius: 40px;
   text-transform: uppercase;
-  letter-spacing: 2px;
+  /* letter-spacing: 2px; */
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
-  font-size: 6vw;
-  margin-top: 8px;
-  padding: 0 20px;
+  font-size: 5vw;
+  margin: 10px;
+  padding: 5px 70px;
 }
 
 .note-container {
@@ -103,7 +107,7 @@ body {
 }
 
 .button-container {
-  border: .1px solid green;
+  border: 1.5px solid green;
   /* box-sizing: border-box;
   display: flex;
   justify-content: center;
@@ -117,7 +121,7 @@ body {
   display: flex;
   justify-content: center;
   gap: 5px;
-  margin: 0px 0px;
+  margin: 0px 10px;
   padding: 0px;
 }
 
@@ -127,7 +131,7 @@ body {
   display: flex;
   justify-content: center;
   gap: 8px;
-  margin: 0px;
+  margin: 0px 8px;
   padding: 0px;
 }
 
@@ -317,6 +321,7 @@ select {
 }
 
 .compute-button.salary:active {
+  background-color: #4caf50;
   transform: translateY(1px);
   box-shadow: none;
 }
