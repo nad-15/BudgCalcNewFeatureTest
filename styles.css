@@ -12,18 +12,18 @@
 }
 
 .add-job-icon {
-  margin: 0px 2px;
+  margin-right: 2px;
   background-color:#45a049;
   /* background-color: white; */
   border: 1px solid#45a049;
   border-radius: 50%;
-  width: 4vw;
-  height: 4vw;
+  width: 6vw;
+  height: 6vw;
   display: flex;
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  font-size: 4vw;
+  font-size: 7vw;
   /* color:#45a049;; */
   /* color: black; */
   color:white;
