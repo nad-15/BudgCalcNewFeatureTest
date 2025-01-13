@@ -3,20 +3,19 @@
 } */
 
 .h1-icon {
-  border: 2px solid violet;
+  /* border: 2px solid green; */
   box-sizing: border-box;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  /* justify-content: center; */
-  /* margin: 10px; */
 }
 
 .add-job-icon {
-  /* padding: 8px; */
-  background-color:white;
-  border: 1px solid green;
+  margin: 0px 2px;
+  background-color:#45a049;
+  /* background-color: white; */
+  border: 1px solid#45a049;
   border-radius: 50%;
   width: 4vw;
   height: 4vw;
@@ -25,23 +24,23 @@
   align-items: center;
   cursor: pointer;
   font-size: 4vw;
-  color: green;
+  /* color:#45a049;; */
+  /* color: black; */
+  color:white;
   font-weight: 2px;
   /* margin: 10px 0px; */
 }
 
-.plus-sign {
-  display: flex;
-  /* display: inline-block; */
-   /* font-size: 30px; */
-  /* font-weight: normal; */
-  /* Adjust the size of the plus sign */
+
+.add-job-icon:active {
+  background-color: #3d8f42;  
 }
 
-.add-job-button:hover {
-  background-color: #45a049;
-  /* Darker shade on hover */
+.add-job-icon:hover {
+background-color: #3d8f42;
 }
+
+
 
 body {
   /* border: 2px solid violet; */
@@ -87,7 +86,7 @@ select {
 }
 
 .h1-toggle-container {
-  border: 2px solid red;
+  /* border: 2px solid red; */
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -110,14 +109,15 @@ select {
 }
 
 .toggle-button:active {
-  background-color: gainsboro;
+  /* background-color: gainsboro; */
+  background-color: #45a049;
 }
 
 
 /* revert back here while adding collapse */
 
 h1 {
-  border: 2px solid red;
+  /* border: 2px solid red; */
   box-sizing: border-box;
   font-size: 4vw;
   font-family: monospace;
@@ -341,17 +341,21 @@ h1 {
     /* border: 2px solid red; */
     display: flex;
     flex-direction: column;
-    width: 60%;
+    width: 65%;
     /* justify-content: space-between; */
     height: 100vh;
     /* overflow: hidden; */
   }
 
   h1,
-  .save-button,
   #total {
     font-size: 24px;
     /* Adjust heading size for large screens */
+  }
+  .add-job-icon {
+    width: 24px;
+    height: 24px;
+    font-size: 24px;
   }
 
   .form-container {
@@ -377,7 +381,8 @@ h1 {
     /* Adjust button font size */
   }
 
-  .add-job-button:hover {
+  .add-job-button:hover,
+  .toggle-button:hover {
     background-color: #45a049;
   }
 
@@ -397,9 +402,10 @@ h1 {
     margin: 10px;
   }
 
-  .toggle-button:hover {
+  /* .toggle-button:hover,
+  .add-job-icon:hover {
     background-color: gainsboro;
-  }
+  } */
 
   .note {
     font-size: 15px;
