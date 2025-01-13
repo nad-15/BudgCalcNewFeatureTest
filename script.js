@@ -1,5 +1,5 @@
 // Get the save button and other elements
-const saveButton = document.querySelector('button[type="submit"]');
+const saveButton = document.getElementById('save');
 const addJobButton = document.getElementById('add-job');
 const jobInputsContainer = document.getElementById('job-inputs');
 const computeSalaryButton = document.getElementById('compute-salary');
@@ -125,7 +125,9 @@ function loadExpenses() {
 function addJobInput(jobName = '', ratePerHour = '', hoursPerShift = '', noOfShifts = '', frequency = 'weekly') {
 
     if (jobInputsContainer.style.display === "none") {
-        jobInputsContainer.style.display = "block"; // Show the container
+        jobInputsContainer.style.display = "block"
+        jobButtons.style.display = "block";; // Show the container
+        
         toggleButtonJob.textContent = "Hide list"; // Update button text
     }
 
@@ -209,6 +211,7 @@ function addExpenseInput(expenseName = '', amount = '', frequency = 'weekly') {
 
     if (expenseInputsContainer.style.display === "none") {
         expenseInputsContainer.style.display = "block"; // Show the container
+        expButtons.style.display = `block`;
         toggleButtonExp.textContent = "Hide list"; // Update button text
     }
 
