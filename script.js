@@ -237,11 +237,12 @@ function addExpenseInput(expenseName = '', amount = '', frequency = 'weekly') {
 
     const expenseFrequencySelect = document.createElement('select');
 
-    const options = ['daily', 'weekly', 'biweekly', 'monthly'];
+    const options = ['daily', 'weekly', 'biweekly', 'monthly', '%earnings'];
     options.forEach(option => {
         const optionElement = document.createElement('option');
         optionElement.value = option;
         optionElement.textContent = option.charAt(0).toUpperCase() + option.slice(1);
+        console.log(optionElement.textContent);
         if (option === frequency) {
             optionElement.selected = true;
         }
@@ -369,14 +370,19 @@ function computeTotalExpensesReport() {
                 dailyExpense = amount / 14;
             } else if (frequency === 'monthly') {
                 dailyExpense = amount / 30;
+            } else if (frequency === '%earnings') {
+                const monthlyEarnings = computeTotalSalaryReport(); 
+                console.log(monthlyEarnings[0]); 
+                dailyExpense =  (monthlyEarnings[0] * (amount/100))/30;
             }
+
 
             monthlyExpense = dailyExpense * 30;
 
             // totalDailyExpense += dailyExpense;
             // totalWeeklyExpense += dailyExpense * 7;
             // totalBiweeklyExpense += dailyExpense * 14;
-            totalMonthlyExpense += dailyExpense * 30;
+            totalMonthlyExpense += monthlyExpense;
             // totalYearlyExpense += dailyExpense * 365;
 
 
@@ -403,7 +409,7 @@ computeSalaryButton.addEventListener('click', () => {
     const totalSalaryReport = computeTotalSalaryReport();
 
     //     totalDisplay.innerHTML += ` 
-    //     <p style="margin: 2px 0; padding: 0; color: #66bb6a;">MONTHLY SALARY <br>----------------<br> ${totalSalaryReport[1]}<strong>----------------<br>TOTAL:</strong> $${totalSalaryReport[0].toFixed(2)}</p>
+    //     <p style="margin: 2px 0; padding: 0; color: #66bb6a;">MONTHLY EARNINGS <br>----------------<br> ${totalSalaryReport[1]}<strong>----------------<br>TOTAL:</strong> $${totalSalaryReport[0].toFixed(2)}</p>
     //     <p style="margin: 2px 0; padding: 0;">===================</p>
     // `;
 
@@ -413,7 +419,7 @@ computeSalaryButton.addEventListener('click', () => {
 
     totalDisplay.innerHTML += ` 
 <p style="margin: 2px 0; padding: 0; color: #66bb6a;">
-    <strong>MONTHLY SALARY</strong> <br>--------------------------------<br> 
+    <strong>MONTHLY EARNINGS</strong> <br>--------------------------------<br> 
     ${totalSalaryReport[1]}--------------------------------<br>
     <strong>${formattedTotal}: ${formattedSalary}</strong>
 </p>
@@ -454,12 +460,12 @@ netIncomeButton.addEventListener('click', () => {
 
 
 
-    const salaryName = `Salary`;
+    const salaryName = `Earnings`;
     const formattedSalaryName = salaryName.padEnd(15, `\u00A0`);
     const salaryAmount = totalSalaryReport[0].toFixed(2);
     const formattedSalaryAmount = `$${salaryAmount}`.padStart(9, `\u00A0`);
 
-    const expenseName = `Espense`;
+    const expenseName = `Expenses`;
     const formattedExpenseName = expenseName.padEnd(15, `\u00A0`);
     const expenseAmount = totalExpenseReport[0].toFixed(2);
     const formattedExpenseAmount = `$${expenseAmount}`.padStart(9, `\u00A0`);
