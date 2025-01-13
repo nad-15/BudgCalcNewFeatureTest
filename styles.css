@@ -1,20 +1,47 @@
-/* * {
-    border: .5px solid lime;
-} */
-
-.h1-icon {
-  /* border: 2px solid green; */
-  box-sizing: border-box;
+/* Universal Styles */
+body {
+  font-family: monospace;
   display: flex;
-  flex-direction: row;
   justify-content: center;
-  align-items: center;
+  height: 100vh;
+  width: 100%;
+  background-color: #f4f4f4;
+  font-size: 2vw; /* Base font size using viewport width */
 }
 
+/* Title and Notes */
+.title {
+  text-align: center;
+  font-weight: bold;
+  color: #0078D7;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+  font-size: 6vw;
+  margin-top: 8px;
+  padding: 0 20px;
+}
+
+.note {
+  box-sizing: border-box;
+  text-align: center;
+  font-family: monospace;
+  font-size: 2vw;
+  padding: .2rem 1rem;
+  margin-top: 0px;
+}
+
+.dedication {
+  font-size: 1.5vw;
+  box-sizing: border-box;
+}
+
+/* Buttons */
 .add-job-icon {
+  box-sizing: border-box;
   margin-right: 2px;
-  background-color:#45a049;
-  border: 1px solid#45a049;
+  background-color: #45a049;
+  border: 1px solid #45a049;
   border-radius: 50%;
   width: 6vw;
   height: 6vw;
@@ -23,100 +50,87 @@
   align-items: center;
   cursor: pointer;
   font-size: 7vw;
-  color:white;
+  color: white;
   font-weight: 2px;
 }
 
-
-.add-job-icon:active {
-  background-color: #3d8f42;  
-}
-
+.add-job-icon:active,
 .add-job-icon:hover {
-background-color: #3d8f42;
+  background-color: #3d8f42;
 }
 
+.add-job-button {
+  box-sizing: border-box;
+  flex: 1;
+  background-color: #4CAF50;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: white;
+  padding: 8px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 5px;
+  font-size: 3vw;
+}
 
+.add-job-button:active {
+  background-color: #45a049;
+}
 
-body {
-  /* border: 2px solid violet; */
-  /* font-family: Arial, sans-serif; */
+.toggle-button {
+  box-sizing: border-box;
+  background-color: white;
+  border: 1px solid rgb(69, 160, 73);
+  border-radius: 4px;
+  font-size: 2.5vw;
+  padding: .2rem 1rem;
+  margin: 10px;
+  color: black;
   font-family: monospace;
-  display: flex;
-  justify-content: center;
-  height: 100vh;
-  width: 100%;
-  background-color: #f4f4f4;
-  font-size: 2vw;
-  /* Base font size using viewport width */
 }
 
-select {
-  text-transform: lowercase;
+.toggle-button:active {
+  background-color: #45a049;
 }
 
+/* Containers */
 .form-btn-container {
-  /* border: 2px solid red; */
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
   width: 100%;
-  /* background-color: white; */
   border-radius: 8px;
-  /* box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); */
-  /* justify-content: space-between; */
   height: 95vh;
-  /* overflow: hidden; */
 }
 
 .form-container {
-  /* border: .5px solid blue; */
   box-sizing: border-box;
   background-color: white;
   padding: 5px 15px;
   border-radius: 8px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   width: 100%;
-  max-width: none;
   flex-grow: 1;
   flex-shrink: 1;
 }
 
-.h1-toggle-container {
-  /* border: 2px solid red; */
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
-
-
-
-.toggle-button:active {
-  /* background-color: gainsboro; */
-  background-color: #45a049;
-}
-
-
-/* revert back here while adding collapse */
-
-h1 {
-  /* border: 2px solid red; */
+.button-container {
   box-sizing: border-box;
-  font-size: 4vw;
-  font-family: monospace;
-  /* margin: 10px 0px; */
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+  margin: 0px 15px;
+  padding: 0px;
 }
 
-
-
-
+/* Job and Expense Inputs */
 .job-input,
 .expense-input {
-  /* border: .5px solid red; */
   display: flex;
   flex-direction: row;
   align-items: center;
-  margin: none;
-  gap: none;
 }
 
 .job-input .job-name {
@@ -135,15 +149,12 @@ h1 {
   flex: 1.2;
 }
 
-/* keeps the overflow of inputs */
-
 .job-input input[type="text"],
 .job-input input[type="number"],
 .expense-input input[type="text"],
 .expense-input input[type="number"] {
   box-sizing: border-box;
   padding: 8px 4px;
-  /* background-color: red; */
   border: 1px solid #ccc;
   border-radius: 1px;
   width: 100%;
@@ -151,23 +162,14 @@ h1 {
 
 .job-input select,
 .expense-input select {
-  /* background-color: blue; */
   padding: 7px 4px;
   border: 1px solid #ccc;
   border-radius: 1px;
-  /* flex-shrink: 1; */
   min-width: 0;
 }
 
 .job-input select {
-  /* background-color: blueviolet; */
   flex: 1.6;
-  /* padding: 8px; */
-  /* -webkit-appearance: none;
-    -moz-appearance: none;
-    text-align: center;
-    appearance: none; */
-  /* background-image: none; */
 }
 
 .expense-input .expense-name {
@@ -179,7 +181,6 @@ h1 {
 }
 
 .expense-input select {
-  /* background-color: yellow; */
   flex: 1.5;
 }
 
@@ -192,16 +193,10 @@ h1 {
   margin-left: 4px;
   border-radius: 5px;
   border: 1px solid white;
-
   cursor: pointer;
   white-space: nowrap;
-  /* Prevents text from wrapping */
   overflow: hidden;
-  /* Ensures text doesn't overflow the button */
   text-overflow: ellipsis;
-  /* Adds ellipsis (...) if text overflows */
-  /* font-size: 2vw; */
-  /* Font size for remove buttons */
 }
 
 .job-input .remove-job:hover,
@@ -209,154 +204,58 @@ h1 {
   background-color: #c0392b;
 }
 
-.button-container {
-  /* border: 2px solid red; */
-  display: flex;
-  justify-content: center;
-  /* Spaces the buttons out */
-  gap: 5px;
-  margin: 0px 0px;
-  padding: 0px;
-  /* Adds some space between the buttons */
-}
-
-.bottom {
-  /* border: 2px solid red; */
-  margin: 0px 15px;
-}
-
-
-/* .button-container2 { */
-/* border: 2px solid green; */
-/* box-sizing: border-box; */
-/* display: flex;
-  padding: 0px 10px;
-  flex-direction: row;
-  justify-content: center; */
-/* width: 100%; */
-/* gap: 5px;
-} */
-
-
-
-.add-job-button {
-
+/* Headings */
+h1 {
   box-sizing: border-box;
-  flex: 1;
-  background-color: #4CAF50;
-  white-space: nowrap;
-  /* Prevents text from wrapping */
-  overflow: hidden;
-  /* Ensures text doesn't overflow the button */
-  text-overflow: ellipsis;
-  color: white;
-  padding: 8px 8px;
-  border: none;
-  /* was 4px */
-  border-radius: 4px;
-  cursor: pointer;
-  /* was width: 100%; */
-  margin-top: 5px;
-  font-size: 3vw;
-  /* Font size for the buttons */
-}
-
-.toggle-button {
-  /* border: 2px solid red; */
-  /* box-sizing: border-box; */
-  background-color: white;
-  border: 1px solid rgb(69, 160, 73);
-  border-radius: 4px;
-  font-size: 2.5vw;
-  padding: .2rem 1rem .2rem 1rem;
-  margin: 10px;
-  color: black;
+  font-size: 4vw;
   font-family: monospace;
-
 }
 
-
-.add-job-button:active {
-  background-color: #45a049;
+.h1-icon {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
 
-
+.h1-toggle-container {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
 
 #total {
   margin-top: 20px;
-  /* font-size: 4vw; */
-
   font-family: monospace;
-  /* Monospace font */
   font-weight: normal;
-  /* Normal font weight */
   font-size: .9rem;
-  /* Font size */
-
-  /* Font size for total salary and expenses */
 }
 
-.title {
-  text-align: center;
-  font-weight: bold;
-  color: #0078D7;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
-  font-size: 6vw;
-  margin-top: 8px;
-  padding: 0 20px;
+/* Select Element */
+select {
+  text-transform: lowercase;
 }
 
-.note {
-  text-align: center;
-  font-family: monospace;
-  font-size: 2vw;
-  /* background-color: #f4f4f4; */
-  padding: .2rem 1rem .2rem 1rem;
-  margin-top: 0px;
-}
-
-.dedication {
-  font-size: 1.5vw;
-}
-
-
-/* border: 2px solid red; */
-/* box-sizing: border-box; */
-/* background-color: white;
-    border-color: #ccc;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 2.5vw;
-    padding: .2rem 1rem .2rem 1rem;
-    margin: 10px;
-    font-family: monospace; */
-
-
-
-/* Media Query for Large Screens (Desktops) */
+/* Media Queries */
 @media (min-width: 1024px) {
   body {
     font-size: 16px;
-    /* Set a base font size for larger screens */
   }
 
   .form-btn-container {
-    /* border: 2px solid red; */
     display: flex;
     flex-direction: column;
     width: 65%;
-    /* justify-content: space-between; */
     height: 100vh;
-    /* overflow: hidden; */
   }
 
   h1,
   #total {
     font-size: 24px;
-    /* Adjust heading size for large screens */
   }
+
   .add-job-icon {
     width: 24px;
     height: 24px;
@@ -365,8 +264,6 @@ h1 {
 
   .form-container {
     width: 100%;
-
-    /* Make form container smaller for better layout */
   }
 
   .job-input input,
@@ -376,14 +273,11 @@ h1 {
   .job-input .remove-job,
   .expense-input .remove-expense {
     font-size: 16px;
-    /* Adjust input font size */
     width: auto;
-    /* Remove percentage width for larger screens */
   }
 
   .add-job-button {
     font-size: 16px;
-    /* Adjust button font size */
   }
 
   .add-job-button:hover,
@@ -391,26 +285,15 @@ h1 {
     background-color: #45a049;
   }
 
-
-  /* Desktop Styles */
   .title {
     font-size: 3rem;
   }
 
   .toggle-button {
-    /* border: 2px solid red; */
-    /* box-sizing: border-box; */
-    background-color: white;
-    border-radius: 4px;
     font-size: .8vw;
-    padding: 0.5rem 0.5rem 0.5rem 0.5rem;
+    padding: 0.5rem;
     margin: 10px;
   }
-
-  /* .toggle-button:hover,
-  .add-job-icon:hover {
-    background-color: gainsboro;
-  } */
 
   .note {
     font-size: 15px;
@@ -419,5 +302,4 @@ h1 {
   .dedication {
     font-size: 10px;
   }
-
 }
