@@ -103,13 +103,13 @@ body {
 }
 
 .button-container {
-  border: 2px solid green;
-  box-sizing: border-box;
+  border: .1px solid green;
+  /* box-sizing: border-box;
   display: flex;
   justify-content: center;
   gap: 5px;
   margin: 0px 0px;
-  padding: 0px;
+  padding: 0px; */
 }
 .button-container1 {
   /* border: 2px solid green; */
@@ -362,7 +362,7 @@ select {
   .form-btn-container {
     display: flex;
     flex-direction: column;
-    width: 65%;
+    width: 60%;
     height: 100vh;
   }
 
