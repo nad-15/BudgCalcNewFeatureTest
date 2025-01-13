@@ -27,9 +27,7 @@ function addUnitOnBlur(event) {
         return;
     }
 
-    const numericValue = parseFloat(value);
-
-    if (isNaN(numericValue)) return; // Exit if the value is not a number
+    const numericValue = parseFloat(value); if (isNaN(numericValue)) return; // Exit if the value is not a number
 
     // Store the original numeric value in a custom attribute
     input.setAttribute("data-original-value", numericValue);
@@ -38,7 +36,7 @@ function addUnitOnBlur(event) {
     const formats = {
         amount: `$${numericValue.toFixed(2)}`,
         rateperhour: `$${numericValue.toFixed(0)}/hr`,
-        hourspershift: `${numericValue}hr/shift`,
+        hourspershift: `${numericValue}hrs/shift`,
         shift: `${numericValue}x`,
     };
 
@@ -136,6 +134,7 @@ function addJobInput(jobName = '', ratePerHour = '', hoursPerShift = '', noOfShi
 
     const jobNameInput = document.createElement('input');
     jobNameInput.type = 'text';
+    jobNameInput.maxLength = 15;
     jobNameInput.classList.add('job-name');
     jobNameInput.placeholder = 'Job Name';
     jobNameInput.value = jobName;
@@ -218,6 +217,7 @@ function addExpenseInput(expenseName = '', amount = '', frequency = 'weekly') {
 
     const expenseNameInput = document.createElement('input');
     expenseNameInput.type = 'text';
+    expenseNameInput.maxLength = 15;
     expenseNameInput.classList.add('expense-name');
     expenseNameInput.placeholder = 'Expense Name';
     expenseNameInput.value = expenseName;
@@ -275,6 +275,7 @@ function computeTotalSalaryReport() {
     let monthlySalary = 0;
     let totalSalaryForm = "";
     let formattedForm = "";
+    let formattedAmount = ``;
 
 
 
@@ -292,7 +293,7 @@ function computeTotalSalaryReport() {
         if (!isNaN(hourlyRate) && !isNaN(hoursPerShift) && !isNaN(noOfShifts)) {
             let dailySalary = 0;
 
-            // Calculate salary based on frequency and number of shifts
+            // Calculate salary based on frequency and number of shifts and rate
             if (frequency === 'daily') {
                 dailySalary = hourlyRate * hoursPerShift * noOfShifts;
             } else if (frequency === 'weekly') {
@@ -312,11 +313,14 @@ function computeTotalSalaryReport() {
             // totalYearlySalary += dailySalary * 365;
 
 
-            //start of new code
-            formattedForm = salaryNameForm.padEnd(15, `\u00A0`);
 
-            //original code
-            totalSalaryForm += `${formattedForm}:  $${monthlySalary.toFixed(2)}<br>`;
+            formattedForm = salaryNameForm.padEnd(15, `\u00A0`);
+            //start of new code
+            formattedAmount = `$${monthlySalary.toFixed(2)}`.padStart(9, `\u00A0`);
+
+            totalSalaryForm += `${formattedForm}:  ${formattedAmount}<br>`;
+
+            // totalSalaryForm += `${formattedForm}:  $${monthlySalary.toFixed(2)}<br>`;
             // console.log(totalSalaryForm);
         }
     });
@@ -327,13 +331,15 @@ function computeTotalSalaryReport() {
 // Function to compute total expenses based on all expense inputs and display it
 function computeTotalExpensesReport() {
     const expenseInputs = document.querySelectorAll('.expense-input');
-    let totalDailyExpense = 0;
-    let totalWeeklyExpense = 0;
+    // let totalDailyExpense = 0;
+    // let totalWeeklyExpense = 0;
     let totalMonthlyExpense = 0;
-    let totalBiweeklyExpense = 0;
-    let totalYearlyExpense = 0;
+    // let totalBiweeklyExpense = 0;
+    // let totalYearlyExpense = 0;
     let monthlyExpense = 0;
     let totalExpenseForm = "";
+    let formattedForm = "";
+    let formattedAmount = ``;
 
     expenseInputs.forEach(inputDiv => {
         const inputs = inputDiv.querySelectorAll('input, select');
@@ -364,13 +370,18 @@ function computeTotalExpensesReport() {
 
             monthlyExpense = dailyExpense * 30;
 
-            totalDailyExpense += dailyExpense;
-            totalWeeklyExpense += dailyExpense * 7;
-            totalBiweeklyExpense += dailyExpense * 14;
+            // totalDailyExpense += dailyExpense;
+            // totalWeeklyExpense += dailyExpense * 7;
+            // totalBiweeklyExpense += dailyExpense * 14;
             totalMonthlyExpense += dailyExpense * 30;
-            totalYearlyExpense += dailyExpense * 365;
+            // totalYearlyExpense += dailyExpense * 365;
 
-            totalExpenseForm += expenseNameForm + ": $" + monthlyExpense.toFixed(2) + "\n";
+
+            formattedForm = expenseNameForm.padEnd(15, `\u00A0`);
+            formattedAmount = `$${monthlyExpense.toFixed(2)}`.padStart(9, `\u00A0`);
+
+            totalExpenseForm += `${formattedForm}:  ${formattedAmount}<br>`;
+            // totalExpenseForm += expenseNameForm + ": $" + monthlyExpense.toFixed(2) + "\n";
         }
 
     });
@@ -388,20 +399,22 @@ addExpenseButton.addEventListener('click', () => addExpenseInput());
 computeSalaryButton.addEventListener('click', () => {
     const totalSalaryReport = computeTotalSalaryReport();
 
-//     totalDisplay.innerHTML += ` 
-//     <p style="margin: 2px 0; padding: 0; color:rgb(25, 131, 25);">MONTHLY SALARY <br>----------------<br> ${totalSalaryReport[1]}<strong>----------------<br>TOTAL:</strong> $${totalSalaryReport[0].toFixed(2)}</p>
-//     <p style="margin: 2px 0; padding: 0;">===================</p>
-// `;
+    //     totalDisplay.innerHTML += ` 
+    //     <p style="margin: 2px 0; padding: 0; color:rgb(25, 131, 25);">MONTHLY SALARY <br>----------------<br> ${totalSalaryReport[1]}<strong>----------------<br>TOTAL:</strong> $${totalSalaryReport[0].toFixed(2)}</p>
+    //     <p style="margin: 2px 0; padding: 0;">===================</p>
+    // `;
 
-const str =`TOTAL`;
-const formattedTotal= str.padEnd(15, `\u00A0`);
+    const str = `TOTAL`;
+    const formattedTotal = str.padEnd(15, `\u00A0`);
+    const formattedSalary = `$${totalSalaryReport[0].toFixed(2)}`.padStart(9, `\u00A0`);
 
-totalDisplay.innerHTML += ` 
+    totalDisplay.innerHTML += ` 
 <p style="margin: 2px 0; padding: 0; color:rgb(25, 131, 25);">
     <strong>MONTHLY SALARY</strong> <br>--------------------------------<br> 
-    ${totalSalaryReport[1]}<strong>--------------------------------<br>${formattedTotal}:</strong> $${totalSalaryReport[0].toFixed(2)}
+    ${totalSalaryReport[1]}--------------------------------<br>
+    <strong>${formattedTotal}: ${formattedSalary}</strong>
 </p>
-<p style="margin: 2px 0; padding: 0;">======================================</p>
+<p style="margin: 5px 0; padding: 0; color:rgb(25, 131, 25);">================================</p>
 `;
 
 });
@@ -410,15 +423,24 @@ totalDisplay.innerHTML += `
 computeExpenseButton.addEventListener('click', () => {
     const totalExpenseReport = computeTotalExpensesReport();
 
-
-
+    const str = `TOTAL`;
+    const formattedTotal = str.padEnd(15, `\u00A0`);
+    const formattedExpense = `$${totalExpenseReport[0].toFixed(2)}`.padStart(9, `\u00A0`);
     totalDisplay.innerHTML += ` 
-<p style="margin: 2px 0; padding: 0; color: red;">MONTHLY EXPENSES <br>----------------<br> ${totalExpenseReport[1].replace(/\n/g, `<br>`)}<b>----------------<br>TOTAL:</b> $${totalExpenseReport[0].toFixed(2)}</p>
-<p style="margin: 2px 0; padding: 0;">===================</p>
+<p style="margin: 2px 0; padding: 0; color:red;">
+    <strong>MONTHLY EXPENSES</strong> <br>--------------------------------<br> 
+    ${totalExpenseReport[1]}--------------------------------<br>
+    <strong>${formattedTotal}: ${formattedExpense}</strong>
+</p>
+<p style="margin: 5px 0; padding: 0; color: red">================================</p>
 `;
 
-});
+//     totalDisplay.innerHTML += ` 
+// <p style="margin: 2px 0; padding: 0; color: red;">MONTHLY EXPENSES <br>----------------<br> ${totalExpenseReport[1].replace(/\n/g, `<br>`)}<b>----------------<br>TOTAL:</b> $${totalExpenseReport[0].toFixed(2)}</p>
+// <p style="margin: 2px 0; padding: 0;">===================</p>
+// `;
 
+});
 
 
 netIncomeButton.addEventListener('click', () => {
@@ -427,10 +449,45 @@ netIncomeButton.addEventListener('click', () => {
 
     const netIncome = totalSalaryReport[0] - totalExpenseReport[0];
 
+
+
+    const salaryName = `Salary`;
+    const formattedSalaryName = salaryName.padEnd(15, `\u00A0`);
+    const salaryAmount = totalSalaryReport[0].toFixed(2);
+    const formattedSalaryAmount = `$${salaryAmount}`.padStart(9, `\u00A0`);
+
+    const expenseName = `Espense`;
+    const formattedExpenseName = expenseName.padEnd(15, `\u00A0`);
+    const expenseAmount = totalExpenseReport[0].toFixed(2);
+    const formattedExpenseAmount =`$${expenseAmount}`.padStart(9, `\u00A0`);
+
+    const str = `TOTAL`;
+    const formattedTotal = str.padEnd(15, `\u00A0`);
+    const formattedNetIncome = `$${netIncome.toFixed(2)}`.padStart(9, `\u00A0`);
+
     totalDisplay.innerHTML += `
-        <p style="margin: 2px 0; padding: 0;  color: blue;">MONTHLY NET INCOME <br>----------------<br> Salary: <span style="color: rgb(25, 131, 25);">$${totalSalaryReport[0].toFixed(2)} </span> <br> Expenses: <span style="color: red;">$${totalExpenseReport[0].toFixed(2)}</span> <br>----------------<br> TOTAL: $${netIncome.toFixed(2)}</p>
-        <p style="margin: 2px 0; padding: 0;">===================</p>
+        <p style="margin: 2px 0; padding: 0;  color: blue;">
+        <strong>MONTHLY NET INCOME</strong> <br>
+        --------------------------------<br>
+        ${formattedSalaryName}: ${formattedSalaryAmount} <br>
+        ${formattedExpenseName}: ${formattedExpenseAmount} <br>
+        --------------------------------<br>
+        <strong>${formattedTotal}: ${formattedNetIncome}</strong> <br>
+        <p style="margin: 5px 0; padding: 0; color: blue">================================</p>
+
+
+
     `;
+
+
+    // totalDisplay.innerHTML += `
+    //     <p style="margin: 2px 0; padding: 0;  color: blue;">MONTHLY NET INCOME <br>----------------<br> Salary: <span style="color: rgb(25, 131, 25);">
+    //     $${totalSalaryReport[0].toFixed(2)} </span> <br> Expenses: <span style="color: red;">$${totalExpenseReport[0].toFixed(2)}
+    //     </span> <br>----------------<br> ${formattedTotal} $${netIncome.toFixed(2)}</p>
+    //     <p style="margin: 2px 0; padding: 0;">===================</p>
+    // `;
+
+
 
     // Display net income
 });
