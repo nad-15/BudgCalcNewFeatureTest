@@ -59,21 +59,7 @@ body {
   background-color: #3d8f42;
 }
 
-.add-job-button {
-  box-sizing: border-box;
-  flex: 1;
-  background-color: #4CAF50;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  color: white;
-  padding: 8px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  margin-top: 5px;
-  font-size: 3vw;
-}
+
 
 .add-job-button:active {
   background-color: #45a049;
@@ -238,6 +224,91 @@ select {
   text-transform: lowercase;
 }
 
+/* Buttons */
+.compute-button {
+  box-sizing: border-box;
+  padding: 8px;
+  border-radius: 20px;
+  font-size: 2vw;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: auto;
+  flex: 1;
+  font-family: monospace;
+  margin: 5px;
+  border: none;
+  color: white; /* Make text color white */
+  font-weight: bold; /* Apply bold font weight */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 3vw;
+}
+
+.add-job-button {
+  box-sizing: border-box;
+  flex: 1;
+  background-color: #4CAF50;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: white;
+  padding: 8px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 5px;
+  font-size: 3vw;
+}
+
+/* Salary Button - Green Shade */
+.compute-button.salary {
+  background-color: #66bb6a; /* Light green */
+}
+
+.compute-button.salary:hover {
+  background-color: #4caf50; /* Medium green */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transform: translateY(-3px);
+}
+
+.compute-button.salary:active {
+  transform: translateY(1px);
+  box-shadow: none;
+}
+
+/* Expense Button - Red Shade */
+.compute-button.expense {
+  background-color: #e57373; /* Light red */
+}
+
+.compute-button.expense:hover {
+  background-color: #f44336; /* Red */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transform: translateY(-3px);
+}
+
+.compute-button.expense:active {
+  transform: translateY(1px);
+  box-shadow: none;
+}
+
+/* Net Income Button - Blue Shade */
+.compute-button.income {
+  background-color: #3388cc; /* Adjusted blue */
+}
+
+.compute-button.income:hover {
+  background-color: #2277b0; /* Darker blue for hover */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transform: translateY(-3px);
+}
+
+.compute-button.income:active {
+  transform: translateY(1px);
+  box-shadow: none;
+}
+
 /* Media Queries */
 @media (min-width: 1024px) {
   body {
@@ -277,6 +348,10 @@ select {
   }
 
   .add-job-button {
+    font-size: 16px;
+  }
+
+  .compute-button {
     font-size: 16px;
   }
 
