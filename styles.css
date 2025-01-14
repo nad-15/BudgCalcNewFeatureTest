@@ -69,6 +69,8 @@ body {
 /* Containers */
 .form-btn-container {
   /* border: 2px solid red; */
+  /* try to use this as the flex container to contain evrything */
+  /* add body 100#heitght */
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
