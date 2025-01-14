@@ -39,7 +39,7 @@ toggleButtonJobExp.addEventListener("click", () => {
                 netIncomeButton.click();
             }
         // totalDisplay.style.maxHeight = '80vh';
-        allFormContainer.style.maxHeight = '90vh';
+        allFormContainer.style.maxHeight = '80vh';
 
         
     }

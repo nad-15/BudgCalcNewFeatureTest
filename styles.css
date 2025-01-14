@@ -80,7 +80,7 @@ body {
 }
 
 .form-container {
-  /* border: 2px dashed red; */
+  border: 2px dashed red;
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
