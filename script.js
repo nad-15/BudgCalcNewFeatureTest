@@ -13,7 +13,7 @@ const computeExpenseButton = document.getElementById('compute-expense');
 const totalExpenseDisplay = document.getElementById('total-expenses');
 const toggleButtonJob = document.getElementById('toggle-job');
 const toggleButtonExp = document.getElementById('toggle-exp');
-const toggleButtonJobExp =document.getElementById(`toggle-report`);
+const toggleButtonJobExp = document.getElementById(`toggle-report`);
 
 const title = document.getElementById(`title-budget-calc`);
 
@@ -22,50 +22,103 @@ const title = document.getElementById(`title-budget-calc`);
 const listForm = document.getElementById(`earnings-expenses-form`);
 toggleButtonJobExp.addEventListener("click", () => {
 
-        if (listForm.style.display === "none") {
-            listForm.style.display = "block";
-            title.style.display = `block` // Show the container
-            toggleButtonJobExp.textContent = "Fullscreen"; // Update button text
-        } else {
-            listForm.style.display = "none";
-            title.style.display = "none";// Hide the container
-            toggleButtonJobExp.textContent = "Exit fullscreen"; // Update button text
-        }
+    if (listForm.style.display === "none") {
+        listForm.style.display = "block";
+        title.style.display = `block` // Show the container
+        toggleButtonJobExp.textContent = "Fullscreen"; // Update button text
+    } else {
+        listForm.style.display = "none";
+        title.style.display = "none";// Hide the container
+        toggleButtonJobExp.textContent = "Exit fullscreen"; // Update button text
+    }
 });
 
-// const jobButtons = document.getElementById('job-buttons');
-// const expButtons = document.getElementById('exp-buttons');
 
-
+//working
 function addUnitOnBlur(event) {
     const input = event.target;
-    const value = input.value.trim();
 
-    // Set data-original-value to empty if value is empty, then exit
-    if (value === "") {
-        input.setAttribute("data-original-value", "");
-        return;
-    }
+    if (input.name === "select") {
+        console.log(`Blur Called by: ${input.name}`);
+        console.log(`Blur Value is: ${input.value}`);
+        
+        if (input.value === '%earnings') {
+            console.log(`Select = %earnings`);
+            const prevSibling = input.previousElementSibling;
 
-    const numericValue = parseFloat(value); if (isNaN(numericValue)) return; // Exit if the value is not a number
+            console.log(`Before Trim`);
+            const value = prevSibling.value.trim().replace(/[^0-9.]/g, '');
+            console.log(`After Trim`);
 
-    // Store the original numeric value in a custom attribute
-    input.setAttribute("data-original-value", numericValue);
 
-    // Define the formatting logic for each input by name
-    const formats = {
-        amount: `$${numericValue.toFixed(2)}`,
-        rateperhour: `$${numericValue.toFixed(0)}/hr`,
-        hourspershift: `${numericValue}hrs/shift`,
-        shift: `${numericValue}x`,
-    };
+            if (value === "") {
+                prevSibling.setAttribute("data-original-value", "");
+                return;
+            }
+            const numericValue = parseFloat(value); if (isNaN(numericValue)) return;
+            prevSibling.setAttribute("data-original-value", numericValue);
+            prevSibling.type = "text";
+            prevSibling.value = `${numericValue}% of Total Earnings`;
 
-    // Apply the formatting if the name exists in the formats object
-    if (formats[input.name]) {
-        input.type = "text";
-        input.value = formats[input.name];
+        } else {
+            console.log(`Select is NOT %earnings `);
+            const prevSibling = input.previousElementSibling;
+            const value = prevSibling.value.trim();
+
+            if (value === "") {
+                prevSibling.setAttribute("data-original-value", "");
+                console.log(`first if`);
+                return;
+            }
+
+            const numericValue = parseFloat(value); if (isNaN(numericValue)) return;
+
+            prevSibling.setAttribute("data-original-value", numericValue);
+
+            prevSibling.type = "text";
+            prevSibling.value = `$${numericValue.toFixed(2)}`;
+        }
+    } else {
+
+        const value = input.value.trim();
+        console.log(`Blur for NOT SELECT by: ${input.name}`);
+
+        // Set data-original-value to empty if value is empty, then exit
+        if (value === "") {
+            input.setAttribute("data-original-value", "");
+            return; // Exits here if value is empty, no further code runs
+        }
+
+        const numericValue = parseFloat(value);
+        if (isNaN(numericValue)) return; // Exit if the value is not a number
+
+        input.setAttribute("data-original-value", numericValue);
+
+        const formats = {
+            percentage: `${numericValue}% of Total Earnings`,
+            amount: `$${numericValue.toFixed(2)}`,
+            rateperhour: `$${numericValue.toFixed(0)}/hr`,
+            hourspershift: `${numericValue}hrs/shift`,
+            shift: `${numericValue}x`,
+        };
+
+        const nextSiblingValue = input.nextElementSibling?.value;
+
+        // If next sibling value is "%earnings", apply the percentage format and return
+        if (nextSiblingValue === "%earnings") {
+            input.type = "text";
+            input.value = formats.percentage;
+            return; // Exits the function here, no further code runs
+        }
+
+        // Apply the formatting for the input name if it exists
+        if (formats[input.name]) {
+            input.type = "text";
+            input.value = formats[input.name];
+        }
     }
 }
+
 
 function revertToNumberOnFocus(event) {
     const input = event.target;
@@ -251,9 +304,9 @@ function addExpenseInput(expenseName = '', amount = '', frequency = 'weekly') {
     amountInput.placeholder = 'Amount';
     amountInput.addEventListener("blur", addUnitOnBlur);
     amountInput.addEventListener("focus", revertToNumberOnFocus);
-    amountInput.value = amount;
-    amountInput.name = 'amount';
-    amountInput.dispatchEvent(new Event("blur"));
+    // amountInput.value = amount;
+    // amountInput.name = 'amount';
+    // amountInput.dispatchEvent(new Event("blur"));
 
     const expenseFrequencySelect = document.createElement('select');
 
@@ -262,12 +315,43 @@ function addExpenseInput(expenseName = '', amount = '', frequency = 'weekly') {
         const optionElement = document.createElement('option');
         optionElement.value = option;
         optionElement.textContent = option.charAt(0).toUpperCase() + option.slice(1);
-        console.log(optionElement.textContent);
+        // console.log(optionElement.textContent);
         if (option === frequency) {
             optionElement.selected = true;
         }
+
         expenseFrequencySelect.appendChild(optionElement);
     });
+
+
+
+    //working here
+    amountInput.value = amount;
+    amountInput.name = 'amount';
+    expenseFrequencySelect.name = 'select';
+    expenseFrequencySelect.addEventListener('change', addUnitOnBlur);
+
+
+    if (frequency === '%earnings') {
+        expenseFrequencySelect.dispatchEvent(new Event('change'));
+        // const value = amountInput.value.trim().replace(/[^0-9.]/g, '');
+        // console.log(`the amount at first load is: ${amount}`)
+        // if (value === "") {
+        //     input.setAttribute("data-original-value", "");
+        //     return;
+        // }
+        // const numericValue = parseFloat(value); if (isNaN(numericValue)) return;
+
+        // amountInput.setAttribute("data-original-value", numericValue);
+        // amountInput.value = `${amountInput.value}%`;
+    } else{
+        amountInput.name = 'amount';
+        amountInput.dispatchEvent(new Event("blur"));
+    }
+
+
+
+    /////////////
 
     const removeButton = document.createElement('button');
     removeButton.type = 'button';
@@ -391,9 +475,9 @@ function computeTotalExpensesReport() {
             } else if (frequency === 'monthly') {
                 dailyExpense = amount / 30;
             } else if (frequency === '%earnings') {
-                const monthlyEarnings = computeTotalSalaryReport(); 
-                console.log(monthlyEarnings[0]); 
-                dailyExpense =  (monthlyEarnings[0] * (amount/100))/30;
+                const monthlyEarnings = computeTotalSalaryReport();
+                console.log(monthlyEarnings[0]);
+                dailyExpense = (monthlyEarnings[0] * (amount / 100)) / 30;
             }
 
 

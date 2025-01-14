@@ -68,7 +68,7 @@ body {
 
 /* Containers */
 .form-btn-container {
-  border: 2px solid red;
+  /* border: 2px solid red; */
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
