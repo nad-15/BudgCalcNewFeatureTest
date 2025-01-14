@@ -9,7 +9,7 @@ body {
   font-family: monospace;
   display: flex;
   justify-content: center;
-  height: 110vh;
+  height: 100vh;
   width: 100%;
   background-color: #f4f4f4;
   font-size: 2vw;
@@ -73,7 +73,7 @@ body {
   flex-direction: column;
   width: 100%;
   border-radius: 8px;
-  height: 110vh;
+  height: 90vh;
 }
 
 .form-container {
