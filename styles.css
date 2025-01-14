@@ -68,12 +68,13 @@ body {
 
 /* Containers */
 .form-btn-container {
+  border: 2px solid red;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
   width: 100%;
   border-radius: 8px;
-  height: 90vh;
+  height: 100vh;
 }
 
 .form-container {
