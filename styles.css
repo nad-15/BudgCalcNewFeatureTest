@@ -3,6 +3,8 @@
 * {
   border: 2px dashed limegreen;
 } */
+
+
 body {
   font-family: monospace;
   display: flex;
@@ -13,6 +15,15 @@ body {
   font-size: 2vw;
   /* Base font size using viewport width */
 }
+
+.financial-overview-container {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
 
 /* Title and Notes */
 .title {
@@ -75,6 +86,7 @@ body {
 }
 
 .form-container {
+  /* border: 2px dashed red; */
   box-sizing: border-box;
   background-color: white;
   padding: 5px 15px;
@@ -85,23 +97,15 @@ body {
   flex-shrink: 1;
 }
 
-.button-container {
-  border: 1.5px solid green;
-  /* box-sizing: border-box;
-  display: flex;
-  justify-content: center;
-  gap: 5px;
-  margin: 0px 0px;
-  padding: 0px; */
-}
 
-.button-container1 {
+
+.button-container {
   /* border: 2px solid green; */
   box-sizing: border-box;
   display: flex;
   justify-content: center;
   gap: 5px;
-  margin: 0px 10px;
+  margin: 6px 10px;
   padding: 0px;
 }
 
@@ -382,23 +386,33 @@ select {
 
 
 
-.toggle-button#toggle-job {
+#toggle-job {
   border: 1.5px solid #45a049;
 }
 
-.toggle-button#toggle-job:active {
+#toggle-job:active {
   background-color: #45a049;
   transform: translateY(1px);
   box-shadow: none;
 }
 
 
-.toggle-button#toggle-exp {
+#toggle-exp {
   border: 1.5px solid #e57373;
 }
 
-.toggle-button#toggle-exp:active {
+#toggle-exp:active {
   background-color: #e57373;
+  transform: translateY(1px);
+  box-shadow: none;
+}
+
+#toggle-report{
+  border: 1.5px solid #3388cc;
+}
+
+#toggle-report:active {
+  background-color: #2277b0;
   transform: translateY(1px);
   box-shadow: none;
 }
@@ -409,28 +423,40 @@ select {
     font-size: 16px;
   }
 
-  .toggle-button#toggle-job:hover {
+  #toggle-job:hover {
     background-color: #45a049;
     color: white;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     transform: translateY(-3px);
   }
 
-  .toggle-button#toggle-job:active {
+  #toggle-job:active {
     background-color: #45a049;
     transform: translateY(1px);
     box-shadow: none;
   }
 
-  .toggle-button#toggle-exp:hover {
+  #toggle-exp:hover {
     background-color: #e57373;
     color: white;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     transform: translateY(-3px);
   }
 
-  .toggle-button#toggle-exp:active {
+  #toggle-exp:active {
     background-color: #e57373;
+    transform: translateY(1px);
+    box-shadow: none;
+  }
+
+  #toggle-report:hover {
+    background-color: #2277b0;
+    color: white;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transform: translateY(-3px);
+  }
+  #toggle-report:active {
+    background-color: #2277b0;
     transform: translateY(1px);
     box-shadow: none;
   }
@@ -521,7 +547,7 @@ select {
     width: auto;
   }
 
-  .add-job-button {
+  .add-job-button{
     font-size: 16px;
   }
 
@@ -560,8 +586,6 @@ select {
   .title {
     font-size: 3rem;
   }
-
-
 
   .note-container {
     font-size: 12px;

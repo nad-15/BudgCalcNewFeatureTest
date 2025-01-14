@@ -16,71 +16,74 @@
 
 
         <div class="form-container">
-            <div class="h1-toggle-container">
-                <div class="h1-icon">
-                    <button type="button" id="add-job" class="add-job-icon"><span class="plus-sign">+</span></button>
-                    <h1>Earnings</h1>
+
+            <div class="earnings-expenses-form" id="earnings-expenses-form">
+                <div class="h1-toggle-container">
+                    <div class="h1-icon">
+                        <button type="button" id="add-job" class="add-job-icon"><span
+                                class="plus-sign">+</span></button>
+                        <h1>Earnings</h1>
+                    </div>
+                    <button type="button" class="toggle-button" id="toggle-job">Hide List</button>
                 </div>
-                <button type="button" class="toggle-button" id="toggle-job">Hide List</button>
-            </div>
 
 
-            <form id="job-form">
-                <div id="job-inputs"></div> <!-- Container for job inputs -->
-            </form>
+                <form id="job-form">
+                    <div id="job-inputs"></div> <!-- Container for job inputs -->
+                </form>
 
-            <!-- <div id="job-buttons"> -->
-            <!-- <div class="button-container"> -->
-            <!-- <button type="button" id="add-job" class="add-job-button">Add Job</button> -->
-            <!-- <button id="compute-salary" class="add-job-button">Compute Salary</button> -->
-            <!-- </div> -->
-            <!-- </div> -->
+                <!-- <div id="job-buttons"> -->
+                <!-- <div class="button-container"> -->
+                <!-- <button type="button" id="add-job" class="add-job-button">Add Job</button> -->
+                <!-- <button id="compute-salary" class="add-job-button">Compute Salary</button> -->
+                <!-- </div> -->
+                <!-- </div> -->
 
-            <div class="h1-toggle-container">
-                <div class="h1-icon">
-                    <button type="button" id="add-expense" class="add-job-icon"><span
-                            class="plus-sign">+</span></button>
-                    <h1>Expenses</h1>
+                <div class="h1-toggle-container">
+                    <div class="h1-icon">
+                        <button type="button" id="add-expense" class="add-job-icon"><span
+                                class="plus-sign">+</span></button>
+                        <h1>Expenses</h1>
+                    </div>
+                    <button type="button" class="toggle-button" id="toggle-exp">Hide list</button>
                 </div>
-                <button type="button" class="toggle-button" id="toggle-exp">Hide list</button>
-            </div>
 
-            <form id="expense-form">
-                <div id="expense-inputs"></div> <!-- Container for expense inputs -->
-            </form>
-            <!-- <div class="button-container"> -->
+                <form id="expense-form">
+                    <div id="expense-inputs"></div> <!-- Container for expense inputs -->
+                </form>
+                <!-- <div class="button-container"> -->
 
-            <!-- <button class="add-job-button" id="clear">Salary Spare</button>
+                <!-- <button class="add-job-button" id="clear">Salary Spare</button>
                 <button type="submit" class="add-job-button" id="">Expenses Spare</button> -->
 
-            <!-- <button id="compute-salary" class="add-job-button">Compute Salary</button>
+                <!-- <button id="compute-salary" class="add-job-button">Compute Salary</button>
                 <button type="button" id="compute-expense" class="add-job-button">Compute Expenses</button>
                 <button class="add-job-button" id="net-income">Net Income</button> -->
 
-            <!-- </div> -->
-            <!-- <div id="exp-buttons">
+                <!-- </div> -->
+                <!-- <div id="exp-buttons">
                 <div class="button-container"> -->
-            <!-- <button type="button" id="add-expense" class="add-job-button">Add Expenses</button> -->
-            <!-- <button type="button" id="compute-expense" class="add-job-button">Compute Expenses</button> -->
-            <!-- </div>
-            </div> -->
+                <!-- <button type="button" id="add-expense" class="add-job-button">Add Expenses</button> -->
+                <!-- <button type="button" id="compute-expense" class="add-job-button">Compute Expenses</button> -->
+                <!-- </div>
+                </div> -->
 
+            </div>
+            <div class="financial-overview-container">
+                <h1 class="receipt-label">Financial Overview</h1>
+                <button class="toggle-button" id="toggle-report">Fullscren</button>
+            </div>
             <div id="total"></div> <!-- total display here -->
-
-
-
         </div>
+        
 
         <div class="bottom-container">
-            <div class="button-container1">
-
+            <div class="button-container">
                 <!-- <button class="add-job-button" id="clear">Salary Spare</button>-->
                 <!--<button type="submit" class="add-job-button" id="">Expenses Spare</button> -->
-
                 <button id="compute-salary" class="compute-button salary">Compute Earnings</button>
                 <button id="compute-expense" class="compute-button expense">Compute Expenses</button>
                 <button id="net-income" class="compute-button income">Net Income</button>
-
             </div>
             <div class="note-container">
                 <p><strong>Note:</strong> All calculations are before tax and deductions, unless stated otherwise. For

@@ -13,6 +13,20 @@ const computeExpenseButton = document.getElementById('compute-expense');
 const totalExpenseDisplay = document.getElementById('total-expenses');
 const toggleButtonJob = document.getElementById('toggle-job');
 const toggleButtonExp = document.getElementById('toggle-exp');
+const toggleButtonJobExp =document.getElementById(`toggle-report`);
+
+const listForm = document.getElementById(`earnings-expenses-form`);
+toggleButtonJobExp.addEventListener("click", () => {
+
+        if (listForm.style.display === "none") {
+            listForm.style.display = "block"; // Show the container
+            toggleButtonJobExp.textContent = "Fullscreen"; // Update button text
+        } else {
+            listForm.style.display = "none"; // Hide the container
+            toggleButtonJobExp.textContent = "Exit fullscreen"; // Update button text
+        }
+});
+
 // const jobButtons = document.getElementById('job-buttons');
 // const expButtons = document.getElementById('exp-buttons');
 
