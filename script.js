@@ -333,23 +333,23 @@ function addExpenseInput(expenseName = '', amount = '', frequency = 'weekly') {
 
 
     if (frequency === '%earnings') {
-        expenseFrequencySelect.dispatchEvent(new Event('change'));
-        // const value = amountInput.value.trim().replace(/[^0-9.]/g, '');
-        // console.log(`the amount at first load is: ${amount}`)
-        // if (value === "") {
-        //     input.setAttribute("data-original-value", "");
-        //     return;
-        // }
-        // const numericValue = parseFloat(value); if (isNaN(numericValue)) return;
-
-        // amountInput.setAttribute("data-original-value", numericValue);
-        // amountInput.value = `${amountInput.value}%`;
+        console.log(`the amount is: ${amount}`);
+        if (amount === "") {
+            amountInput.setAttribute("data-original-value", "");
+            console.log(`AMOUNT IS BLANK`);
+        } else {
+            const numericValue = parseFloat(amount);
+            console.log(`Parse is: ${amount}`);
+            amountInput.setAttribute("data-original-value", numericValue);
+            amountInput.type ="text";
+            amountInput.value = `${amountInput.value}% of Total Earnings`;
+            console.log(`Second Parse is: ${amount}`);
+        }
+        // amountInput.dispatchEvent(new Event("blur"));
     } else{
         amountInput.name = 'amount';
         amountInput.dispatchEvent(new Event("blur"));
     }
-
-
 
     /////////////
 
@@ -614,7 +614,8 @@ clearButton.addEventListener('click', () => {
 saveButton.addEventListener('click', () => {
     saveJobs();
     saveExpenses();
-    alert('Data saved successfully!');
+    alert('Data saved successfully! Note: Clearing your browser\'s cache or history may delete the saved data.');
+
 });
 
 title.addEventListener(`click`, () => {
