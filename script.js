@@ -1,5 +1,6 @@
 // Get the save button and other elements
 const allFormContainer = document.getElementById('form-container');
+// const allFormContainer = document.getElementById('all-container')
 const saveButton = document.getElementById('save');
 const addJobButton = document.getElementById('add-job');
 const jobInputsContainer = document.getElementById('job-inputs');

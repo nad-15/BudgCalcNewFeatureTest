@@ -47,8 +47,10 @@ body {
 }
 
 .dedication {
+  /* border: 1px solid red; */
   font-size: 1.5vw;
   box-sizing: border-box;
+  margin: 0px;
 }
 
 .dedication-container {
@@ -80,7 +82,7 @@ body {
 }
 
 .form-container {
-  border: 2px dashed red;
+  /* border: 2px dashed red; */
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
@@ -117,6 +119,8 @@ body {
 
 /* .bottom-container {
   border: 2px solid red;
+  margin-bottom: 0px;
+  align-self: baseline;
 } */
 
 /* Job and Expense Inputs */
