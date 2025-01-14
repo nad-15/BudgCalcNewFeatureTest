@@ -208,8 +208,8 @@ box-sizing: border-box;
 font-size: 4vw;
 font-family: monospace;
 margin: 0px 8px;
-/* max-height: 70vh;
-overflow-y: scroll; */
+/* max-height: 70vh;*/
+overflow-y: scroll; 
 }
 
 .h1-icon {

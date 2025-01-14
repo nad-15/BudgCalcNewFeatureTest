@@ -26,30 +26,32 @@ toggleButtonJobExp.addEventListener("click", () => {
         listForm.style.display = "block";
         title.style.display = `block` // Show the container
         toggleButtonJobExp.textContent = "Fullscreen"; // Update button text
+        totalDisplay.style.maxHeight = 'none';
     } else {
         listForm.style.display = "none";
         title.style.display = "none";// Hide the container
         toggleButtonJobExp.textContent = "Exit fullscreen"; // Update button text
+            if (totalDisplay.textContent === "") {
+                computeSalaryButton.click();
+                computeExpenseButton.click();
+                netIncomeButton.click();
+            }
+        totalDisplay.style.maxHeight = '70vh';
     }
 });
 
 
-//working
 function addUnitOnBlur(event) {
+    console.log('blur');
     const input = event.target;
 
     if (input.name === "select") {
-        console.log(`Blur Called by: ${input.name}`);
-        console.log(`Blur Value is: ${input.value}`);
-        
+        console.log(`Blur Called by Frequency/Select`);
+
         if (input.value === '%earnings') {
-            console.log(`Select = %earnings`);
             const prevSibling = input.previousElementSibling;
 
-            console.log(`Before Trim`);
             const value = prevSibling.value.trim().replace(/[^0-9.]/g, '');
-            console.log(`After Trim`);
-
 
             if (value === "") {
                 prevSibling.setAttribute("data-original-value", "");
@@ -61,13 +63,11 @@ function addUnitOnBlur(event) {
             prevSibling.value = `${numericValue}% of Total Earnings`;
 
         } else {
-            console.log(`Select is NOT %earnings `);
             const prevSibling = input.previousElementSibling;
             const value = prevSibling.value.trim();
 
             if (value === "") {
                 prevSibling.setAttribute("data-original-value", "");
-                console.log(`first if`);
                 return;
             }
 
@@ -81,8 +81,6 @@ function addUnitOnBlur(event) {
     } else {
 
         const value = input.value.trim();
-        console.log(`Blur for NOT SELECT by: ${input.name}`);
-
         // Set data-original-value to empty if value is empty, then exit
         if (value === "") {
             input.setAttribute("data-original-value", "");
@@ -323,9 +321,6 @@ function addExpenseInput(expenseName = '', amount = '', frequency = 'weekly') {
         expenseFrequencySelect.appendChild(optionElement);
     });
 
-
-
-    //working here
     amountInput.value = amount;
     amountInput.name = 'amount';
     expenseFrequencySelect.name = 'select';
@@ -333,25 +328,19 @@ function addExpenseInput(expenseName = '', amount = '', frequency = 'weekly') {
 
 
     if (frequency === '%earnings') {
-        console.log(`the amount is: ${amount}`);
         if (amount === "") {
             amountInput.setAttribute("data-original-value", "");
-            console.log(`AMOUNT IS BLANK`);
         } else {
             const numericValue = parseFloat(amount);
-            console.log(`Parse is: ${amount}`);
             amountInput.setAttribute("data-original-value", numericValue);
             amountInput.type ="text";
             amountInput.value = `${amountInput.value}% of Total Earnings`;
-            console.log(`Second Parse is: ${amount}`);
         }
-        // amountInput.dispatchEvent(new Event("blur"));
     } else{
         amountInput.name = 'amount';
         amountInput.dispatchEvent(new Event("blur"));
     }
 
-    /////////////
 
     const removeButton = document.createElement('button');
     removeButton.type = 'button';
