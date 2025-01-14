@@ -1,4 +1,5 @@
 // Get the save button and other elements
+const allFormContainer = document.getElementById('form-container');
 const saveButton = document.getElementById('save');
 const addJobButton = document.getElementById('add-job');
 const jobInputsContainer = document.getElementById('job-inputs');
@@ -26,7 +27,8 @@ toggleButtonJobExp.addEventListener("click", () => {
         listForm.style.display = "block";
         title.style.display = `block` // Show the container
         toggleButtonJobExp.textContent = "Fullscreen"; // Update button text
-        totalDisplay.style.maxHeight = 'none';
+        // totalDisplay.style.maxHeight = 'none';
+        allFormContainer.style.maxHeight = 'none';
     } else {
         listForm.style.display = "none";
         title.style.display = "none";// Hide the container
@@ -36,7 +38,10 @@ toggleButtonJobExp.addEventListener("click", () => {
                 computeExpenseButton.click();
                 netIncomeButton.click();
             }
-        totalDisplay.style.maxHeight = '70vh';
+        // totalDisplay.style.maxHeight = '80vh';
+        allFormContainer.style.maxHeight = '90vh';
+
+        
     }
 });
 
@@ -465,7 +470,7 @@ function computeTotalExpensesReport() {
                 dailyExpense = amount / 30;
             } else if (frequency === '%earnings') {
                 const monthlyEarnings = computeTotalSalaryReport();
-                console.log(monthlyEarnings[0]);
+                // console.log(monthlyEarnings[0]);
                 dailyExpense = (monthlyEarnings[0] * (amount / 100)) / 30;
             }
 
@@ -518,7 +523,8 @@ computeSalaryButton.addEventListener('click', () => {
 </p>
 <p style="margin: 5px 0; padding: 0; color: #66bb6a;">================================</p>
 `;
-
+totalDisplay.scrollTop = totalDisplay.scrollHeight;
+window.scrollTo(0, document.body.scrollHeight);
 });
 
 
@@ -541,7 +547,8 @@ computeExpenseButton.addEventListener('click', () => {
     // <p style="margin: 2px 0; padding: 0; color: #e57373;">MONTHLY EXPENSES <br>----------------<br> ${totalExpenseReport[1].replace(/\n/g, `<br>`)}<b>----------------<br>TOTAL:</b> $${totalExpenseReport[0].toFixed(2)}</p>
     // <p style="margin: 2px 0; padding: 0;">===================</p>
     // `;
-
+    totalDisplay.scrollTop = totalDisplay.scrollHeight;
+    window.scrollTo(0, document.body.scrollHeight);
 });
 
 
@@ -580,7 +587,8 @@ netIncomeButton.addEventListener('click', () => {
 
 
     `;
-
+    totalDisplay.scrollTop = totalDisplay.scrollHeight;
+    window.scrollTo(0, document.body.scrollHeight);
 
     // totalDisplay.innerHTML += `
     //     <p style="margin: 2px 0; padding: 0;  color: #3388cc;">MONTHLY NET INCOME <br>----------------<br> Salary: <span style="color: rgb(25, 131, 25);">

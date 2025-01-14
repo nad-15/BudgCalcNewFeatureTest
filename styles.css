@@ -79,6 +79,8 @@ body {
 
 .form-container {
   /* border: 2px dashed red; */
+  display: flex;
+  flex-direction: column;
   box-sizing: border-box;
   background-color: white;
   padding: 10px;
@@ -210,6 +212,12 @@ font-family: monospace;
 margin: 0px 8px;
 /* max-height: 70vh;*/
 overflow-y: scroll; 
+scroll-behavior: smooth;
+flex-grow: 1;
+flex-shrink: 1;
+/* overflow : 'auto'; */
+/* transition: opacity 0.5s ease-in-out;  */
+
 }
 
 .h1-icon {
