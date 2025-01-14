@@ -9,7 +9,7 @@ body {
   font-family: monospace;
   display: flex;
   justify-content: center;
-  height: 100vh;
+  height: 110vh;
   width: 100%;
   background-color: #f4f4f4;
   font-size: 2vw;
@@ -197,7 +197,7 @@ body {
 h1 {
   /* border: 2px solid violet; */
   box-sizing: border-box;
-  font-size: 4vw;
+  font-size: 4.5vw;
   margin: .4em 0px;
   font-family: monospace;
 }
@@ -207,8 +207,8 @@ box-sizing: border-box;
 font-size: 4vw;
 font-family: monospace;
 margin: 0px 8px;
-max-height: 90vh;
-overflow-y: scroll;
+/* max-height: 70vh;
+overflow-y: scroll; */
 }
 
 .h1-icon {

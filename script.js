@@ -15,14 +15,20 @@ const toggleButtonJob = document.getElementById('toggle-job');
 const toggleButtonExp = document.getElementById('toggle-exp');
 const toggleButtonJobExp =document.getElementById(`toggle-report`);
 
+const title = document.getElementById(`title-budget-calc`);
+
+
+
 const listForm = document.getElementById(`earnings-expenses-form`);
 toggleButtonJobExp.addEventListener("click", () => {
 
         if (listForm.style.display === "none") {
-            listForm.style.display = "block"; // Show the container
+            listForm.style.display = "block";
+            title.style.display = `block` // Show the container
             toggleButtonJobExp.textContent = "Fullscreen"; // Update button text
         } else {
-            listForm.style.display = "none"; // Hide the container
+            listForm.style.display = "none";
+            title.style.display = "none";// Hide the container
             toggleButtonJobExp.textContent = "Exit fullscreen"; // Update button text
         }
 });
@@ -527,7 +533,6 @@ saveButton.addEventListener('click', () => {
     alert('Data saved successfully!');
 });
 
-const title = document.getElementById(`title-budget-calc`);
 title.addEventListener(`click`, () => {
     alert(`Para sa Bills and Responsibilities!!`);
 });
