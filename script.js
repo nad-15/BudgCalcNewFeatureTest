@@ -110,7 +110,7 @@ function addUnitOnBlur(event) {
         const formats = {
             percentage: `${numericValue}% of Total Earnings`,
             amount: `$${numericValue.toFixed(2)}`,
-            rateperhour: `$${numericValue.toFixed(0)}/hr`,
+            rateperhour: `$${numericValue}/hr`,
             hourspershift: `${numericValue}hrs/shift`,
             shift: `${numericValue}x`,
         };
