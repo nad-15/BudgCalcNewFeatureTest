@@ -76,7 +76,7 @@ function addUnitOnBlur(event) {
             const numericValue = parseFloat(value); if (isNaN(numericValue)) return;
             prevSibling.setAttribute("data-original-value", numericValue);
             prevSibling.type = "text";
-            prevSibling.value = `${numericValue}% of Total Earnings`;
+            prevSibling.value = `${numericValue}% of Earnings(T)`;
 
         } else {
             const prevSibling = input.previousElementSibling;
