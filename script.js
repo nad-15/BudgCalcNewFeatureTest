@@ -1,4 +1,5 @@
-// Get the save button and other elements
+
+ // Get the save button and other elements
 const allFormContainer = document.getElementById('form-container');
 // const allFormContainer = document.getElementById('all-container')
 const saveButton = document.getElementById('save');
@@ -27,13 +28,13 @@ toggleButtonJobExp.addEventListener("click", () => {
     if (listForm.style.display === "none") {
         listForm.style.display = "block";
         title.style.display = `block` // Show the container
-        toggleButtonJobExp.textContent = "Fullscreen"; // Update button text
+        toggleButtonJobExp.textContent = "Expand"; // Update button text
         // totalDisplay.style.maxHeight = 'none';
         allFormContainer.style.maxHeight = 'none';
     } else {
         listForm.style.display = "none";
         title.style.display = "none";// Hide the container
-        toggleButtonJobExp.textContent = "Exit fullscreen"; // Update button text
+        toggleButtonJobExp.textContent = "Collapse"; // Update button text
             if (totalDisplay.textContent === "") {
                 computeSalaryButton.click();
                 computeExpenseButton.click();
