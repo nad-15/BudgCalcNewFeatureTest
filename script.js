@@ -18,7 +18,66 @@ const toggleButtonJob = document.getElementById('toggle-job');
 const toggleButtonExp = document.getElementById('toggle-exp');
 const toggleButtonJobExp = document.getElementById(`toggle-report`);
 let h1Earnings = document.getElementById("h1-earnings");
-const budgetButton =document.getElementById("edit-budget-icon");
+const budgetButton = document.getElementById("edit-budget-icon");
+const allotedSelect = document.getElementById("alloted-select");
+const budgetSelect = document.getElementById("budget-select");
+const budgetContainer =document.getElementById("budget-container");
+
+const allotedInput = document.getElementById("alloted-input");
+let remainingBal = document.getElementById("budget-form");
+
+allotedSelect.addEventListener('change', computeBudget);
+budgetSelect.addEventListener('change', computeBudget);
+
+allotedInput.addEventListener('input', computeBudget);
+allotedInput.name = "amount";
+allotedInput.addEventListener('blur', addUnitOnBlur);
+allotedInput.addEventListener('focus', revertToNumberOnFocus);
+
+function computeBudget() {
+
+    const totalExpenseReport = computeTotalExpensesReport();
+
+    const monthlyExpense = totalExpenseReport[0] || 0;
+
+    let monthlyBalance = 0;
+
+    const allotedValue = parseFloat(allotedInput.value.trim().replace(/[^0-9.]/g, '')) || 0;
+    ///////
+    let monthlyAllotedValue = 0;
+    if (allotedSelect.value === "daily") {
+        monthlyAllotedValue = allotedValue * 30;
+    } else if (allotedSelect.value === "weekly") {
+        monthlyAllotedValue = allotedValue / 7 * 30;
+    } else if (allotedSelect.value === "biweekly") {
+        monthlyAllotedValue = allotedValue / 14 * 30;
+    } else if (allotedSelect.value === "monthly") {
+        monthlyAllotedValue = allotedValue;
+    }
+
+    monthlyBalance = monthlyAllotedValue - monthlyExpense ;
+
+    let balance = 0;
+
+    if (budgetSelect.value === "daily") {
+        balance = monthlyBalance / 30 ; 
+    } else if (budgetSelect.value === "weekly") {
+        balance = monthlyBalance / 30 * 7 ; 
+    } else if (budgetSelect.value === "biweekly") {
+        balance = monthlyBalance / 30 * 14 ; 
+    } else if (budgetSelect.value === "monthly") {
+        balance = monthlyBalance; 
+    }
+
+    if (balance < 0) {
+        remainingBal.style.color = "red";
+    }
+    else {
+        remainingBal.style.color = "green";
+    }
+
+    remainingBal.textContent = `$${balance.toFixed(2)}`;
+}
 
 const title = document.getElementById(`title-budget-calc`);
 
@@ -239,6 +298,7 @@ function addJobInput(jobName = '', ratePerHour = '', hoursPerShift = '', noOfShi
 
     ratePerHourInput.addEventListener("blur", addUnitOnBlur);
     ratePerHourInput.addEventListener("focus", revertToNumberOnFocus);
+    ratePerHourInput.addEventListener('input', computeBudget);
     ratePerHourInput.value = ratePerHour;
     ratePerHourInput.name = 'rateperhour';
     ratePerHourInput.dispatchEvent(new Event("blur"));
@@ -247,6 +307,7 @@ function addJobInput(jobName = '', ratePerHour = '', hoursPerShift = '', noOfShi
     hoursPerShiftInput.type = 'number';
     hoursPerShiftInput.classList.add('hours-per-shift');
     hoursPerShiftInput.placeholder = 'hrs/shift';
+    hoursPerShiftInput.addEventListener('input', computeBudget);
     hoursPerShiftInput.addEventListener("blur", addUnitOnBlur);
     hoursPerShiftInput.addEventListener("focus", revertToNumberOnFocus);
     hoursPerShiftInput.value = hoursPerShift;
@@ -257,6 +318,7 @@ function addJobInput(jobName = '', ratePerHour = '', hoursPerShift = '', noOfShi
     noOfShiftsInput.type = 'number';
     noOfShiftsInput.classList.add('no-of-shifts');
     noOfShiftsInput.placeholder = 'shift Count';
+    noOfShiftsInput.addEventListener('input', computeBudget);
     noOfShiftsInput.addEventListener("blur", addUnitOnBlur);
     noOfShiftsInput.addEventListener("focus", revertToNumberOnFocus);
     noOfShiftsInput.value = noOfShifts;
@@ -276,13 +338,17 @@ function addJobInput(jobName = '', ratePerHour = '', hoursPerShift = '', noOfShi
         salaryFrequencySelect.appendChild(optionElement);
     });
 
+    salaryFrequencySelect.addEventListener('input', computeBudget);
+
     const removeButton = document.createElement('button');
     removeButton.type = 'button';
     removeButton.classList.add('remove-job');
     removeButton.innerText = '-';
 
+
     removeButton.addEventListener('click', () => {
         newJobInputDiv.remove();
+        computeBudget();
         // saveJobs(); // Save after removal
     });
 
@@ -322,6 +388,7 @@ function addExpenseInput(expenseName = '', amount = '', frequency = 'monthly') {
     amountInput.placeholder = 'Amount';
     amountInput.addEventListener("blur", addUnitOnBlur);
     amountInput.addEventListener("focus", revertToNumberOnFocus);
+    amountInput.addEventListener('input', computeBudget);
     // amountInput.value = amount;
     // amountInput.name = 'amount';
     // amountInput.dispatchEvent(new Event("blur"));
@@ -345,6 +412,7 @@ function addExpenseInput(expenseName = '', amount = '', frequency = 'monthly') {
     amountInput.name = 'amount';
     expenseFrequencySelect.name = 'select';
     expenseFrequencySelect.addEventListener('change', addUnitOnBlur);
+    expenseFrequencySelect.addEventListener('input', computeBudget);
 
 
     if (frequency === '%earnings') {
@@ -369,6 +437,7 @@ function addExpenseInput(expenseName = '', amount = '', frequency = 'monthly') {
 
     removeButton.addEventListener('click', () => {
         newExpenseInputDiv.remove();
+        computeBudget();
         // saveExpenses(); // Save after removal
     });
 
@@ -700,14 +769,18 @@ function selectOption(option) {
 
 
     if (selectedOption === "Budget") {
-        addJobButton.style.display ="none";
+        addJobButton.style.display = "none";
+        budgetContainer.style.display = "flex";
+        jobInputsContainer.style.display = "none"; // Show the container
         toggleButtonJob.style.display = "none";
         jobInputsContainer.style.display = "none";
         budgetButton.style.display = "flex";
 
         console.log('option is budget');
     } else {
-        addJobButton.style.display ='flex';
+        addJobButton.style.display = 'flex';
+        jobInputsContainer.style.display = "block"; // hide the container
+        budgetContainer.style.display = "none";
         budgetButton.style.display = "none";
         toggleButtonJob.style.display = "block";
         jobInputsContainer.style.display = "block";
