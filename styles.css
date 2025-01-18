@@ -14,7 +14,7 @@ body {
   justify-content: center;
   height: 100vh;
   width: 100%;
-  max-height: 100vh;
+  /* max-height: 100vh; */
   background-color: #f4f4f4;
   font-size: 2vw;
   /* Base font size using viewport width */
@@ -257,7 +257,7 @@ flex-shrink: 1;
 }
 
 .financial-overview-container {
-  border: 2px solid red;
+  /* border: 2px solid red; */
   box-sizing: border-box;
   display: flex;
   flex-direction: row;
