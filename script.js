@@ -43,14 +43,14 @@ toggleButtonJobExp.addEventListener("click", () => {
         // totalDisplay.style.maxHeight = '80vh';
         allFormContainer.style.maxHeight = '80vh';
         
-        const docElement = document.documentElement; // Target the entire page
-        if (docElement.requestFullscreen) {
-          docElement.requestFullscreen();
-        } else if (docElement.webkitRequestFullscreen) {
-          docElement.webkitRequestFullscreen(); // Safari
-        } else if (docElement.msRequestFullscreen) {
-          docElement.msRequestFullscreen(); // IE/Edge
-        }
+        // const docElement = document.documentElement;
+        // if (docElement.requestFullscreen) {
+        //   docElement.requestFullscreen();
+        // } else if (docElement.webkitRequestFullscreen) {
+        //   docElement.webkitRequestFullscreen(); // Safari
+        // } else if (docElement.msRequestFullscreen) {
+        //   docElement.msRequestFullscreen(); // IE/Edge
+        // }
 
         
     }
