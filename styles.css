@@ -134,13 +134,13 @@ body {
   padding: 0px;
 }
 
-.bottom-container {
+/* .bottom-container {
   border: 2px solid red;
   margin-bottom: 0px;
   margin-left: 0px;
   margin-right: 0px;
   align-self: baseline;
-}
+} */
 
 /* Job and Expense Inputs */
 .job-input,
