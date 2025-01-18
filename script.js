@@ -677,3 +677,33 @@ toggleButtonExp.addEventListener("click", () => {
         alert('Nothing to Hide! Gumastos ka naman.');
     }
 });
+
+
+
+
+///adding drowpdown button
+// Variable to store the selected option
+// Variable to store the selected option
+let selectedOption = null;
+const dropdownContainer = document.querySelector('.dropdown-container');
+// Function to toggle dropdown visibility
+function toggleDropdown() {
+    const dropdown = document.querySelector('.dropdown-container');
+    dropdown.classList.toggle('active');
+}
+
+// Function to handle option selection
+function selectOption(option) {
+    selectedOption = option; // Save the selected option to the variable
+    // document.getElementById('selected-option').textContent = `Selected Option: ${selectedOption}`;
+    console.log('Selected Option:', selectedOption);
+    dropdownContainer.classList.remove('active');
+}
+
+// Close the dropdown if clicked outside
+document.addEventListener('click', function (event) {
+
+    if (!dropdownContainer.contains(event.target)) {
+        dropdownContainer.classList.remove('active');
+    }
+});

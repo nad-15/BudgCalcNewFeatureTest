@@ -26,6 +26,13 @@
                         <button type="button" id="add-job" class="add-job-icon"><span
                                 class="plus-sign">+</span></button>
                         <h1>Earnings</h1>
+                        <div class="dropdown-container">
+                            <button class="triangle-button" onclick="toggleDropdown()"></button>
+                            <div class="dropdown-content">
+                                <a href="#" onclick="selectOption('Expense')">Expense</a>
+                                <a href="#" onclick="selectOption('Budget')">Budget</a>
+                            </div>
+                        </div>
                     </div>
                     <button type="button" class="toggle-button" id="toggle-job">Hide List</button>
                 </div>
