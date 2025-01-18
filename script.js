@@ -1,5 +1,5 @@
 
- // Get the save button and other elements
+// Get the save button and other elements
 const allFormContainer = document.getElementById('form-container');
 // const allFormContainer = document.getElementById('all-container')
 const saveButton = document.getElementById('save');
@@ -20,7 +20,16 @@ const toggleButtonJobExp = document.getElementById(`toggle-report`);
 
 const title = document.getElementById(`title-budget-calc`);
 
-
+function enterFullScreen() {
+    const docElement = document.documentElement;
+    if (docElement.requestFullscreen) {
+        docElement.requestFullscreen();
+    } else if (docElement.webkitRequestFullscreen) {
+        docElement.webkitRequestFullscreen(); // Safari
+    } else if (docElement.msRequestFullscreen) {
+        docElement.msRequestFullscreen(); // IE/Edge
+    }
+}
 
 const listForm = document.getElementById(`earnings-expenses-form`);
 toggleButtonJobExp.addEventListener("click", () => {
@@ -35,24 +44,15 @@ toggleButtonJobExp.addEventListener("click", () => {
         listForm.style.display = "none";
         title.style.display = "none";// Hide the container
         toggleButtonJobExp.textContent = "Collapse"; // Update button text
-            if (totalDisplay.textContent === "") {
-                computeSalaryButton.click();
-                computeExpenseButton.click();
-                netIncomeButton.click();
-            }
+        if (totalDisplay.textContent === "") {
+            computeSalaryButton.click();
+            computeExpenseButton.click();
+            netIncomeButton.click();
+        }
         // totalDisplay.style.maxHeight = '80vh';
         allFormContainer.style.maxHeight = '80vh'
-        
-        // const docElement = document.documentElement;
-        // if (docElement.requestFullscreen) {
-        //   docElement.requestFullscreen();
-        // } else if (docElement.webkitRequestFullscreen) {
-        //   docElement.webkitRequestFullscreen(); // Safari
-        // } else if (docElement.msRequestFullscreen) {
-        //   docElement.msRequestFullscreen(); // IE/Edge
-        // }
 
-        
+        enterFullScreen();
     }
 });
 
@@ -109,7 +109,7 @@ function addUnitOnBlur(event) {
         input.setAttribute("data-original-value", numericValue);
 
         const formats = {
-            percentage: `${numericValue}% of Total Earnings`,
+            percentage: `${numericValue}% of Earnings(T)`,
             amount: `$${numericValue.toFixed(2)}`,
             rateperhour: `$${numericValue}/hr`,
             hourspershift: `${numericValue}hrs/shift`,
@@ -151,6 +151,8 @@ function revertToNumberOnFocus(event) {
 window.addEventListener('DOMContentLoaded', () => {
     loadJobs();
     loadExpenses();
+    enterFullScreen();
+
 });
 
 // Function to save jobs to localStorage
@@ -349,10 +351,10 @@ function addExpenseInput(expenseName = '', amount = '', frequency = 'monthly') {
         } else {
             const numericValue = parseFloat(amount);
             amountInput.setAttribute("data-original-value", numericValue);
-            amountInput.type ="text";
-            amountInput.value = `${amountInput.value}% of Total Earnings`;
+            amountInput.type = "text";
+            amountInput.value = `${amountInput.value}% of Earnings(T)`;
         }
-    } else{
+    } else {
         amountInput.name = 'amount';
         amountInput.dispatchEvent(new Event("blur"));
     }
@@ -534,8 +536,8 @@ computeSalaryButton.addEventListener('click', () => {
 </p>
 <p style="margin: 5px 0; padding: 0; color: #66bb6a;">================================</p>
 `;
-totalDisplay.scrollTop = totalDisplay.scrollHeight;
-window.scrollTo(0, document.body.scrollHeight);
+    totalDisplay.scrollTop = totalDisplay.scrollHeight;
+    window.scrollTo(0, document.body.scrollHeight);
 });
 
 

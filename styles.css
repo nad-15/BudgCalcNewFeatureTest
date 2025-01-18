@@ -566,7 +566,7 @@ select {
     display: flex;
     flex-direction: column;
     width: 60%;
-    height: 110vh;
+    height: 90vh;
   }
 
   h1 {
