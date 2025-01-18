@@ -135,8 +135,10 @@ body {
 }
 
 .bottom-container {
-  /* border: 2px solid red; */
+  border: 2px solid red;
   margin-bottom: 0px;
+  margin-left: 0px;
+  margin-right: 0px;
   align-self: baseline;
 }
 
