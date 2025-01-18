@@ -151,7 +151,7 @@ function revertToNumberOnFocus(event) {
 window.addEventListener('DOMContentLoaded', () => {
     loadJobs();
     loadExpenses();
-    enterFullScreen();
+    // enterFullScreen();
 
 });
 
