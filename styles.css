@@ -100,11 +100,20 @@
 }
 
 .alloted-input {
-  width: 70px;
+  width: 80px;
   height: 30px;
   font-size: 15px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  transition: border 0.3s, box-shadow 0.3s;
 
 }
+.alloted-input:focus {
+  border: 1px solid orangered; /* Orange border when focused */
+  box-shadow: 0 0 10px orangered; /* Orange glow around the input */
+  outline: none; /* Removes the default outline */
+}
+
 
 .alloted-select {
   display: inline-block;
@@ -115,6 +124,7 @@
   max-width: 100%;
   /* margin: 0px 150px; */
   border: none;
+  background-color: transparent;
 }
 
 
@@ -125,6 +135,11 @@
   /* border: 2px solid red; */
   align-items: center;
   margin-top: 8px;
+  /* font-size: 15px; */
+}
+
+.remaining-bal {
+  font-size: 20px;
 }
 
 
@@ -141,11 +156,12 @@
   display: inline-block;
   text-align: center;
   width: 80px;
-  font-size: 10px;
+  font-size: 12px;
   min-width: 0;
   max-width: 100%;
   /* margin: 0px 150px; */
   border: none;
+  background-color: transparent;
 }
 
 

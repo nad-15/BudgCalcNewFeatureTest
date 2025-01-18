@@ -23,6 +23,10 @@ const allotedSelect = document.getElementById("alloted-select");
 const budgetSelect = document.getElementById("budget-select");
 const budgetContainer =document.getElementById("budget-container");
 
+budgetButton.addEventListener('click', () =>{
+    allotedInput.focus();
+});
+
 const allotedInput = document.getElementById("alloted-input");
 let remainingBal = document.getElementById("budget-form");
 
@@ -212,6 +216,7 @@ function revertToNumberOnFocus(event) {
 window.addEventListener('DOMContentLoaded', () => {
     loadJobs();
     loadExpenses();
+    // loadBudget();
     // enterFullScreen();
 
 });
@@ -249,6 +254,10 @@ function saveExpenses() {
     localStorage.setItem('expenses', JSON.stringify(expenses));
 }
 
+function saveBudget(){
+
+}
+
 // Function to load jobs from localStorage
 function loadJobs() {
     const savedJobs = JSON.parse(localStorage.getItem('jobs'));
@@ -269,6 +278,11 @@ function loadExpenses() {
 
         });
     }
+}
+
+function loadBudget(){
+
+    computeBudget();
 }
 
 // Function to add a new job input with the job details
@@ -695,6 +709,7 @@ clearButton.addEventListener('click', () => {
 saveButton.addEventListener('click', () => {
     saveJobs();
     saveExpenses();
+    saveBudget();
     alert('Data saved successfully! Note: Clearing your browser\'s cache or history may delete the saved data.');
 
 });
@@ -775,7 +790,7 @@ function selectOption(option) {
         toggleButtonJob.style.display = "none";
         jobInputsContainer.style.display = "none";
         budgetButton.style.display = "flex";
-
+        computeBudget();
         console.log('option is budget');
     } else {
         addJobButton.style.display = 'flex';
