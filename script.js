@@ -294,7 +294,7 @@ function addJobInput(jobName = '', ratePerHour = '', hoursPerShift = '', noOfShi
 }
 
 // Function to add a new expense input with the expense details
-function addExpenseInput(expenseName = '', amount = '', frequency = 'weekly') {
+function addExpenseInput(expenseName = '', amount = '', frequency = 'monthly') {
 
     if (expenseInputsContainer.style.display === "none") {
         expenseInputsContainer.style.display = "block"; // Show the container
