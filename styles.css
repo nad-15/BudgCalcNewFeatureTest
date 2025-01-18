@@ -1,8 +1,11 @@
 /* Universal Styles */
-/* 
-* {
-  border: 2px dashed limegreen;
-} */
+
+/* * {
+  border: 2px dashed limegreen; 
+  box-sizing: border-box;
+   margin:  0; 
+  padding: 0;
+}  */
 
 
 body {
@@ -14,6 +17,9 @@ body {
   background-color: #f4f4f4;
   font-size: 2vw;
   /* Base font size using viewport width */
+  margin: 0;
+  /* position: relative; */
+
 }
 
 /* Title and Notes */
@@ -436,6 +442,7 @@ select {
 
 #toggle-report{
   border: 1.5px solid #3388cc;
+  padding: 2px 18px;
 }
 
 #toggle-report:active {
