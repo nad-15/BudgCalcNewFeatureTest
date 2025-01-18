@@ -40,6 +40,16 @@ body {
   padding: 5px 70px;
 }
 
+.k1 {
+  color: #FF4500; /* Example: Orange Red */
+}
+
+.k2 {
+  color: #32CD32; /* Example: Lime Green */
+}
+
+
+
 .title:active {
   background-color: #ccc;
 } 
