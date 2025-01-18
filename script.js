@@ -17,6 +17,7 @@ const totalExpenseDisplay = document.getElementById('total-expenses');
 const toggleButtonJob = document.getElementById('toggle-job');
 const toggleButtonExp = document.getElementById('toggle-exp');
 const toggleButtonJobExp = document.getElementById(`toggle-report`);
+let h1Earnings = document.getElementById("h1-earnings");
 
 const title = document.getElementById(`title-budget-calc`);
 
@@ -695,8 +696,25 @@ function toggleDropdown() {
 // Function to handle option selection
 function selectOption(option) {
     selectedOption = option; // Save the selected option to the variable
-    // document.getElementById('selected-option').textContent = `Selected Option: ${selectedOption}`;
-    console.log('Selected Option:', selectedOption);
+
+
+    if (selectedOption === "Budget") {
+        addJobButton.style.display ="none";
+        toggleButtonJob.style.display = "none";
+        jobInputsContainer.style.display = "none";
+        console.log('option is budget');
+    } else {
+        addJobButton.textContent ="+";
+        addJobButton.style.display ='flex';
+        toggleButtonJob.style.display = "block";
+        jobInputsContainer.style.display = "block";
+        console.log('option is earnings');
+    }
+
+    h1Earnings.textContent = `${selectedOption}`;
+
+    // console.log('Selected Option:', selectedOption);
+
     dropdownContainer.classList.remove('active');
 }
 
