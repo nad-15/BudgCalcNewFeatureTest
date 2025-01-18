@@ -18,6 +18,7 @@ const toggleButtonJob = document.getElementById('toggle-job');
 const toggleButtonExp = document.getElementById('toggle-exp');
 const toggleButtonJobExp = document.getElementById(`toggle-report`);
 let h1Earnings = document.getElementById("h1-earnings");
+const budgetButton =document.getElementById("edit-budget-icon");
 
 const title = document.getElementById(`title-budget-calc`);
 
@@ -702,19 +703,18 @@ function selectOption(option) {
         addJobButton.style.display ="none";
         toggleButtonJob.style.display = "none";
         jobInputsContainer.style.display = "none";
+        budgetButton.style.display = "flex";
+
         console.log('option is budget');
     } else {
-        addJobButton.textContent ="+";
         addJobButton.style.display ='flex';
+        budgetButton.style.display = "none";
         toggleButtonJob.style.display = "block";
         jobInputsContainer.style.display = "block";
         console.log('option is earnings');
     }
 
     h1Earnings.textContent = `${selectedOption}`;
-
-    // console.log('Selected Option:', selectedOption);
-
     dropdownContainer.classList.remove('active');
 }
 

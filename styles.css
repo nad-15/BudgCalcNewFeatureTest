@@ -78,12 +78,31 @@
 }
 
 
-.budget-form {
+.budget-container {
   border: 2px solid red;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.budget-form {
+  /* border: 2px solid red; */
   height: 50px;  
   margin: 0px;
   font-size: 40px;
   text-align: center;
+}
+
+.budget-select {
+  display: inline-block;
+  text-align: center;
+  width: 80px;
+  font-size: 15px;
+  min-width: 0;
+  max-width: 100%;
+  /* margin: 0px 150px; */
+  border: none;
 }
 
 
@@ -483,6 +502,31 @@ select {
   margin-right: 2px;
   background-color: #45a049;
   border: 1px solid #45a049;
+  border-radius: 50%;
+  width: 6vw;
+  height: 6vw;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  font-size: 7vw;
+  color: white;
+  font-weight: 2px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  -webkit-tap-highlight-color: transparent; /* Removes highlight on touch */
+}
+
+.edit-budget-icon {
+
+  display: flex;
+  box-sizing: border-box;
+  margin-right: 2px;
+  background-color: orangered;
+  border: 1px solid orangered;
   border-radius: 50%;
   width: 6vw;
   height: 6vw;

@@ -15,7 +15,7 @@
         <button class="title" id="title-budget-calc">
             Budget <span class="k1">K</span>al<span class="k2">K</span>ulator
         </button>
-        
+
 
 
         <div class="form-container" id="form-container">
@@ -24,6 +24,8 @@
                 <div class="h1-toggle-container" id="h1-toggle-earnings">
                     <div class="h1-icon">
                         <button type="button" id="add-job" class="add-job-icon"><span
+                                class="plus-sign">+</span></button>
+                        <button type="button" id="edit-budget-icon" class="edit-budget-icon"><span
                                 class="plus-sign">+</span></button>
                         <h1 id="h1-earnings">Earnings</h1>
                         <div class="dropdown-container">
@@ -48,7 +50,15 @@
                 <!-- <button id="compute-salary" class="add-job-button">Compute Salary</button> -->
                 <!-- </div> -->
                 <!-- </div> -->
-                 <div class="budget-form" id="budget-form">$0.00</div>
+                <div class="budget-container" id="budget-container">
+                    <div class="budget-form" id="budget-form">$0.00</div>
+                    <select class="budget-select" id="budget-select">
+                        <option value="daily">daily</option>
+                        <option value="weekly">weekly</option>
+                        <option value="biweekly">biweekly</option>
+                        <option value="monthly" selected>monthly</option>
+                    </select>
+                </div>
 
                 <div class="h1-toggle-container">
                     <div class="h1-icon">
