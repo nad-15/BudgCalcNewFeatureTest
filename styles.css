@@ -112,8 +112,8 @@
 
 }
 .alloted-input:focus {
-  border: 1px solid orangered; /* Orange border when focused */
-  box-shadow: 0 0 10px orangered; /* Orange glow around the input */
+  border: 1px solid #2277b0;
+  box-shadow: 0 0 10px #2277b0; /* Orange glow around the input */
   outline: none; /* Removes the default outline */
 }
 
@@ -191,8 +191,9 @@ body {
   align-self: center;
   text-align: center;
   font-weight: bold;
-  color: #0078D7;
-  border: 2px solid #0078D7;
+  color: #28666e;
+  /* border: 2px solid #0078D7; */
+  border: 2px solid #28666e;
   border-radius: 40px;
   text-transform: uppercase;
   /* letter-spacing: 2px; */
@@ -200,14 +201,19 @@ body {
   font-size: 5vw;
   margin: 10px;
   padding: 5px 70px;
+  background-color: #a8dadc;
 }
 
 .k1 {
-  color: #FF4500; /* Example: Orange Red */
+  color: #E63946;
+  /* font-size: 45px; */
+  /* color: #f6003d; */
 }
 
 .k2 {
-  color: #32CD32; /* Example: Lime Green */
+  color: #E63946; 
+  /* font-size: 45px; */
+  /* color: #f6003d; */
 }
 
 
@@ -595,8 +601,8 @@ select {
   display: none;
   box-sizing: border-box;
   margin-right: 2px;
-  background-color: orangered;
-  border: 1px solid orangered;
+  background-color: #3388cc;
+  border: none;
   border-radius: 50%;
   width: 6vw;
   height: 6vw;
@@ -613,6 +619,12 @@ select {
   text-overflow: ellipsis;
 
   -webkit-tap-highlight-color: transparent; /* Removes highlight on touch */
+}
+
+.edit-budget-icon:active {
+  background-color: #2277b0;
+  transform: translateY(1px);
+  box-shadow: none;
 }
 
 
@@ -726,7 +738,8 @@ select {
     box-shadow: none;
   }
 
-  .compute-button.income:hover {
+  .compute-button.income:hover,
+  .edit-budget-icon:hover {
     background-color: #2277b0;
     /* Darker blue for hover */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
@@ -738,6 +751,7 @@ select {
     transform: translateY(1px);
     box-shadow: none;
   }
+
 
   .add-job-icon:hover {
     color: #3d8f42;
@@ -753,6 +767,22 @@ select {
     border: 1.5px solid #3d8f42;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     transform: translateY(1px);
+  }
+
+  .edit-budget-icon:hover {
+    color: #2277b0;
+    background-color: white;
+    border: 1.5px solid #2277b0;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transform: translateY(-3px);
+  }
+
+  .edit-budget-icon:active {
+    color: #2277b0;
+    background-color: white;
+    border: 1.5px solid #2277b0;
+    transform: translateY(1px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   }
 
 
