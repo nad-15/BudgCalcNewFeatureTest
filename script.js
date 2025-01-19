@@ -22,6 +22,9 @@ const budgetButton = document.getElementById("edit-budget-icon");
 const allotedSelect = document.getElementById("alloted-select");
 const budgetSelect = document.getElementById("budget-select");
 const budgetContainer =document.getElementById("budget-container");
+const dropdown = document.querySelector('.dropdown-container');
+
+h1Earnings.addEventListener('click', toggleDropdown);
 
 budgetButton.addEventListener('click', () =>{
     allotedInput.focus();
@@ -216,7 +219,7 @@ function revertToNumberOnFocus(event) {
 window.addEventListener('DOMContentLoaded', () => {
     loadJobs();
     loadExpenses();
-    // loadBudget();
+    loadBudget();
     // enterFullScreen();
 
 });
@@ -255,7 +258,9 @@ function saveExpenses() {
 }
 
 function saveBudget(){
-
+    
+    const allotedValue = allotedInput.value;
+    localStorage.setItem('allotedValue', allotedValue); // Save to localStorage
 }
 
 // Function to load jobs from localStorage
@@ -281,8 +286,11 @@ function loadExpenses() {
 }
 
 function loadBudget(){
-
-    computeBudget();
+    const savedValue = localStorage.getItem('allotedValue');
+    if (savedValue) {
+        allotedInput.value = savedValue; // Set the value back to the input
+    }
+    // computeBudget();
 }
 
 // Function to add a new job input with the job details
@@ -774,7 +782,6 @@ let selectedOption = null;
 const dropdownContainer = document.querySelector('.dropdown-container');
 // Function to toggle dropdown visibility
 function toggleDropdown() {
-    const dropdown = document.querySelector('.dropdown-container');
     dropdown.classList.toggle('active');
 }
 
