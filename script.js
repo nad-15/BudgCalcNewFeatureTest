@@ -21,13 +21,13 @@ let h1Earnings = document.getElementById("h1-earnings");
 const budgetButton = document.getElementById("edit-budget-icon");
 const allotedSelect = document.getElementById("alloted-select");
 const budgetSelect = document.getElementById("budget-select");
-const budgetContainer =document.getElementById("budget-container");
+const budgetContainer = document.getElementById("budget-container");
 const dropdown = document.querySelector('.dropdown-container');
 const triangleButton = document.getElementById("triangle-button");
 
 h1Earnings.addEventListener('click', toggleDropdown);
 
-budgetButton.addEventListener('click', () =>{
+budgetButton.addEventListener('click', () => {
     allotedInput.focus();
 });
 
@@ -37,10 +37,11 @@ let remainingBal = document.getElementById("budget-form");
 allotedSelect.addEventListener('change', computeBudget);
 budgetSelect.addEventListener('change', computeBudget);
 
+
 allotedInput.addEventListener('input', computeBudget);
-allotedInput.name = "amount";
 allotedInput.addEventListener('blur', addUnitOnBlur);
 allotedInput.addEventListener('focus', revertToNumberOnFocus);
+allotedInput.name = 'amount';
 
 function computeBudget() {
 
@@ -63,25 +64,27 @@ function computeBudget() {
         monthlyAllotedValue = allotedValue;
     }
 
-    monthlyBalance = monthlyAllotedValue - monthlyExpense ;
+    monthlyBalance = monthlyAllotedValue - monthlyExpense;
 
     let balance = 0;
 
     if (budgetSelect.value === "daily") {
-        balance = monthlyBalance / 30 ; 
+        balance = monthlyBalance / 30;
     } else if (budgetSelect.value === "weekly") {
-        balance = monthlyBalance / 30 * 7 ; 
+        balance = monthlyBalance / 30 * 7;
     } else if (budgetSelect.value === "biweekly") {
-        balance = monthlyBalance / 30 * 14 ; 
+        balance = monthlyBalance / 30 * 14;
     } else if (budgetSelect.value === "monthly") {
-        balance = monthlyBalance; 
+        balance = monthlyBalance;
     }
 
     if (balance < 0) {
         remainingBal.style.color = "red";
     }
-    else {
+    else if (balance > 0) {
         remainingBal.style.color = "green";
+    } else {
+        remainingBal.style.color = "#3388cc";
     }
 
     remainingBal.textContent = `$${balance.toFixed(2)}`;
@@ -258,9 +261,9 @@ function saveExpenses() {
     localStorage.setItem('expenses', JSON.stringify(expenses));
 }
 
-function saveBudget(){
-    
-    const allotedValue = allotedInput.value;
+function saveBudget() {
+    const allotedValue = parseFloat(allotedInput.value.replace(/[^0-9.]/g, ''));
+    // const allotedValue = allotedInput.value;
     localStorage.setItem('allotedValue', allotedValue); // Save to localStorage
 }
 
@@ -286,10 +289,15 @@ function loadExpenses() {
     }
 }
 
-function loadBudget(){
+
+
+function loadBudget() {
     const savedValue = localStorage.getItem('allotedValue');
+
     if (savedValue) {
-        allotedInput.value = savedValue; // Set the value back to the input
+        allotedInput.value = savedValue;
+        allotedInput.dispatchEvent(new Event("blur"));
+        // Set the value back to the input
     }
     // computeBudget();
 }
@@ -777,7 +785,6 @@ triangleButton.addEventListener('click', toggleDropdown);
 
 ///adding drowpdown button
 // Variable to store the selected option
-// Variable to store the selected option
 let selectedOption = null;
 const dropdownContainer = document.querySelector('.dropdown-container');
 // Function to toggle dropdown visibility
@@ -799,8 +806,8 @@ function selectOption(option) {
         budgetContainer.style.display = "flex";
         jobInputsContainer.style.display = "none"; // Show the container
         toggleButtonJob.style.display = "none";
-        jobInputsContainer.style.display = "none";
         budgetButton.style.display = "flex";
+
         computeBudget();
         console.log('option is budget');
     } else {
@@ -808,6 +815,7 @@ function selectOption(option) {
         jobInputsContainer.style.display = "block"; // hide the container
         budgetContainer.style.display = "none";
         budgetButton.style.display = "none";
+        toggleButtonJob.textContent = "Hide list"
         toggleButtonJob.style.display = "block";
         jobInputsContainer.style.display = "block";
         console.log('option is earnings');
@@ -821,8 +829,8 @@ function selectOption(option) {
 document.addEventListener('click', function (event) {
 
     if (
-        !dropdownContainer.contains(event.target) && 
-        event.target !== h1Earnings && 
+        !dropdownContainer.contains(event.target) &&
+        event.target !== h1Earnings &&
         event.target !== triangleButton
     ) {
         dropdownContainer.classList.remove('active');

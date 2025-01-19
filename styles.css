@@ -113,7 +113,7 @@
 }
 .alloted-input:focus {
   border: 1px solid #2277b0;
-  box-shadow: 0 0 10px #2277b0; /* Orange glow around the input */
+  box-shadow: 0 0 5px #2277b0; /* Orange glow around the input */
   outline: none; /* Removes the default outline */
 }
 
