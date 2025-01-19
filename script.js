@@ -23,6 +23,7 @@ const allotedSelect = document.getElementById("alloted-select");
 const budgetSelect = document.getElementById("budget-select");
 const budgetContainer =document.getElementById("budget-container");
 const dropdown = document.querySelector('.dropdown-container');
+const triangleButton = document.getElementById("triangle-button");
 
 h1Earnings.addEventListener('click', toggleDropdown);
 
@@ -772,8 +773,7 @@ toggleButtonExp.addEventListener("click", () => {
     }
 });
 
-
-
+triangleButton.addEventListener('click', toggleDropdown);
 
 ///adding drowpdown button
 // Variable to store the selected option
@@ -782,7 +782,11 @@ let selectedOption = null;
 const dropdownContainer = document.querySelector('.dropdown-container');
 // Function to toggle dropdown visibility
 function toggleDropdown() {
+    // console.log("h1 is click");
+
     dropdown.classList.toggle('active');
+    console.log(dropdown);
+    // console.log("h1 is click");
 }
 
 // Function to handle option selection
@@ -816,7 +820,15 @@ function selectOption(option) {
 // Close the dropdown if clicked outside
 document.addEventListener('click', function (event) {
 
-    if (!dropdownContainer.contains(event.target)) {
+    if (
+        !dropdownContainer.contains(event.target) && 
+        event.target !== h1Earnings && 
+        event.target !== triangleButton
+    ) {
         dropdownContainer.classList.remove('active');
     }
+
+    // if (!dropdownContainer.contains(event.target)) {
+    //     dropdownContainer.classList.remove('active');
+    // }
 });

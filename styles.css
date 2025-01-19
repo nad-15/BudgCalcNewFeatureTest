@@ -409,6 +409,7 @@ flex-shrink: 1;
 
 #h1-earnings {
   cursor: pointer;
+  user-select: none;
 }
 
 .h1-icon {
