@@ -1,2 +1,2 @@
-my first idea-website
+my first idea-web app
 will practice some coding and styling here
