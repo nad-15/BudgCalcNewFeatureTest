@@ -360,7 +360,7 @@ body {
 .expense-input input[type="number"]:focus {
 
   outline: none;
-  border: 1px solid rgb(250, 50, 50);
+  border: 2px solid rgb(250, 50, 50);
   border-radius: 1px;
   box-shadow: 0 0 5px rgb(250, 50, 50);
 }
@@ -377,7 +377,7 @@ body {
 .expense-input select:focus {
   outline: none;
   border-radius: 1px;
-  border: 1px solid rgb(250, 50, 50);
+  border: 2px solid rgb(250, 50, 50);
   box-shadow: 0 0 5px rgb(250, 50, 50);
 }
 
