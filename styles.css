@@ -360,9 +360,10 @@ body {
 .expense-input input[type="number"]:focus {
 
   outline: none;
-  border: 2px solid rgb(250, 50, 50);
+  /* border: 1.5px solid rgb(250, 50, 50); */
+  border: 1.5px solid #2277b0;
   border-radius: 1px;
-  box-shadow: 0 0 5px rgb(250, 50, 50);
+  /* box-shadow: 0 0 5px rgb(250, 50, 50); */
 }
 
 .job-input select,
@@ -377,8 +378,9 @@ body {
 .expense-input select:focus {
   outline: none;
   border-radius: 1px;
-  border: 2px solid rgb(250, 50, 50);
-  box-shadow: 0 0 5px rgb(250, 50, 50);
+  /* border: 1.5px solid rgb(250, 50, 50); */
+  border: 1.5px solid #2277b0;
+  /* box-shadow: 0 0 5px rgb(250, 50, 50); */
 }
 
 .job-input select {
