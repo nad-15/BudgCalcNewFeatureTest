@@ -364,7 +364,7 @@ body {
   border: 1.5px solid #2277b0;
   border-radius: 1px;
   box-shadow: 0 0 5px rgb(250, 50, 50); */
-  outline: 1.5px solid #2277b0;
+  /* outline: 1.5px solid #2277b0; */
 }
 
 .job-input select,
@@ -380,7 +380,7 @@ body {
   /* outline: none; */
   /* border-radius: 1px; */
   /* border: 1.5px solid rgb(250, 50, 50); */
-  outline: 1.5px solid #2277b0;
+  /* outline: 1.5px solid #2277b0; */
   /* box-shadow: 0 0 5px rgb(250, 50, 50); */
 }
 
