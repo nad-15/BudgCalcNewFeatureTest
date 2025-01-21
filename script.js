@@ -303,9 +303,12 @@ function loadBudget() {
     if (savedValue) {
         allotedInput.value = savedValue;
         allotedInput.dispatchEvent(new Event("blur"));
-        selectOption(selectedOption);
-        // Set the value back to the input
+// Set the value back to the input
     }
+
+    if(selectedOption) {
+        selectOption(selectedOption);
+    }  
     // computeBudget();
 }
 
