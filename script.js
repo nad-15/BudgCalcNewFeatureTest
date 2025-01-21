@@ -306,10 +306,12 @@ function loadBudget() {
 
 // Set the value back to the input
     }
-    if(selectedOption === "Budget") {
-        selectOption('Budget');
+    if (selectedOption) {
+        console.log(selectedOption);
+        selectOption(selectedOption);
     }  
-
+    
+    // console.log(selectedOption);
     // if(selectedOption) {
     //     selectOption(selectedOption);
     // }  

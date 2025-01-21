@@ -622,9 +622,11 @@ select {
 }
 
 .edit-budget-icon:active {
-  background-color: #2277b0;
+  color: #2277b0;
+  background-color: white;
+  border: 1.5px solid #2277b0;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   transform: translateY(1px);
-  box-shadow: none;
 }
 
 
