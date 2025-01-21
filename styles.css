@@ -7,11 +7,7 @@
   padding: 0;
 }  */
 
-input:focus, select:focus {
-  outline: none;
-  border: 2px solid rgb(250, 50, 50);
-  box-shadow: 0 0 5px rgb(250, 50, 50);
-}
+
 
 /* Container for the button and options */
 .dropdown-container {
@@ -41,21 +37,24 @@ input:focus, select:focus {
   height: 0;
   border-left: 6px solid transparent;
   border-right: 6px solid transparent;
-  border-top: 6px solid black; /* Triangle pointing down */
+  border-top: 6px solid black;
+  /* Triangle pointing down */
   transform: translate(-50%, -50%);
 }
 
 /* Upward triangle when toggled */
 .dropdown-container.active .triangle-button::before {
   border-top: none;
-  border-bottom: 6px solid black; /* Triangle pointing up */
+  border-bottom: 6px solid black;
+  /* Triangle pointing up */
 }
 
 /* Dropdown content (hidden by default) */
 .dropdown-content {
   display: none;
   position: absolute;
-  top: 16px; /* Adjust to position below the button */
+  top: 16px;
+  /* Adjust to position below the button */
   left: 0;
   background-color: white;
   box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
@@ -102,7 +101,7 @@ input:focus, select:focus {
   margin-bottom: 8px;
 }
 
-.alloted-balance { 
+.alloted-balance {
   margin-right: 10px;
   font-size: 15px;
 }
@@ -116,10 +115,13 @@ input:focus, select:focus {
   transition: border 0.3s, box-shadow 0.3s;
 
 }
+
 .alloted-input:focus {
   border: 1px solid #2277b0;
-  box-shadow: 0 0 5px #2277b0; /* Orange glow around the input */
-  outline: none; /* Removes the default outline */
+  box-shadow: 0 0 5px #2277b0;
+  /* Orange glow around the input */
+  outline: none;
+  /* Removes the default outline */
 }
 
 
@@ -153,7 +155,7 @@ input:focus, select:focus {
 
 .budget-form {
   /* border: 2px solid red; */
-  height: 50px;  
+  height: 50px;
   margin: 0px;
   font-size: 50px;
   text-align: center;
@@ -185,7 +187,7 @@ body {
   background-color: #f4f4f4;
   font-size: 2vw;
   /* Base font size using viewport width */
-  margin:0px;
+  margin: 0px;
   /* position: relative; */
 
 }
@@ -216,7 +218,7 @@ body {
 }
 
 .k2 {
-  color: #E63946; 
+  color: #E63946;
   /* font-size: 45px; */
   /* color: #f6003d; */
 }
@@ -225,7 +227,7 @@ body {
 
 .title:active {
   background-color: #ccc;
-} 
+}
 
 .note-container {
   box-sizing: border-box;
@@ -323,6 +325,8 @@ body {
   align-items: center;
 }
 
+
+
 .job-input .job-name {
   flex: 2.5;
 }
@@ -350,12 +354,31 @@ body {
   width: 100%;
 }
 
+.job-input input[type="text"]:focus,
+.job-input input[type="number"]:focus,
+.expense-input input[type="text"]:focus,
+.expense-input input[type="number"]:focus {
+
+  outline: none;
+  border: 1px solid rgb(250, 50, 50);
+  border-radius: 1px;
+  box-shadow: 0 0 5px rgb(250, 50, 50);
+}
+
 .job-input select,
 .expense-input select {
   padding: 7px 4px;
   border: 1px solid #ccc;
   border-radius: 1px;
   min-width: 0;
+}
+
+.job-input select:focus,
+.expense-input select:focus {
+  outline: none;
+  border-radius: 1px;
+  border: 1px solid rgb(250, 50, 50);
+  box-shadow: 0 0 5px rgb(250, 50, 50);
 }
 
 .job-input select {
@@ -402,19 +425,20 @@ h1 {
   margin: .4em 0px;
   font-family: monospace;
 }
+
 #total {
-box-sizing: border-box;
-/* border: 2px solid violet; */
-font-size: 4vw;
-font-family: monospace;
-margin: 0px 8px;
-/* max-height: 70vh;*/
-overflow-y: scroll; 
-scroll-behavior: smooth;
-flex-grow: 1;
-flex-shrink: 1;
-/* overflow : 'auto'; */
-/* transition: opacity 0.5s ease-in-out;  */
+  box-sizing: border-box;
+  /* border: 2px solid violet; */
+  font-size: 4vw;
+  font-family: monospace;
+  margin: 0px 8px;
+  /* max-height: 70vh;*/
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+  flex-grow: 1;
+  flex-shrink: 1;
+  /* overflow : 'auto'; */
+  /* transition: opacity 0.5s ease-in-out;  */
 
 }
 
@@ -597,7 +621,8 @@ select {
   overflow: hidden;
   text-overflow: ellipsis;
 
-  -webkit-tap-highlight-color: transparent; /* Removes highlight on touch */
+  -webkit-tap-highlight-color: transparent;
+  /* Removes highlight on touch */
 }
 
 .edit-budget-icon {
@@ -623,7 +648,8 @@ select {
   overflow: hidden;
   text-overflow: ellipsis;
 
-  -webkit-tap-highlight-color: transparent; /* Removes highlight on touch */
+  -webkit-tap-highlight-color: transparent;
+  /* Removes highlight on touch */
 }
 
 .edit-budget-icon:active {
@@ -666,7 +692,7 @@ select {
   box-shadow: none;
 }
 
-#toggle-report{
+#toggle-report {
   border: 1.5px solid #3388cc;
   padding: 2px 18px;
 }
@@ -715,6 +741,7 @@ select {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     transform: translateY(-3px);
   }
+
   #toggle-report:active {
     background-color: #2277b0;
     transform: translateY(1px);
@@ -727,18 +754,19 @@ select {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     transform: translateY(-3px);
   }
-  
+
   .compute-button.expense:active {
     background-color: #f44336;
     transform: translateY(1px);
     box-shadow: none;
   }
+
   .compute-button.salary:hover {
     background-color: #4caf50;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     transform: translateY(-3px);
   }
-  
+
   .compute-button.salary:active {
     background-color: #4caf50;
     transform: translateY(1px);
@@ -752,7 +780,7 @@ select {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     transform: translateY(-3px);
   }
-  
+
   .compute-button.income:active {
     background-color: #2277b0;
     transform: translateY(1px);
@@ -809,7 +837,8 @@ select {
     font-size: 22px;
   }
 
-  .add-job-icon, .edit-budget-icon {
+  .add-job-icon,
+  .edit-budget-icon {
     width: 24px;
     height: 24px;
     font-size: 24px;
@@ -829,7 +858,7 @@ select {
     width: auto;
   }
 
-  .add-job-button{
+  .add-job-button {
     font-size: 16px;
   }
 
@@ -850,7 +879,7 @@ select {
     transform: translateY(1px);
     box-shadow: none;
   }
-  
+
   .compute-button.salary:active {
     background-color: #4caf50;
     transform: translateY(1px);
@@ -862,7 +891,7 @@ select {
     cursor: pointer;
     padding: 2px 10px;
     /* margin: 20px 20px 20px 10px; */
-    
+
   }
 
   .title {
@@ -889,7 +918,7 @@ select {
     margin-left: 8px;
     cursor: pointer;
   }
-  
+
   /* Downward triangle */
   .triangle-button::before {
     content: "";
@@ -900,14 +929,16 @@ select {
     height: 0;
     border-left: 8px solid transparent;
     border-right: 8px solid transparent;
-    border-top: 8px solid black; /* Triangle pointing down */
+    border-top: 8px solid black;
+    /* Triangle pointing down */
     transform: translate(-50%, -50%);
   }
-  
+
   /* Upward triangle when toggled */
   .dropdown-container.active .triangle-button::before {
     border-top: none;
-    border-bottom: 8px solid black; /* Triangle pointing up */
+    border-bottom: 8px solid black;
+    /* Triangle pointing up */
   }
-  
+
 }
