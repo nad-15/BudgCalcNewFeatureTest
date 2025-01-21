@@ -26,8 +26,6 @@ const dropdown = document.querySelector('.dropdown-container');
 const triangleButton = document.getElementById("triangle-button");
 const earningsOption = document.getElementById('earnings-option');
 const budgetOption = document.getElementById('budget-option');
-let selectedOption = null;
-const dropdownContainer = document.querySelector('.dropdown-container');
 earningsOption.addEventListener('click', () => selectOption('Earnings'));
 budgetOption.addEventListener('click', () => selectOption('Budget'));
 
@@ -272,7 +270,8 @@ function saveBudget() {
     // const allotedValue = allotedInput.value;
     localStorage.setItem('allotedValue', allotedValue); // Save to localStorage
 
-//     const selectedOption = 
+    const selectedOption = h1Earnings.textContent;
+    localStorage.setItem('selectedOption', selectedOption);
 }
 
 // Function to load jobs from localStorage
@@ -301,10 +300,14 @@ function loadExpenses() {
 
 function loadBudget() {
     const savedValue = localStorage.getItem('allotedValue');
+    const selectedOption =localStorage.getItem('selectedOption');
 
     if (savedValue) {
         allotedInput.value = savedValue;
         allotedInput.dispatchEvent(new Event("blur"));
+        if(selectedOption === "Budget") {
+            selectOption('Budget');
+        }
         // Set the value back to the input
     }
     // computeBudget();
@@ -793,7 +796,8 @@ triangleButton.addEventListener('click', toggleDropdown);
 
 ///adding drowpdown button
 // Variable to store the selected option
-
+let selectedOption = null;
+const dropdownContainer = document.querySelector('.dropdown-container');
 
 // Function to toggle dropdown visibility
 function toggleDropdown() {
