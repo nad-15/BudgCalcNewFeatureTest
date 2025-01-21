@@ -270,8 +270,6 @@ function saveBudget() {
     // const allotedValue = allotedInput.value;
     localStorage.setItem('allotedValue', allotedValue); // Save to localStorage
 
-    const selectedOption = h1Earnings.textContent;
-    localStorage.setItem('selectedOption', selectedOption);
 }
 
 // Function to load jobs from localStorage
@@ -810,8 +808,9 @@ function toggleDropdown() {
 
 // Function to handle option selection
 function selectOption(option) {
-    selectedOption = option; // Save the selected option to the variable
 
+    selectedOption = option; // Save the selected option to the variable
+    localStorage.setItem('selectedOption', selectedOption);
 
     if (selectedOption === "Budget") {
         addJobButton.style.display = "none";
